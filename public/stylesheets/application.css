@@ -1,0 +1,445 @@
+@import "whitespace-reset.css";
+input {
+  -webkit-appearance: none;
+  height: 16px;
+  padding: 7px;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+}
+a {
+  text-decoration: none;
+}
+p {
+  word-wrap: break-word;
+  overflow: hidden;
+  white-space: normal;
+}
+textarea {
+  border: none;
+  border-radius: 3px;
+  resize: none;
+  font: inherit;
+  color: inherit;
+}
+textarea.title {
+  box-sizing: border-box;
+  padding: 5px;
+  font-weight: bold;
+  transition: background 0.25s;
+  color: #4d4d4d;
+  cursor: pointer;
+}
+textarea.title:focus {
+  background: #fff;
+  outline: none;
+}
+textarea.formated {
+  background: inherit;
+}
+#lists {
+  display: inline-block;
+  vertical-align: top;
+  height: 100%;
+  white-space: nowrap;
+}
+.list-content {
+  display: inline-block;
+  vertical-align: top;
+  width: 270px;
+  margin: 0 5px;
+  height: 100%;
+  background: #e2e4e6;
+  border-radius: 3px;
+  box-sizing: border-box;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  max-height: 100%;
+  position: relative;
+  white-space: normal;
+}
+.list-content .list-header {
+  cursor: pointer;
+  flex: 0 0 auto;
+  padding: 8px 10px;
+  position: relative;
+  min-height: 18px;
+}
+.list-content .title {
+  width: 200px;
+}
+.list-content .list-icons {
+  float: right;
+}
+.list-content .list-icons span {
+  display: inline-block;
+  color: #999;
+}
+.list-content .list-icons .icon-ellipsis {
+  padding: 5px 5px 0 5px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.list-content .list-icons .icon-ellipsis:hover {
+  color: inherit;
+}
+.list-content .list-cards {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  margin: 0 4px;
+  padding: 0 4px;
+  z-index: 1;
+  min-height: 0;
+}
+.list-content .modal {
+  top: 40px;
+  left: 240px;
+  width: 300px;
+  padding: 10px 0;
+  background: #fff;
+  color: #4d4d4d;
+}
+.list-content .modal hr {
+  width: 270px;
+}
+.list-content .modal .actions {
+  font-weight: bold;
+}
+.list-content .modal .actions .action {
+  padding: 7px 10px;
+  cursor: pointer;
+}
+.list-content .modal .actions .action:hover {
+  background: #026aa7;
+  color: #fff;
+}
+.card-new a {
+  display: block;
+  box-sizing: border-box;
+  border-radius: 0 0 3px 3px;
+  color: #8c8c8c;
+  height: 30px;
+  padding: 8px 13px;
+  position: relative;
+  text-decoration: none;
+  cursor: pointer;
+}
+.card-new a:hover {
+  text-decoration: underline;
+  color: #4d4d4d;
+  background: #c4c9cc;
+}
+.card-new a + form {
+  display: none;
+}
+.card-new form {
+  display: block;
+}
+.card-new form textarea {
+  box-sizing: border-box;
+  width: 255px;
+  padding: 5px;
+}
+.card-new form textarea:focus {
+  outline: none;
+}
+.card-new form .form-controls {
+  display: block;
+  height: 35px;
+  overflow: hidden;
+  transition: height 0.25s;
+}
+.card-new form .form-controls input[type="submit"] {
+  padding: 0 20px;
+  min-height: 30px;
+  box-shadow: 0 1px 0 #3f6f21;
+  background: linear-gradient(to bottom, #61bd4f 0, #5aac44 100%);
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.card-new form .form-controls input[type="submit"]:hover {
+  background: linear-gradient(to top, #61bd4f 0, #5aac44 100%);
+}
+.card-new form .form-controls .close {
+  display: inline-block;
+  float: none;
+  margin: 0 0 0 5px;
+}
+.card-new form .form-controls .close:hover {
+  background: inherit;
+}
+.card-new form .form-controls .close i {
+  vertical-align: middle;
+}
+.card-preview {
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 6px 6px 2px 8px;
+  position: relative;
+  z-index: 10;
+}
+body {
+  font: 14px "Helvetica Neue", Arial, Helvetica, sans-serif;
+  background: #0079bf;
+  color: rgba(255,255,255,0.7);
+}
+header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: #026aa7;
+  padding: 5px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+  height: 30px;
+  color: #f3f3f3;
+}
+header #search-form {
+  position: absolute;
+  left: 0;
+  padding: 0 0 0 5px;
+}
+header #search-form input {
+  width: 180px;
+  background: #bcd9ea;
+  opacity: 0.35;
+}
+header #search-form input:hover {
+  opacity: 0.6;
+}
+header #search-form input.focus {
+  width: 270px;
+  background: #fff;
+  opacity: 1;
+}
+header #search-form input.focus ~ .search {
+  left: 255px;
+  z-index: -1;
+}
+header #search-form input.focus ~ .close {
+  left: 255px;
+  opacity: 1;
+  color: #a5acb0;
+  cursor: pointer;
+  z-index: 2;
+}
+header #search-form input.focus ~ .close:hover {
+  color: #8c8c8c;
+}
+header #search-form span {
+  position: absolute;
+  display: inline-block;
+  left: 165px;
+  padding: 3px;
+  font-size: 16px;
+  transition: left 0.25s;
+}
+header #search-form .search {
+  transform: rotate(90deg);
+  color: #fff;
+  cursor: pointer;
+  float: right;
+  padding: 7px;
+}
+header #search-form .close {
+  opacity: 0;
+  z-index: -1;
+  float: right;
+  padding: 7px;
+}
+header .logo {
+  background-image: url("https://a.trellocdn.com/images/01ef898811a879595cea8ac3cd77a155/header-logo-2x.png");
+  position: absolute;
+  left: 50%;
+  margin-left: -40px;
+  top: 5px;
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-size: 5pc 30px;
+  text-align: center;
+  width: 80px;
+  height: 30px;
+}
+header .icon-notification {
+  background: #63a2c7;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  padding: 7.5px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+#menu {
+  display: block;
+  position: fixed;
+  overflow: scroll;
+  top: 40px;
+  bottom: 0;
+  right: -350px;
+  width: 350px;
+  z-index: 1;
+  border: none;
+  border-radius: 0;
+  background: #edeff0;
+  color: #4d4d4d;
+}
+#menu h1 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+#menu header {
+  border-radius: 3px;
+  padding: 5px;
+}
+#menu header h2 {
+  display: inline-block;
+}
+#menu header i {
+  vertical-align: middle;
+  color: #a5acb0;
+}
+#menu header:hover {
+  background: #d6dadc;
+}
+#menu header:hover h2 {
+  color: #000;
+}
+#menu header:hover i {
+  color: #4d4d4d;
+}
+.modal-layer {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  content: "";
+  background: rgba(0,0,0,0.2);
+}
+#content {
+  box-sizing: border-box;
+  margin: 40px 0 0 0;
+  padding: 10px;
+  overflow: hidden;
+}
+#content #board-top {
+  color: #fff;
+}
+#content #board-top .board-header-btn-text {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 30px;
+  padding-left: 8px;
+}
+#content #board-top .menu {
+  margin: 5px 0 0 0;
+  padding: 5px 10px;
+  border-radius: 3px;
+  float: right;
+  font-size: 12px;
+  cursor: pointer;
+  background: #0079bf;
+  overflow: hidden;
+}
+#content #board-top .menu:hover {
+  background: #026aa7;
+}
+#content #board-top .menu .icon-ellipsis {
+  padding: 6px;
+}
+#content .container {
+  margin-top: 10px;
+  white-space: nowrap;
+}
+#content .container .list-add {
+  background: #026aa7;
+  vertical-align: top;
+  display: inline-block;
+  width: 270px;
+  margin: 0 10px 0 5px;
+  padding: 3px;
+  border-radius: 3px;
+}
+#content .container .list-add form label {
+  width: 270px;
+  display: block;
+  box-sizing: border-box;
+  border-radius: 3px;
+  cursor: pointer;
+}
+#content .container .list-add form label input {
+  width: 100%;
+  box-sizing: border-box;
+  height: auto;
+  background: inherit;
+  font-size: 14px;
+  color: #4d4d4d;
+  cursor: pointer;
+}
+#content .container .list-add form label input::-webkit-input-placeholder {
+  color: rgba(255,255,255,0.7);
+  font-size: 14px;
+  transition: color 0.25s;
+}
+#content .container .list-add form .form-controls {
+  display: block;
+  height: 35px;
+  overflow: hidden;
+  transition: height 0.25s;
+}
+#content .container .list-add form .form-controls input[type="submit"] {
+  padding: 0 20px;
+  min-height: 30px;
+  box-shadow: 0 1px 0 #3f6f21;
+  background: linear-gradient(to bottom, #61bd4f 0, #5aac44 100%);
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+#content .container .list-add form .form-controls input[type="submit"]:hover {
+  background: linear-gradient(to top, #61bd4f 0, #5aac44 100%);
+}
+#content .container .list-add form .form-controls .close {
+  display: inline-block;
+  float: none;
+  margin: 0 0 0 5px;
+}
+#content .container .list-add form .form-controls .close:hover {
+  background: inherit;
+}
+#content .container .list-add form .form-controls .close i {
+  vertical-align: middle;
+}
+#content .container .list-add form .form-controls {
+  height: 0;
+}
+#content .container .list-add:hover {
+  background: #16277f;
+}
+#content .container .list-add.show {
+  background: #e2e4e6;
+  color: rgba(255,255,255,0.7);
+}
+#content .container .list-add.show label {
+  display: block;
+  box-sizing: border-box;
+  background: rgba(0,0,0,0.05);
+  border: 1px solid #aaa;
+  box-shadow: inset 0 1px 8px rgba(0,0,0,0.15);
+}
+#content .container .list-add.show label input::-webkit-input-placeholder {
+  color: #a5acb0;
+}
+#content .container .list-add.show label + div {
+  height: 35px;
+  margin: 5px 0 0 0;
+}

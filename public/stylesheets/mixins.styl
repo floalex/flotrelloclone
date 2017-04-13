@@ -1,0 +1,74 @@
+colors = {
+  text: rgba(255,255,255,.7),
+  main: #0079bf,
+  highlight: #ffff9d,
+  border: #888888,
+  delete: #b00b00,
+  light-black: #4D4D4D,
+  light-grey: #D6DADC,
+  darker-grey: #A5ACB0,
+}
+
+input
+  -webkit-appearance:none
+  height: 16px
+  padding: 7px
+  outline: none
+  border: none
+  border-radius: 3px
+
+a
+  text-decoration: none
+
+p
+  word-wrap: break-word
+  overflow: hidden
+  white-space: normal
+
+textarea
+  border: none
+  border-radius: 3px
+  resize: none
+  font: inherit
+  color: inherit
+  &.title
+    box-sizing: border-box
+    padding: 5px
+    font-weight: bold
+    transition: background 0.25s
+    color: #4D4D4D
+    cursor: pointer
+    &:focus
+      background: white
+      outline: none
+  &.formated
+    background: inherit
+    
+submit-btn()
+  padding: 0 20px
+  min-height: 30px
+  box-shadow: 0 1px 0 #3F6F21
+  background: linear-gradient(to bottom, #61BD4F 0, #5AAC44 100%)
+  color: white
+  font-size: 14px
+  font-weight: bold
+  cursor: pointer
+  &:hover
+    background: linear-gradient(to top, #61BD4F 0, #5AAC44 100%)
+
+form-controls()
+  .form-controls
+    display: block
+    height: 35px
+    overflow: hidden
+    transition: height 0.25s
+    input[type="submit"]
+      submit-btn()
+    .close
+      display: inline-block
+      float: none
+      margin: 0 0 0 5px
+      &:hover
+        background: inherit
+      i
+        vertical-align: middle

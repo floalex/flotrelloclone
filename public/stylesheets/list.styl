@@ -1,0 +1,100 @@
+#lists
+  display inline-block
+  vertical-align top
+  height: 100%
+  white-space: nowrap
+  
+.list-content
+  display inline-block
+  vertical-align top
+  width 270px
+  margin 0 5px
+  height 100%
+  background #E2E4E6
+  border-radius 3px
+  box-sizing border-box
+  -webkit-flex-direction column
+  -ms-flex-direction column
+  flex-direction column
+  max-height 100%
+  position relative
+  white-space normal
+  .list-header
+    cursor pointer
+    flex: 0 0 auto
+    padding: 8px 10px
+    position: relative
+    min-height: 18px
+  .title
+    width: 200px
+  .list-icons
+    float: right
+    span
+      display: inline-block
+      color: #999
+    .icon-ellipsis
+        padding: 5px 5px 0 5px
+        border-radius: 3px
+        cursor: pointer
+        &:hover
+          color: inherit
+  .list-cards
+    -webkit-flex 1 1 auto
+    -ms-flex 1 1 auto
+    flex 1 1 auto
+    overflow-y auto
+    margin 0 4px
+    padding 0 4px
+    z-index 1
+    min-height 0
+  .modal
+    top: 40px
+    left: 240px
+    width: 300px
+    padding: 10px 0
+    background: white
+    color: #4D4D4D
+    hr
+      width: 300px - 30
+    .actions
+      font-weight: bold
+      .action
+        padding: 7px 10px
+        cursor: pointer
+        &:hover
+          background: #026AA7
+          color: white
+
+.card-new
+  a
+    display: block
+    box-sizing: border-box
+    border-radius: 0 0 3px 3px;
+    color: #8c8c8c;
+    height: 30px
+    padding: 8px 13px;
+    position: relative;
+    text-decoration: none;
+    cursor: pointer
+    &:hover
+      text-decoration: underline
+      color: #4D4D4D
+      background: #C4C9CC
+    + form
+      display: none
+  form
+    display: block
+    textarea
+      box-sizing: border-box
+      width: 255px
+      padding: 5px;
+      &:focus
+        outline: none
+    form-controls()
+
+.card-preview
+  box-sizing: border-box
+  overflow: hidden;
+  padding: 6px 6px 2px 8px;
+  position: relative;
+  z-index: 10;

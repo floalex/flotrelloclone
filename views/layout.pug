@@ -1,0 +1,45 @@
+include /_mixins
+
+doctype html
+html
+  head
+    title TrelloCloned
+    link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet")
+    link(href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css")
+    +stylesheet_link_tag('application')
+    +javascript_include_tag('vendor/all')
+    +javascript_include_tag('handlebars_templates')
+  body
+    header
+      #search-form
+        input(type="text")
+        span.search
+          i.fa.fa-search
+        span.close
+          i.fa.fa-times
+      .logo
+      span.icon-notification
+        i.ignore.fa.fa-bell-o
+    #menu.bar
+    .modal-layer
+    #content
+      #board-top
+        span.board-header-btn-text Welcome Board
+        .menu
+          span.icon-ellipsis
+            i.fa.fa-ellipsis-h
+          u Show Menu
+      .container
+        ul#lists
+        .list-add
+
+    block content
+      
+    +javascript_include_tag('application')
+    +javascript_include_tag('models/list', 'models/card')
+    +javascript_include_tag('collections/lists', 'collections/cards')
+    +javascript_include_tag('views/new_list', 'views/list_view')
+    script(type="text/javascript").
+      App.lists = new Lists(!{JSON.stringify(lists)});
+    +javascript_include_tag('router')
+    block scripts

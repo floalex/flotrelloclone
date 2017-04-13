@@ -1,0 +1,204 @@
+@import "whitespace-reset.css"
+@import "mixins"
+@import "list"
+
+body
+  font: 14px "Helvetica Neue", Arial, Helvetica,sans-serif
+  background: colors.main
+  color: colors.text
+
+header
+  position: fixed
+  top: 0
+  right: 0
+  left: 0
+  background: #026AA7
+  padding: 5px
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .1)
+  height: 30px
+  color: #f3f3f3
+  #search-form
+    position: absolute
+    left: 0
+    padding: 0 0 0 5px
+    input
+      width: 180px
+      background: #bcd9ea
+      opacity: 0.35
+      &:hover
+        opacity: 0.6
+      &.focus
+        width: 270px
+        background: white
+        opacity: 1
+        ~ .search
+          left: 255px
+          z-index: -1
+        ~ .close
+          left: 255px
+          opacity: 1
+          color: #A5ACB0
+          cursor: pointer
+          z-index: 2
+          &:hover
+            color: #8C8C8C
+    span
+      position: absolute
+      display: inline-block
+      left: 165px
+      padding: 3px
+      font-size: 16px
+      transition: left 0.25s
+    .search
+      transform: rotate(90deg)
+      color: white
+      cursor: pointer
+      float: right
+      padding: 7px
+    .close
+      opacity: 0
+      z-index: -1
+      float: right
+      padding: 7px
+  .logo
+    background-image: url("https://a.trellocdn.com/images/01ef898811a879595cea8ac3cd77a155/header-logo-2x.png")
+    position: absolute
+    left: 50%
+    margin-left: -40px
+    top: 5px
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: 5pc 30px;
+    text-align: center
+    width: 80px
+    height: 30px
+  .icon-notification
+    background: #63A2C7
+    position: absolute
+    right: 5px
+    top: 5px
+    padding: 7.5px
+    border-radius: 3px 
+    cursor: pointer
+    
+#menu
+  display: block
+  position: fixed
+  overflow: scroll
+  top: 40px
+  bottom: 0
+  right: -350px
+  width: 350px
+  z-index: 1
+  border: none
+  border-radius: 0
+  background: #EDEFF0
+  color: colors.light-black
+  h1
+    text-align: center
+    font-weight: bold
+    font-size: 16px
+  header
+    border-radius: 3px
+    padding: 5px
+    h2
+      display: inline-block
+    i
+      vertical-align: middle
+      color: colors.darker-grey
+    &:hover
+      background: colors.light-grey
+      h2
+        color: black
+      i
+        color: colors.light-black
+  .activities
+    activity-list()
+
+.modal-layer
+  display none
+  position fixed
+  top 0
+  right 0
+  bottom 0
+  left 0
+  z-index 1
+  content ""
+  background rgba(0, 0, 0, .2)
+
+#content
+  box-sizing: border-box
+  margin: 40px 0 0 0
+  padding: 10px
+  overflow: hidden
+  #board-top
+    color: white
+    .board-header-btn-text
+      font-size: 18px
+      font-weight: 700
+      line-height: 30px
+      padding-left: 8px
+    .menu
+      margin: 5px 0 0 0
+      padding: 5px 10px
+      border-radius: 3px
+      float: right
+      font-size: 12px
+      cursor: pointer
+      background: #0079BF
+      overflow: hidden
+      &:hover
+        background: #026AA7
+      .icon-ellipsis
+        padding: 6px
+  .container
+    margin-top: 10px
+    white-space: nowrap;
+    .list-add
+      background: #026AA7
+      vertical-align: top
+      display: inline-block
+      width: 270px
+      margin: 0 10px 0 5px
+      padding: 3px
+      border-radius: 3px
+      form
+        label
+          width: 270px
+          display: block
+          box-sizing: border-box
+          border-radius: 3px
+          cursor: pointer
+          input
+            width: 100%
+            box-sizing: border-box
+            height: auto
+            background: inherit
+            font-size: 14px
+            color: #4D4D4D
+            cursor: pointer
+            &::-webkit-input-placeholder
+              color: colors.text
+              font-size: 14px
+              transition: color 0.25s
+        form-controls()
+        .form-controls
+          height: 0
+      &:hover
+        background: #16277F
+      &.show
+        background: #E2E4E6
+        color: colors.text
+        label
+          display: block
+          box-sizing: border-box
+          background: rgba(0,0,0,.05)
+          border: 1px solid #aaa
+          box-shadow: inset 0 1px 8px rgba(0,0,0,.15)
+          input
+            &::-webkit-input-placeholder
+              color: #A5ACB0
+          + div
+            height: 35px
+            margin: 5px 0 0 0
+
