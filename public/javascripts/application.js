@@ -6,9 +6,9 @@ var App = {
     this.bindEvents();
   },
   renderAllLists: function() {
-    this.lists.each(this.addOne);
+    this.lists.each(this.addOneList);
   },
-  addOne: function(list) {
+  addOneList: function(list) {
     new ListView({
       model: list
     });
@@ -17,6 +17,8 @@ var App = {
     new NewListView();
   },
   bindEvents: function() {
-    _.extend(this, Backbone.Events);
-  },
+    this.listenTo(this.lists, "add", this.addOneList);
+  }
 };
+
+_.extend(App, Backbone.Events);

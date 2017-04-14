@@ -22,3 +22,9 @@
 2. When we load the board, should we insert the whole collection data or add it one by one?
   - Load it one by one and pass in model data can be delegating handling of updates 
     and deletes to the individual ListView
+
+3. How to connect cards with each list?
+  - Two choices: Create empty array for cards when creating the list; or read the cards
+    with the list.id. 
+  - Add the cards array after user chooses the create cards in the list. faster initial page 
+    load for unnecessary server data requests. Only read the cards when they exist.

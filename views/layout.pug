@@ -38,7 +38,7 @@ html
     +javascript_include_tag('application')
     +javascript_include_tag('models/list', 'models/card')
     +javascript_include_tag('collections/lists', 'collections/cards')
-    +javascript_include_tag('views/new_list', 'views/list_view')
+    +javascript_include_tag('views/new_list', 'views/list_view', 'views/list_actions')
     script(type="text/javascript").
       App.lists = new Lists(!{JSON.stringify(lists)});
     +javascript_include_tag('router')
