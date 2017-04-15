@@ -1,10 +1,10 @@
 var Card = Backbone.Model.extend({
   defaults: {
-    title: '',
+    title: "",
     comments_count: 0,
-    due_date: false,
+    due_date: "",
     subscribed: false,
-    description: '',
+    description: "",
     completed: false,
     archived: false,
   },

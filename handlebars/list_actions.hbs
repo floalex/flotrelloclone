@@ -10,7 +10,11 @@
     <a class="js move-list" href="#">Move List…</a>
   </li>
   <li>
-    <a class="js list-subscribe" href="#">Subscribe </a>
+    <a class="js list-subscribe" href="#">Subscribe 
+    {{#if subscribed}}
+      <span><i class="fa fa-check"></i></span>
+    {{/if}}
+    </a>
   </li>
 </ul>
 <hr>

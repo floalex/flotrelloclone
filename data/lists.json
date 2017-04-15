@@ -1,1 +1,1 @@
-{"last_id":5,"data":[{"name":"test","id":1},{"name":"test2","id":3},{"name":"test3","id":4},{"name":"test4","id":5}]}
+{"last_id":5,"data":[{"name":"test 1","id":2,"subscribed":false},{"name":"test2","id":5,"subscribed":true}]}

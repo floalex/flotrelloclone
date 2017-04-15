@@ -1,6 +1,7 @@
 var _ = require('underscore');
 var path = require("path");
 var List = require(path.resolve(path.dirname(__dirname), "routes/lists_node"));
+var Card = require(path.resolve(path.dirname(__dirname), "routes/cards_node"));
 
 module.exports = function(router) {
   router.route("/lists").get(function(req, res) {
@@ -15,7 +16,9 @@ module.exports = function(router) {
     res.json(list);
   });
   
-  router.route("/lists/:id").put(function(req, res) {
+  router.route("/lists/:id").get(function(req, res) {
+    res.json(List.get());
+  }).put(function(req, res) {
     var lists = List.get();
     var list_id = Number(req.params.id);
     var current_list = _(lists).findWhere({ id: list_id });
@@ -25,15 +28,19 @@ module.exports = function(router) {
     current_list.id = list_id;
     List.set({ last_id: List.getLastID(), data: lists });
     res.json(current_list);
-  });
-  
-  router.delete("/lists/:id", function(req, res) {
+  }).delete(function(req, res) {
     var lists = _(List.get()).reject(function(item) {
       // need to pass params.id to successfully delete the item in JSON
       return item.id === Number(req.params.id);
     });
     
+    var cards = _(Card.get()).reject(function(item) {
+      return item.list_id === Number(req.params.id);
+    });
+    
+    Card.set({ last_id: Card.getLastID(), data: cards });
+    
     List.set({ last_id: List.getLastID(), data: lists });
-    res.states(200).end();
+    res.status(200).end();
   });
 };

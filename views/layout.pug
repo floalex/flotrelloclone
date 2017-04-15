@@ -21,7 +21,7 @@ html
       span.icon-notification
         i.ignore.fa.fa-bell-o
     #menu.bar
-    .modal-layer
+    
     #content
       #board-top
         span.board-header-btn-text Welcome Board
@@ -41,5 +41,6 @@ html
     +javascript_include_tag('views/new_list', 'views/list_view', 'views/list_actions')
     script(type="text/javascript").
       App.lists = new Lists(!{JSON.stringify(lists)});
+      App.cards = new Cards(!{JSON.stringify(cards)});
     +javascript_include_tag('router')
     block scripts

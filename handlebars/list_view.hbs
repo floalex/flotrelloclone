@@ -10,21 +10,23 @@
   </div>
 {{/with}}
 
-<div class="modal-layer"></div>
 <div class="list-modal"></div>
+<div class="modal-layer"></div>
 
 {{#if cards}}
   <div class="list-cards">
     {{#each cards}}
     <li class="card-preview" data-id="{{id}}" data-position="{{position}}">
       <span class="edit"><i class="fa fa-pencil"></i></span>
+      {{#if labels}}
       <ul class="labels">
         {{#each labels}}
         <li class="label" style="background:{{color}};"></li>
         {{/each}}
       </ul>
-      <p>{{name}}</p>
-      <ul class="icons">
+      {{/if}}
+      <p>{{title}}</p>
+      <ul class="badges">
         {{#if subscribed}}
           <li><span class="subscribed"><i class="fa fa-eye"></i></span></li>
         {{/if}}
@@ -43,9 +45,10 @@
   </div>
 {{/if}}
 
+{{#with list}}
 <div class="card-new">
   <a href="#">Add a card...</a>
-  <form action="/cards" method="post">
+  <form action="/lists/:{{id}}/cards" method="post">
     <textarea rows="4" placeholder="Add a card title..." name="card_title"></textarea>
     <div class="form-controls">
       <input type="submit" value="Save" />
@@ -53,3 +56,4 @@
     </div>
   </form>
 </div>
+{{/with}}
