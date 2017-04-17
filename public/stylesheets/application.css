@@ -737,7 +737,7 @@ header .icon-notification {
 }
 .window-overlay {
   display: block;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0,0,0,0.3);
 }
 #content {
   box-sizing: border-box;

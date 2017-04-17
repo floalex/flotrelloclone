@@ -23,22 +23,13 @@ html
     #menu.bar
     
     #content
-      #board-top
-        span.board-header-btn-text Welcome Board
-        .menu
-          span.icon-ellipsis
-            i.fa.fa-ellipsis-h
-          u Show Menu
-      .container
-        ul#lists
-        .list-add
 
     block content
       
     +javascript_include_tag('application')
     +javascript_include_tag('models/list', 'models/card')
     +javascript_include_tag('collections/lists', 'collections/cards')
-    +javascript_include_tag('views/new_list', 'views/list_view', 'views/list_actions')
+    +javascript_include_tag('views/index','views/new_list', 'views/list_view', 'views/list_actions')
     +javascript_include_tag('views/card')
     script(type="text/javascript").
       App.lists = new Lists(!{JSON.stringify(lists)});

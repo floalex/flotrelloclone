@@ -1,5 +1,5 @@
 var NewListView = Backbone.View.extend({
-  el: $(".list-add"),
+  el: (".list-add"),
   template: App.templates.new_list,
   events: {
     "click input[type='submit']": "addNewList",

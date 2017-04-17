@@ -7,7 +7,7 @@ module.exports = function(router) {
   router.route('/cards/:id').get(function(req, res) {
     res.render("index", {
       lists: List.get(),
-      cards: Card.get(),
+      cards: Card.get()
     });
   }).delete(function(req, res) {
     var cards = _(Card.get()).reject(function(item) {

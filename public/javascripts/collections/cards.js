@@ -1,6 +1,7 @@
 var Cards = Backbone.Collection.extend({
   model: Card,
   url: "/cards",
+  comparator: "sort_number",
   sync: function() {
     this.sync("update", this);
   },

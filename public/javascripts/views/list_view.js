@@ -48,7 +48,8 @@ var ListView = Backbone.View.extend({
     e.stopImmediatePropagation();
     var id = this.getCardId(e);
 
-    new CardView({ model: App.cards.get(id) });
+    App.cardView(id);
+    router.navigate('cards/' + id, { trigger: true });
   },
   quickEditCard: function(e) {
     e.preventDefault();
@@ -120,6 +121,8 @@ var ListView = Backbone.View.extend({
   initialize: function() {
     this.render();
     this.model.view = this;
+    
+    _.extend(this, Backbone.Events);
 
     this.listenTo(this.model, "remove", this.remove);
   }

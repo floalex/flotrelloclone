@@ -1,6 +1,7 @@
 var App = {
   templates: JST,
   indexView: function() {
+    this.index = new IndexView();
     this.renderAllLists();
     this.renderNewListForm();
     this.bindEvents();
@@ -15,6 +16,9 @@ var App = {
   },
   renderNewListForm: function() {
     new NewListView();
+  },
+  cardView: function(id) {
+    new CardView({ model: this.cards.get(id) });
   },
   bindEvents: function() {
     this.listenTo(this.lists, "add", this.addOneList);

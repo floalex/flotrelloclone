@@ -1,5 +1,16 @@
 var router = new (Backbone.Router.extend({
-  index: function() { App.indexView(); },
+  routes: {
+    "cards/:id": "cardView",
+  },
+  cardView: function(id) {
+    App.cardView(Number(id));
+    App.renderAllLists();
+    App.renderNewListForm();
+  },
+  index: function() { 
+    if ($("#card-detail")) { $("#card-detail").remove(); }
+    App.indexView(); 
+  },
   initialize: function() {
     this.route(/^\/?$/, "index", this.index);
   }
@@ -7,11 +18,6 @@ var router = new (Backbone.Router.extend({
 
 Backbone.history.start({
   pushState: true
-});
-
-$(document).on('click', 'a.back', function(e) {
-  e.preventDefault();
-  window.history.back();
 });
 
 $(document).on("click", "a[href^='/']", function(e) {
