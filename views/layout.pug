@@ -39,6 +39,7 @@ html
     +javascript_include_tag('models/list', 'models/card')
     +javascript_include_tag('collections/lists', 'collections/cards')
     +javascript_include_tag('views/new_list', 'views/list_view', 'views/list_actions')
+    +javascript_include_tag('views/card')
     script(type="text/javascript").
       App.lists = new Lists(!{JSON.stringify(lists)});
       App.cards = new Cards(!{JSON.stringify(cards)});

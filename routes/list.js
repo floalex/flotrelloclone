@@ -33,13 +33,7 @@ module.exports = function(router) {
       // need to pass params.id to successfully delete the item in JSON
       return item.id === Number(req.params.id);
     });
-    
-    var cards = _(Card.get()).reject(function(item) {
-      return item.list_id === Number(req.params.id);
-    });
-    
-    Card.set({ last_id: Card.getLastID(), data: cards });
-    
+  
     List.set({ last_id: List.getLastID(), data: lists });
     res.status(200).end();
   });

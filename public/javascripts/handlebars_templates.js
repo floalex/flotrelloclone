@@ -1,7 +1,43 @@
 this["JST"] = this["JST"] || {};
 
-this["JST"]["card"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+this["JST"]["card"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+    var helper;
+
+  return "<li class=\"label\" style=\"background: "
+    + container.escapeExpression(((helper = (helper = helpers.color || (depth0 != null ? depth0.color : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"color","hash":{},"data":data}) : helper)))
+    + ";\"></li>";
+},"3":function(container,depth0,helpers,partials,data) {
+    var helper;
+
+  return "<div class=\"card-due-date\"><h3 class=\"card-detail-item-header\">Due Date</h3><span class=\"card-detail-badge\">"
+    + container.escapeExpression(((helper = (helper = helpers.due_date || (depth0 != null ? depth0.due_date : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"due_date","hash":{},"data":data}) : helper)))
+    + "</span></div>";
+},"5":function(container,depth0,helpers,partials,data) {
+    var helper;
+
+  return "<h3>Description <a href=\"#\">Edit</a></h3><p>"
+    + container.escapeExpression(((helper = (helper = helpers.description || (depth0 != null ? depth0.description : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"description","hash":{},"data":data}) : helper)))
+    + "<p>";
+},"7":function(container,depth0,helpers,partials,data) {
+    return "<span><i class=\"fa fa-align-left\"></i></span><a href=\"#\">Edit the description...</a>";
+},"9":function(container,depth0,helpers,partials,data) {
     return "";
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
+
+  return "<div class=\"window-overlay\"></div><div class=\"card-container\"><a class=\"close-card\" href=\"#\"><i class=\"fa fa-times fa-2x\"></i></a><div class=\"header\"><span><i class=\"fa fa-list-alt fa-lg\"></i></span><textarea class=\"title formated\" rows=\"1\">"
+    + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
+    + "</textarea></div><div class=\"detail-main\"><p class=\"u-inline-block\">in list "
+    + alias4(((helper = (helper = helpers.list_title || (depth0 != null ? depth0.list_title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"list_title","hash":{},"data":data}) : helper)))
+    + "</p><ul class=\"labels\">"
+    + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.labels : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "</ul>"
+    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.due_date : depth0),{"name":"if","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "<div class=\"description\">"
+    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.description : depth0),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.program(7, data, 0),"data":data})) != null ? stack1 : "")
+    + "</div></div><div class=\"details\"><section class=\"add-comment\"><div class=\"window-module-title\"><span><i class=\"fa fa-comment-o fa-lg\"></i></span><h1>Add Comment</h1></div><form action=\"/comments\" method=\"post\"><textarea class=\"comment-input\" placeholder=\"Write a comment...\"></textarea><input type=\"submit\" value=\"Send\"></form></section><section class=\"activity\"><div class=\"window-module-title\"><span><i class=\"fa fa-list fa-lg\"></i></span><h1>Activity</h1></div><ul class=\"activities\">"
+    + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.activities : depth0),{"name":"each","hash":{},"fn":container.program(9, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "</ul></section></div><aside><section class=\"add\"><h1>Add</h1><ul><ul class=\"actions\"><li class=\"action\"><span><i class=\"fa fa-tag\"></i></span>Labels</li><li class=\"action\"><span><i class=\"fa fa-calendar\"></i></span>Due Date</li></ul></section><section class=\"card-actions\"><h1>Actions</h1><ul class=\"actions\"><li class=\"action\"><span><i class=\"fa fa-arrows\"></i></span>Move</li><li class=\"action\"><span><i class=\"fa fa-clone\"></i></span>Copy</li><li class=\"action\"><span><i class=\"fa fa-eye\"></i></span>Subscribe</li><li class=\"action\"><span><i class=\"fa fa-archive\"></i></span>Archive</li></ul></section></aside></div>";
 },"useData":true});
 
 this["JST"]["list_actions"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
@@ -76,9 +112,9 @@ this["JST"]["list_view"] = Handlebars.template({"1":function(container,depth0,he
 },"17":function(container,depth0,helpers,partials,data) {
     var helper;
 
-  return "<div class=\"card-new\"><a href=\"#\">Add a card...</a><form action=\"/lists/:"
+  return "<div class=\"card-new\"><a href=\"#\">Add a card...</a><form action=\"/lists/"
     + container.escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"id","hash":{},"data":data}) : helper)))
-    + "/cards\" method=\"post\"><textarea rows=\"4\" placeholder=\"Add a card title...\" name=\"card_title\"></textarea><div class=\"form-controls\"><input type=\"submit\" value=\"Save\" /><a class=\"close\" href=\"#\"><i class=\"fa fa-times fa-2x\"></i></a></div></form></div>";
+    + "/cards\" method=\"post\"><textarea rows=\"4\" placeholder=\"Add a card title...\" name=\"card_title\" autocomplete=\"off\"></textarea><div class=\"form-controls\"><input type=\"submit\" value=\"Save\" /><a class=\"close\" href=\"#\"><i class=\"fa fa-times fa-2x\"></i></a></div></form></div>";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : {};
 

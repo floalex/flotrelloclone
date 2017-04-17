@@ -1,0 +1,180 @@
+#card-detail
+  .card-container   
+    position: absolute
+    top: 30px
+    left: 20%
+    width: 730px
+    min-height: 600px
+    margin: 2pc 0 5pc 0
+    border-radius: 3px
+    background: #EDEFF0
+    color: #4d4d4d
+    z-index: 3
+    .close-card
+      color: rgba(0,0,0,.3)
+      position: absolute
+      top: 0
+      right: 0
+      height: 30px
+      overflow: hidden
+      padding: 4px
+      width: 30px
+      &:hover
+        color: black
+  .header, h1
+    display: inline-block
+    margin: 0 0 2px 0
+    font-size: 18px
+  .header
+    width: 93%
+    padding-top: 18px
+    margin: 0 0 0 15px;
+    position: relative
+    span
+      display: inline-block
+      margin: 0 10px 0 0
+      vertical-align: top
+      color: #8c8c8c
+    .title
+      display: inline-block
+      border: 0
+      border-radius: 3px
+      box-shadow: none
+      font-size: 18px
+      font-weight: 700
+      line-height: 22px
+      margin: -4px -6px
+      min-height: 22px
+      padding: 4px 6px
+      resize: none;
+      width: 95%;
+  .detail-main
+    display: inline-block
+    width: 510px
+    margin: 0 0 8px 40px
+    color: #8c8c8c
+    .u-inline-block
+      margin: 0 0 8px 8px
+    h3
+      display: inline-block
+      margin: 0 0 10px 0
+      font-weight: normal
+    .labels
+      h3
+        margin: 0 0 5px 0          
+    .label
+      display: inline-block
+      box-sizing: border-box
+      height: 30px
+      min-width: 40px
+      padding: 6px 6px 0 6px
+      margin: 5px 0 0 0
+      border-radius: 3px
+      vertical-align: top
+      font-weight: bold
+      color: white
+      text-align: center
+      cursor: pointer
+    .card-due-date
+      .card-detail-badge
+        display: inline-block
+        padding: 5px
+        border: 1px
+        border-radius: 3px
+        text-decoration: underline
+    .description
+      padding: 6px 8px
+      display: block
+      border-radius: 3px
+      &:hover
+        background: #D6DADC
+        color: #4d4d4d
+      span
+        margin: 0 7px 0 0
+      p
+        color: #8c8c8c
+        text-decoration: underline
+      a
+        color: #8c8c8c
+        text-decoration: underline
+      form
+        display: none
+        textarea
+          box-sizing: border-box
+          width: 100%
+          min-height: 110px
+          padding: 5px
+          border: 1px solid 
+          &:focus
+            outline: none
+        form-controls()
+        
+  .details
+    display: inline-block
+    width: 560px
+    vertical-align: top
+    section
+      margin: 0 0 0 15px
+      .title
+        margin: none
+      span
+        display: inline-block
+        margin: 0 10px 0 0
+        vertical-align: top
+        color: #8c8c8c
+      a
+        color: inherit
+          
+  .window-module-title
+    padding: 8px 0;
+    position: relative;
+    margin: 0 0 4px 0px;
+  .add-comment
+    margin-bottom: 20px
+    input[type="submit"]
+      submit-btn()
+  .add-comment, .comment
+    textarea
+      width: 95%
+      min-height: 75px
+      padding: 10px
+  .activity
+    .window-module-title
+      margin: 15px 0 4px 0px;
+    activity-list()
+    .comment
+      form-controls()
+      
+  aside
+    display: inline-block
+    width: 140px
+    margin: -25px 0 0 20px
+    section
+      margin: 0 0 20px 0
+      .actions
+        position: relative
+        .action
+          background: linear-gradient(to bottom,#fff 0,#F8F9F9 100%)
+          box-sizing: border-box
+          border: 1px solid #E2E4E6
+          border-bottom-color: #CDD2D4
+          border-radius: 3px
+          cursor: pointer
+          display: block
+          font-weight: 700
+          height: 34px
+          margin-top: 6px
+          max-width: 300px
+          overflow: hidden
+          padding: 7px
+          position: relative
+          text-overflow: ellipsis
+          white-space: nowrap
+          cursor: pointer
+          span
+            margin: 0 7px 0 0;
+          &:hover
+            background: blue
+            border: 1px solid blue
+            border-bottom: 1px solid 
+            color: white

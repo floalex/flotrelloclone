@@ -1,6 +1,7 @@
 @import "whitespace-reset.css"
 @import "mixins"
 @import "list"
+@import "card"
 
 body
   font: 14px "Helvetica Neue", Arial, Helvetica,sans-serif
@@ -115,7 +116,7 @@ header
   .activities
     activity-list()
 
-.modal-layer
+.modal-layer, .window-overlay
   display none
   position fixed
   top 0
@@ -124,6 +125,10 @@ header
   left 0
   z-index 2
   height: 100%
+  
+.window-overlay
+  display: block
+  background-color: rgba(0,0,0,.6)
 
 #content
   box-sizing: border-box

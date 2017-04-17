@@ -1,0 +1,73 @@
+<div class="window-overlay"></div>
+<div class="card-container">
+  <a class="close-card" href="#"><i class="fa fa-times fa-2x"></i></a>
+  <div class="header">
+      <span><i class="fa fa-list-alt fa-lg"></i></span>
+      <textarea class="title formated" rows="1">{{title}}</textarea>
+    </div>
+  <div class="detail-main">
+    <p class="u-inline-block">in list {{list_title}}</p>
+    <ul class="labels">
+      {{#each labels}}
+      <li class="label" style="background: {{color}};"></li>
+      {{/each}}
+    </ul>
+    {{#if due_date}}
+    <div class="card-due-date">
+      <h3 class="card-detail-item-header">Due Date</h3>
+      <span class="card-detail-badge">{{due_date}}</span>
+    </div>
+    {{/if}}
+    <div class="description">
+      {{#if description}}
+      <h3>Description <a href="#">Edit</a></h3>
+      <p>{{description}}<p>
+      {{else}}
+      <span><i class="fa fa-align-left"></i></span>
+      <a href="#">Edit the description...</a>
+      {{/if}}
+    </div>
+  </div>
+  <div class="details">
+    <section class="add-comment">
+      <div class="window-module-title">
+        <span><i class="fa fa-comment-o fa-lg"></i></span>
+        <h1>Add Comment</h1>
+      </div>
+      <form action="/comments" method="post">
+        <textarea class="comment-input" placeholder="Write a comment..."></textarea>
+        <input type="submit" value="Send">
+      </form>
+    </section>
+    <section class="activity">
+      <div class="window-module-title">
+        <span><i class="fa fa-list fa-lg"></i></span>
+        <h1>Activity</h1>
+      </div>
+      <ul class="activities">
+        {{#each activities}}
+          
+        {{/each}}
+      </ul>
+    </section>
+  </div>
+  <aside>
+    <section class="add">
+      <h1>Add</h1>
+      <ul>
+      <ul class="actions">
+        <li class="action"><span><i class="fa fa-tag"></i></span>Labels</li>
+        <li class="action"><span><i class="fa fa-calendar"></i></span>Due Date</li>
+      </ul>
+    </section>
+    <section class="card-actions">
+      <h1>Actions</h1>
+      <ul class="actions">
+        <li class="action"><span><i class="fa fa-arrows"></i></span>Move</li>
+        <li class="action"><span><i class="fa fa-clone"></i></span>Copy</li>
+        <li class="action"><span><i class="fa fa-eye"></i></span>Subscribe</li>
+        <li class="action"><span><i class="fa fa-archive"></i></span>Archive</li>
+      </ul>
+    </section>
+  </aside>
+</div>

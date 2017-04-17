@@ -48,8 +48,8 @@
 {{#with list}}
 <div class="card-new">
   <a href="#">Add a card...</a>
-  <form action="/lists/:{{id}}/cards" method="post">
-    <textarea rows="4" placeholder="Add a card title..." name="card_title"></textarea>
+  <form action="/lists/{{id}}/cards" method="post">
+    <textarea rows="4" placeholder="Add a card title..." name="card_title" autocomplete="off"></textarea>
     <div class="form-controls">
       <input type="submit" value="Save" />
       <a class="close" href="#"><i class="fa fa-times fa-2x"></i></a>
