@@ -37,6 +37,9 @@ textarea.title:focus {
 textarea.formated {
   background: inherit;
 }
+.tilted {
+  transform: rotate(5deg);
+}
 #lists {
   display: inline-block;
   vertical-align: top;
@@ -173,6 +176,11 @@ textarea.formated {
 }
 .list-modal.show .pop-over-list .fa-check {
   color: #999;
+}
+.ui-sortable-placeholder {
+  background: rgba(0,0,0,0.2);
+  display: inline-block;
+  border-radius: 3px;
 }
 .card-new a {
   display: block;
@@ -737,7 +745,7 @@ header .icon-notification {
 }
 .window-overlay {
   display: block;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.5);
 }
 #content {
   box-sizing: border-box;

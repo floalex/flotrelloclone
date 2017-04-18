@@ -7,6 +7,7 @@ var App = {
     this.bindEvents();
   },
   renderAllLists: function() {
+    if ($("#lists")) { $("#lists").empty(); }
     this.lists.each(this.addOneList);
   },
   addOneList: function(list) {
@@ -22,6 +23,8 @@ var App = {
   },
   bindEvents: function() {
     this.listenTo(this.lists, "add", this.addOneList);
+    this.listenTo(this.lists, "update", this.renderAllLists);
+    this.on("updateListSort", this.lists.updateListSort.bind(this.lists));
   }
 };
 

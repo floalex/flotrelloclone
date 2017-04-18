@@ -16,6 +16,12 @@ var ListView = Backbone.View.extend({
     "click .card-new a": "toggleCardForm",
     "click .modal-layer, .list-modal .pop-over-header-button-close": "closeListModal",
     "click .card-new input[type='submit']": "createCard",
+    
+    "drop": "dropList"
+  },
+  dropList: function(event, index) {
+    console.log(index);
+    App.trigger("updateListSort", [this.model, index]);
   },
   getCardId: function(e) {
     return Number($(e.target).closest("li").attr("data-id"));
@@ -34,22 +40,20 @@ var ListView = Backbone.View.extend({
     $(e.target).closest(".list-content").find(".modal-layer").toggle();
   },
   updateListName: function(e) {
+    e.stopImmediatePropagation();
     var value = $(e.target).val().trim();
   
-    if (value) {
-     this.model.set({ name: value });
+    if (value && value != this.model.get("name")) {
+      this.model.set({ name: value });
+      this.model.sync("update", this.model);
     } 
-   
-    // remember to sync to the json file
-    this.model.sync("update", this.model);
   },
   openCardView: function(e) {
     e.preventDefault();
     e.stopImmediatePropagation();
     var id = this.getCardId(e);
 
-    App.cardView(id);
-    router.navigate('cards/' + id, { trigger: true });
+    router.navigate("cards/" + id, { trigger: true });
   },
   quickEditCard: function(e) {
     e.preventDefault();
@@ -121,8 +125,6 @@ var ListView = Backbone.View.extend({
   initialize: function() {
     this.render();
     this.model.view = this;
-    
-    _.extend(this, Backbone.Events);
 
     this.listenTo(this.model, "remove", this.remove);
   }

@@ -28,3 +28,6 @@
     with the list.id. 
   - Add the cards array after user chooses the create cards in the list. faster initial page 
     load for unnecessary server data requests. Only read the cards when they exist.
+
+4. How to use jQuery UI
+  - http://stackoverflow.com/questions/10147969/saving-jquery-ui-sortables-order-to-backbone-js-collection

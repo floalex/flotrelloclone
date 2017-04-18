@@ -16,7 +16,7 @@ var CardView = Backbone.View.extend({
   updateCardTitle: function(e) {
     var value = $(e.target).val().trim();
   
-    if (value != this.model.get("title")) {
+    if (value && value != this.model.get("title")) {
      this.model.set({ title: value });
      this.model.sync("update", this.model);
     } 

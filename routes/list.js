@@ -14,6 +14,11 @@ module.exports = function(router) {
     lists.push(list);
     List.set({ last_id: list.id, data: lists });
     res.json(list);
+  }).put(function(req, res) {  
+    var new_lists = req.body;
+
+    List.set({ last_id: List.getLastID(), data: new_lists });
+    res.json(new_lists);
   });
   
   router.route("/lists/:id").get(function(req, res) {

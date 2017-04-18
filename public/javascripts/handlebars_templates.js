@@ -57,11 +57,11 @@ this["JST"]["list_actions"] = Handlebars.template({"1":function(container,depth0
 this["JST"]["list_view"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=depth0 != null ? depth0 : {};
 
-  return "<div class=\"list-header\"><textarea class=\"title formated\" rows=\"1\">"
+  return "<div class=\"header-wrapper\"><div class=\"list-header\"><textarea class=\"title formated\" rows=\"1\">"
     + container.escapeExpression(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(alias1,{"name":"name","hash":{},"data":data}) : helper)))
     + "</textarea><section class=\"list-icons\">"
     + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.subscribed : depth0),{"name":"if","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "<span class=\"icon-ellipsis\"><i class=\"fa fa-ellipsis-h\"></i></span></section></div>";
+    + "<span class=\"icon-ellipsis\"><i class=\"fa fa-ellipsis-h\"></i></span></section></div></div>";
 },"2":function(container,depth0,helpers,partials,data) {
     return "<span class=\"subscribed\"><i class=\"fa fa-eye\"></i></span>";
 },"4":function(container,depth0,helpers,partials,data) {

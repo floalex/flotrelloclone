@@ -3,12 +3,12 @@ var router = new (Backbone.Router.extend({
     "cards/:id": "cardView",
   },
   cardView: function(id) {
+    // have a nice background first
+    App.indexView(); 
+    // then append the card on top
     App.cardView(Number(id));
-    App.renderAllLists();
-    App.renderNewListForm();
   },
   index: function() { 
-    if ($("#card-detail")) { $("#card-detail").remove(); }
     App.indexView(); 
   },
   initialize: function() {
