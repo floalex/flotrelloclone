@@ -1,51 +1,49 @@
 {{#with list}}
-<div class="header-wrapper">
-  <div class="list-header">
-    <textarea class="title formated" rows="1">{{name}}</textarea>
-    <section class="list-icons">
-      {{#if subscribed}}
-        <span class="subscribed"><i class="fa fa-eye"></i></span>
-      {{/if}}
-      <span class="icon-ellipsis"><i class="fa fa-ellipsis-h"></i></span>
-    </section>
+<div class="list-header">
+  <div class="header-wrapper">
   </div>
+  <textarea class="title formated" rows="1">{{name}}</textarea>
+  <section class="list-icons">
+    {{#if subscribed}}
+      <span class="subscribed"><i class="fa fa-eye"></i></span>
+    {{/if}}
+    <span class="icon-ellipsis"><i class="fa fa-ellipsis-h"></i></span>
+  </section>
 </div>
 {{/with}}
 
 <div class="list-modal"></div>
 <div class="modal-layer"></div>
 
-{{#if cards}}
-  <div class="list-cards">
-    {{#each cards}}
-    <li class="card-preview" data-id="{{id}}" data-position="{{position}}">
-      <span class="edit"><i class="fa fa-pencil"></i></span>
-      {{#if labels}}
-      <ul class="labels">
-        {{#each labels}}
-        <li class="label" style="background:{{color}};"></li>
-        {{/each}}
-      </ul>
+<div class="list-cards">
+  {{#each cards}}
+  <li class="card-preview" data-id="{{id}}" data-position="{{position}}">
+    <span class="edit"><i class="fa fa-pencil"></i></span>
+    {{#if labels}}
+    <ul class="labels">
+      {{#each labels}}
+      <li class="label" style="background:{{color}};"></li>
+      {{/each}}
+    </ul>
+    {{/if}}
+    <p>{{title}}</p>
+    <ul class="badges">
+      {{#if subscribed}}
+        <li><span class="subscribed"><i class="fa fa-eye"></i></span></li>
       {{/if}}
-      <p>{{title}}</p>
-      <ul class="badges">
-        {{#if subscribed}}
-          <li><span class="subscribed"><i class="fa fa-eye"></i></span></li>
-        {{/if}}
-        {{#if due_date}}
-          <li class="due-date"><i class="fa fa-clock-o"></i>{{format_date_preview due_date}}</li>
-        {{/if}}
-        {{#if description}}
-          <li><i class="fa fa-align-justify"></i></li>
-        {{/if}}
-        {{#if comments_count}}
-          <li><i class="fa fa-comment"></i> {{comments_count}}</li>
-        {{/if}}
-      </ul>
-    </li>
-    {{/each}}
-  </div>
-{{/if}}
+      {{#if due_date}}
+        <li class="due-date"><i class="fa fa-clock-o"></i>{{format_date_preview due_date}}</li>
+      {{/if}}
+      {{#if description}}
+        <li><i class="fa fa-align-justify"></i></li>
+      {{/if}}
+      {{#if comments_count}}
+        <li><i class="fa fa-comment"></i> {{comments_count}}</li>
+      {{/if}}
+    </ul>
+  </li>
+  {{/each}}
+</div>
 
 {{#with list}}
 <div class="card-new">

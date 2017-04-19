@@ -1,7 +1,6 @@
 var Lists = Backbone.Collection.extend({
   model: List,
   url: "/lists",
-  comparator: "position",
   updateListSort: function([model, lists_position]) {
     this.remove(model);
     this.add(model, {at: lists_position});

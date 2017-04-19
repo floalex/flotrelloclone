@@ -31,3 +31,13 @@
 
 4. How to use jQuery UI
   - http://stackoverflow.com/questions/10147969/saving-jquery-ui-sortables-order-to-backbone-js-collection
+  - Prevent the "update" method firing twice when one list connected with another list for sorting cards
+    * http://stackoverflow.com/questions/3492828/jquery-sortable-connectwith-calls-the-update-method-twice
+  
+    1   1
+    2   3
+    3   4
+    4   2
+    5   5
+  - Orginally: Sync every model changed, found server will have "503" error as the PUT requests are not in queue in Backbone
+  - Solution: Sync the cards collection by adding "/cards" path in server, and only has one "PUT" request

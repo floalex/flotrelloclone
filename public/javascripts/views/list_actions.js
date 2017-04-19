@@ -22,17 +22,17 @@ var ListActionsView = Backbone.View.extend({
   toggleSubscribeList: function(e) {
     e.preventDefault();
     e.stopImmediatePropagation();
- 
-    console.log(this.model.toJSON());
     this.model.trigger("subscribeToggle");
-    $(e.delegateTarget).prev().find(".subscribed").toggle();
+    console.log(this.model.toJSON());
+    // $(e.delegateTarget).prev().find(".subscribed").toggle();
   },
-  render: function () {
+  render: function() {
     this.$el.html(this.template(this.model.toJSON()));
   },
   initialize: function () {
     this.render();
     this.delegateEvents();
+    
     this.listenTo(this.model, "change", this.render);
   },
 });

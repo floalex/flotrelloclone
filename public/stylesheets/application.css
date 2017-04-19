@@ -68,6 +68,14 @@ textarea.formated {
   position: relative;
   min-height: 18px;
 }
+.list-content .header-wrapper {
+  position: absolute;
+  top: 0;
+  right: 30px;
+  bottom: 0;
+  left: 0;
+  cursor: pointer;
+}
 .list-content .title {
   width: 200px;
 }
@@ -95,7 +103,7 @@ textarea.formated {
   margin: 0 4px;
   padding: 0 4px;
   z-index: 1;
-  min-height: 0;
+  min-height: 10px;
 }
 .list-modal {
   display: none;
@@ -594,6 +602,11 @@ textarea.formated {
   border: 1px solid #00f;
   border-bottom: 1px solid;
   color: #fff;
+}
+.ui-sortable-placeholder {
+  padding: 4px 7px;
+  border-radius: 3px;
+  background: rgba(0,0,0,0.2);
 }
 body {
   font: 14px "Helvetica Neue", Arial, Helvetica, sans-serif;

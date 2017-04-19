@@ -7,7 +7,7 @@ var IndexView = Backbone.View.extend({
   bindSortingEvents: function() {
     $("#lists").sortable({
       items: ".list-content",
-      placeholder: "ui-sortable-placeholder",
+      placeholder: "list-card-placeholder",
       forcePlaceholderSize: true,
       tolerance: "pointer",
       handle: ".header-wrapper", 
