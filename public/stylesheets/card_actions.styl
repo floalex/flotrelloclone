@@ -1,0 +1,53 @@
+#card-detail
+  .modal
+    position: absolute
+    display: inline-block
+    width: 280px
+    z-index: 8
+    background: white
+    color: #4d4d4d
+    form-controls()
+    // have to set the z-index lower than the jquery ui date form
+    .modal-layer
+      z-index: -1
+
+  .card-due-date
+    form
+      fieldset
+        margin: 0 0 10px 0
+        label
+          box-sizing: border-box
+          display: inline-block
+          padding: 0 0 0 5px
+          width: 50%
+          &:last-child
+            input
+              width: 85%
+          input
+            width: 80%
+            modal-input()
+            &[type="time"]
+              font-family: Helvetica
+      .datepicker
+        margin: 0 0 15px 0
+        .ui-datepicker-inline
+          margin: 0 auto
+        .ui-corner-all
+          color: inherit
+        .ui-state-active
+          background: #0079BF
+          border: 1px #0079BF
+        .ui-state-highlight
+          border: 1px solid #D6DADC
+          background: #D6DADC
+          color: inherit
+          font-weight: bold
+      .form-controls
+        input[type="submit"].remove
+          float: right
+          box-shadow: 0 1px 0 #4d4d4d
+          background: linear-gradient(to bottom,#D6DADC 0,#CDD2D4 100%) 
+          color: #fff
+          &:hover
+            color: white
+            background: linear-gradient(to bottom,#CF513D 0,#B04632 100%)

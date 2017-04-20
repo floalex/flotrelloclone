@@ -1,0 +1,27 @@
+<h3>
+  Move List
+  <span class="close"><i class="fa fa-times"></i></span>
+</h3>
+<hr/>
+<form>
+  <dl>
+    <dt>
+      <label>
+        <h5>Position</h5>
+        <p>{{current}}</p>
+      </label>
+    </dt>
+    <dd>
+      <select>
+        {{#lists}}
+          {{#if current}}
+            <option value="{{current}}" selected>{{current}} (current)</option>
+          {{else}}
+            <option value="{{@index}}">{{int @index}}</option>
+          {{/if}}
+        {{/lists}}
+      </select>
+    </dd>
+  </dl>
+  <input type="submit" value="Move">
+</form>

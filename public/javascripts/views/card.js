@@ -9,11 +9,14 @@ var CardView = Backbone.View.extend({
   events: {
     "blur .title": "updateCardTitle",
     
+    "click .date": "renderDate",
+    
     "click .window-overlay, .card-container .close-card": "closeCard",
     
     "click .archive": "deleteCard",
   },
   updateCardTitle: function(e) {
+    e.stopImmediatePropagation();
     var value = $(e.target).val().trim();
   
     if (value && value != this.model.get("title")) {
@@ -21,10 +24,26 @@ var CardView = Backbone.View.extend({
      this.model.sync("update", this.model);
     } 
   },
+  renderDate: function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var button_position = $(e.target).offset();
+    var top = button_position.top + 40;
+    var left = button_position.left - 20;
+
+    // App.trigger('render_due_date_form');
+    new DueDateView({
+      model: this.model,
+      attributes: {
+        class: "modal card-due-date",
+        style: "top:" + top + "px;left:" + left + "px;",
+      }
+    });
+  },
   closeCard: function(e) {
     e.preventDefault();
-    this.undelegateEvents();
     this.remove();
+    this.undelegateEvents();
     history.back();
   },
   deleteCard: function(e) {

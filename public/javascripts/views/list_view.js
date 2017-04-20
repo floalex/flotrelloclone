@@ -108,7 +108,7 @@ var ListView = Backbone.View.extend({
     });
   },
   bindSortingEvents: function() {
-    // var self = this;
+    var self = this;
     $(".list-cards").sortable({
       connectWith: ".list-cards",
       placeholder: "ui-sortable-placeholder",
@@ -125,7 +125,24 @@ var ListView = Backbone.View.extend({
           var old_list_id = ui.item.old_list;
           var new_position = ui.item.index();
           var new_list_id = Number($(event.target).parents().attr("data-id"));
-          App.trigger("updateCardSort", [old_list_id, new_list_id, card_id, new_position]);
+          
+          var old_list = App.lists.get(old_list_id).cards;
+          var new_list = App.lists.get(new_list_id).cards;
+          var new_list_name = App.lists.get(new_list_id).get("name");
+          var card = App.cards.get(card_id);
+          
+          viewHelper.removeCardsPositions(old_list, card);
+          
+          card.set({
+            list_id: new_list_id,
+            list_title: new_list_name,
+            position: new_position,
+          });   
+      
+          viewHelper.insertCardsPositions(new_list, card); 
+
+          App.cards.sync("update", App.cards);
+          App.trigger("updateCardSort");
         }
       },
       stop: function(event, ui) {
@@ -142,9 +159,7 @@ var ListView = Backbone.View.extend({
     var self = this;
     this.model.cards = App.cards.toJSON().filter(function(card) {
       return card.list_id === self.model.id;
-    });
-
-    this.model.cards.sort(function(a, b) {
+    }).sort(function(a, b) {
       return a.position - b.position;
     });
     

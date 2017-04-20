@@ -1,5 +1,9 @@
 this["JST"] = this["JST"] || {};
 
+this["JST"]["card_due_date"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "<div class=\"modal-layer\"></div><div class=\"modal-header\"><span class=\"action-title\">Change Due Date</span><span class=\"close\"><i class=\"fa fa-times\"></i></span></div><form><fieldset><label><h2>Date</h2><input type=\"text\" name=\"date\"></label><!----><label><h2>Time</h2><input type=\"time\" name=\"time\" value=\"12:00\"></label></fieldset><div class=\"datepicker\"></div><div class=\"form-controls\"><input type=\"submit\" value=\"Save\"><input class=\"remove\" type=\"submit\" value=\"Remove\"></div></form>";
+},"useData":true});
+
 this["JST"]["card"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
     var helper;
 
@@ -121,6 +125,37 @@ this["JST"]["list_view"] = Handlebars.template({"1":function(container,depth0,he
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.cards : depth0),{"name":"each","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "</div>"
     + ((stack1 = helpers["with"].call(alias1,(depth0 != null ? depth0.list : depth0),{"name":"with","hash":{},"fn":container.program(16, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
+},"useData":true});
+
+this["JST"]["move_list"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.current : depth0),{"name":"if","hash":{},"fn":container.program(2, data, 0),"inverse":container.program(4, data, 0),"data":data})) != null ? stack1 : "");
+},"2":function(container,depth0,helpers,partials,data) {
+    var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
+
+  return "<option value=\""
+    + alias4(((helper = (helper = helpers.current || (depth0 != null ? depth0.current : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"current","hash":{},"data":data}) : helper)))
+    + "\" selected>"
+    + alias4(((helper = (helper = helpers.current || (depth0 != null ? depth0.current : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"current","hash":{},"data":data}) : helper)))
+    + " (current)</option>";
+},"4":function(container,depth0,helpers,partials,data) {
+    var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3=container.escapeExpression;
+
+  return "<option value=\""
+    + alias3(((helper = (helper = helpers.index || (data && data.index)) != null ? helper : alias2),(typeof helper === "function" ? helper.call(alias1,{"name":"index","hash":{},"data":data}) : helper)))
+    + "\">"
+    + alias3((helpers["int"] || (depth0 && depth0["int"]) || alias2).call(alias1,(data && data.index),{"name":"int","hash":{},"data":data}))
+    + "</option>";
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, helper, options, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", buffer = 
+  "<h3>Move List<span class=\"close\"><i class=\"fa fa-times\"></i></span></h3><hr/><form><dl><dt><label><h5>Position</h5><p>"
+    + container.escapeExpression(((helper = (helper = helpers.current || (depth0 != null ? depth0.current : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"current","hash":{},"data":data}) : helper)))
+    + "</p></label></dt><dd><select>";
+  stack1 = ((helper = (helper = helpers.lists || (depth0 != null ? depth0.lists : depth0)) != null ? helper : alias2),(options={"name":"lists","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data}),(typeof helper === alias3 ? helper.call(alias1,options) : helper));
+  if (!helpers.lists) { stack1 = helpers.blockHelperMissing.call(depth0,stack1,options)}
+  if (stack1 != null) { buffer += stack1; }
+  return buffer + "</select></dd></dl><input type=\"submit\" value=\"Move\"></form>";
 },"useData":true});
 
 this["JST"]["new_list"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {

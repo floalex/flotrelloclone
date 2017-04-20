@@ -27,16 +27,17 @@ var App = {
     var new_list_name = this.lists.get(new_list_id).get("name");
     var card = this.cards.get(card_id);
     
-    this.removeCardsPositions(old_list, card);
+    // this.removeCardsPositions(old_list, card);
     
-    card.set({
-      list_id: new_list_id,
-      list_title: new_list_name,
-      position: new_position,
-    });   
+    // card.set({
+    //   list_id: new_list_id,
+    //   list_title: new_list_name,
+    //   position: new_position,
+    // });   
 
-    this.insertCardsPositions(new_list, card); 
-    this.cards.sync("update", this.cards);
+    // this.insertCardsPositions(new_list, card); 
+    console.log("what");
+    // this.cards.sync("update", this.cards);
     this.renderAllLists();
   },
   removeCardsPositions: function(old_list, model) {
@@ -66,8 +67,12 @@ var App = {
     this.listenTo(this.lists, "update", this.renderAllLists);
     
     this.on("updateListSort", this.lists.updateListSort.bind(this.lists));
-    this.on("updateCardSort", this.updateCardSort.bind(this));
+    this.on("updateCardSort", this.renderAllLists);
   }
 };
 
 _.extend(App, Backbone.Events);
+
+Handlebars.registerHelper("int", function(value, options) { 
+  return Number(value) + 1;
+});

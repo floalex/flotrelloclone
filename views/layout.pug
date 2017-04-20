@@ -7,7 +7,7 @@ html
     link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet")
     +stylesheet_link_tag('application')
     +javascript_include_tag('vendor/all')
-    link(href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css")
+    link(href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet")
     +javascript_include_tag('handlebars_templates')
   body
     header
@@ -27,10 +27,11 @@ html
     block content
       
     +javascript_include_tag('application')
+    +javascript_include_tag('helpers/view_helper')
     +javascript_include_tag('models/list', 'models/card')
     +javascript_include_tag('collections/lists', 'collections/cards')
     +javascript_include_tag('views/index','views/new_list', 'views/list_view', 'views/list_actions')
-    +javascript_include_tag('views/card')
+    +javascript_include_tag('views/card', 'views/card_duedate')
     script(type="text/javascript").
       App.lists = new Lists(!{JSON.stringify(lists)});
       App.cards = new Cards(!{JSON.stringify(cards)});

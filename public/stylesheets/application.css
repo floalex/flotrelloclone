@@ -608,6 +608,104 @@ textarea.formated {
   border-radius: 3px;
   background: rgba(0,0,0,0.2);
 }
+#card-detail .modal {
+  position: absolute;
+  display: inline-block;
+  width: 280px;
+  z-index: 8;
+  background: #fff;
+  color: #4d4d4d;
+}
+#card-detail .modal .form-controls {
+  display: block;
+  height: 35px;
+  overflow: hidden;
+  transition: height 0.25s;
+}
+#card-detail .modal .form-controls input[type="submit"] {
+  padding: 0 20px;
+  min-height: 30px;
+  box-shadow: 0 1px 0 #3f6f21;
+  background: linear-gradient(to bottom, #61bd4f 0, #5aac44 100%);
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+#card-detail .modal .form-controls input[type="submit"]:hover {
+  background: linear-gradient(to top, #61bd4f 0, #5aac44 100%);
+}
+#card-detail .modal .form-controls .close {
+  display: inline-block;
+  float: none;
+  margin: 0 0 0 5px;
+}
+#card-detail .modal .form-controls .close:hover {
+  background: inherit;
+}
+#card-detail .modal .form-controls .close i {
+  vertical-align: middle;
+}
+#card-detail .modal .modal-layer {
+  z-index: -1;
+}
+#card-detail .card-due-date form fieldset {
+  margin: 0 0 10px 0;
+}
+#card-detail .card-due-date form fieldset label {
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 0 0 0 5px;
+  width: 50%;
+}
+#card-detail .card-due-date form fieldset label:last-child input {
+  width: 85%;
+}
+#card-detail .card-due-date form fieldset label input {
+  width: 80%;
+  padding: 5px;
+  margin: 5px 0 0 0;
+  border: 1px solid #cdd2d4;
+  background: #e2e4e6;
+  font-size: 12px;
+}
+#card-detail .card-due-date form fieldset label input:focus {
+  border-color: #298fca;
+  box-shadow: 0 0 2px #298fca;
+  background: #fff;
+}
+#card-detail .card-due-date form fieldset label input[type="time"] {
+  font-family: Helvetica;
+}
+#card-detail .card-due-date form .datepicker {
+  margin: 0 0 15px 0;
+}
+#card-detail .card-due-date form .datepicker .ui-datepicker-inline {
+  margin: 0 auto;
+}
+#card-detail .card-due-date form .datepicker .ui-corner-all {
+  color: inherit;
+}
+#card-detail .card-due-date form .datepicker .ui-state-active {
+  background: #0079bf;
+  border: 1px #0079bf;
+}
+#card-detail .card-due-date form .datepicker .ui-state-highlight {
+  border: 1px solid #d6dadc;
+  background: #d6dadc;
+  color: inherit;
+  font-weight: bold;
+}
+#card-detail .card-due-date form .form-controls input[type="submit"].remove {
+  float: right;
+  box-shadow: 0 1px 0 #4d4d4d;
+  background: linear-gradient(to bottom, #d6dadc 0, #cdd2d4 100%);
+  color: #fff;
+}
+#card-detail .card-due-date form .form-controls input[type="submit"].remove:hover {
+  color: #fff;
+  background: linear-gradient(to bottom, #cf513d 0, #b04632 100%);
+}
 body {
   font: 14px "Helvetica Neue", Arial, Helvetica, sans-serif;
   background: #0079bf;
@@ -759,6 +857,38 @@ header .icon-notification {
 .window-overlay {
   display: block;
   background-color: rgba(0,0,0,0.5);
+}
+.modal {
+  display: none;
+  position: absolute;
+  border-radius: 3px;
+  box-sizing: border-box;
+  padding: 5px;
+  background: #fff;
+  border: 1px solid #d6dadc;
+  z-index: 4;
+}
+.modal .modal-header {
+  height: 36px;
+  margin-bottom: 8px;
+  text-align: center;
+  font-weight: lighter;
+  color: #8c8c8c;
+  border-bottom: 1px solid #d6dadc;
+}
+.modal .modal-header .action-title {
+  display: inline-block;
+  padding: 5px 0;
+}
+.modal .modal-header .close {
+  padding: 10px 10px 10px 4px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+}
+.modal .modal-header .close:hover {
+  cursor: pointer;
 }
 #content {
   box-sizing: border-box;

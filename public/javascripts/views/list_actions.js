@@ -10,14 +10,13 @@ var ListActionsView = Backbone.View.extend({
     
     "click .delete-list": "archiveList",
   },
-  archiveList: function(e) {
-    e.preventDefault();
-    this.model.destroy();
-    this.archiveCards(e);
+  renderCopyListView: function(e) {
+    e.preventDefault();  
+    // new CopyListView({ model: this.model });
   },
-  archiveCards: function(e) {
-    e.preventDefault();
-    App.cards.trigger("delete_all_cards", this.model);
+  renderMoveListView: function(e) {
+    e.preventDefault(); 
+    // new MoveListView({ model: this.model });
   },
   toggleSubscribeList: function(e) {
     e.preventDefault();
@@ -25,6 +24,19 @@ var ListActionsView = Backbone.View.extend({
     this.model.trigger("subscribeToggle");
     console.log(this.model.toJSON());
     // $(e.delegateTarget).prev().find(".subscribed").toggle();
+  },
+  renderMoveCardsView: function(e) {
+    e.preventDefault();
+    // new MoveCardsView({ model: this.model });
+  },
+  archiveCards: function(e) {
+    e.preventDefault();
+    App.cards.trigger("delete_all_cards", this.model);
+  },
+  archiveList: function(e) {
+    e.preventDefault();
+    this.model.destroy();
+    this.archiveCards(e);
   },
   render: function() {
     this.$el.html(this.template(this.model.toJSON()));
