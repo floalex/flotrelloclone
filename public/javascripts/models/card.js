@@ -3,6 +3,7 @@ var Card = Backbone.Model.extend({
     title: "",
     comments_count: 0,
     subscribed: false,
+    labels: [],
   },
   toggleSubscribe: function() {
     this.set("subscribed", !this.get("subscribed"));
@@ -15,6 +16,18 @@ var Card = Backbone.Model.extend({
   },
   removeDueDate: function() {
     this.save({"due_date": ""});
+  },
+  toggleLabel: function(color) {
+    var labels = this.get("labels");
+
+    if (_(labels).findWhere({ color: color })) {
+      labels = _(labels).reject({ color: color });
+    } else {
+      labels.push({"color": color});
+    }
+
+    this.set("labels", labels); 
+    this.sync("update", this);
   },
   initialize: function() {
     this.on({

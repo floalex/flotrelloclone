@@ -7,6 +7,7 @@ var DueDateView = Backbone.View.extend({
     "click input[value='Remove']": "removeDueDate",
   },
   removeModal: function() {
+    this.undelegateEvents();  
     this.$el.find(".modal-layer").toggle();
     this.remove();
   },
@@ -14,7 +15,7 @@ var DueDateView = Backbone.View.extend({
     e.preventDefault();
     var date = this.$el.find("[name='date']").val();
     var time = this.$el.find("[name='time']").val();
-    var due_date = moment(date + ' ' + time).format();
+    var due_date = moment(date + " " + time).format();
     
     this.model.trigger("save_due_date", due_date);
   },
@@ -23,13 +24,11 @@ var DueDateView = Backbone.View.extend({
     this.model.trigger("remove_due_date");
   },
   renderDateTime: function() {
-    var due_date = this.model.get("due_date");
-
     this.$el.find(".datepicker").datepicker({
-      changeMonth: true,
-      changeYear: true,
       altField: 'input[name="date"]',
     });
+    
+    var due_date = this.model.get("due_date");
 
     if (due_date) {
       var formated_date = moment(due_date).format("MM/DD/YYYY");

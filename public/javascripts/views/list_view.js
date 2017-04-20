@@ -24,7 +24,7 @@ var ListView = Backbone.View.extend({
     App.trigger("updateListSort", [this.model, index]);
   },
   getCardId: function(e) {
-    return Number($(e.target).closest("li").attr("data-id"));
+    return Number($(e.currentTarget).closest("li").attr("data-id"));
   },
   openEditName: function(e) {
     $(e.target).hide().next().focus();

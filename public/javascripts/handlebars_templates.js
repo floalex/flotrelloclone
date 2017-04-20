@@ -31,7 +31,7 @@ this["JST"]["card"] = Handlebars.template({"1":function(container,depth0,helpers
     + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
     + "</textarea></div><div class=\"detail-main\"><p class=\"u-inline-block\">in list "
     + alias4(((helper = (helper = helpers.list_title || (depth0 != null ? depth0.list_title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"list_title","hash":{},"data":data}) : helper)))
-    + "</p><ul class=\"labels\">"
+    + "</p><h3>Labels</h3><ul class=\"labels\">"
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.labels : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "</ul>"
     + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.due_date : depth0),{"name":"if","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
@@ -158,4 +158,8 @@ this["JST"]["move_list"] = Handlebars.template({"1":function(container,depth0,he
 
 this["JST"]["new_list"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<form action=\"/lists\" method=\"post\"><label><input type=\"text\" placeholder=\"Add a list...\" name=\"list_name\" autocomplete=\"off\"/></label><div class=\"form-controls\"><input type=\"submit\" value=\"Save\"/><a class=\"close\" href=\"#\"><i class=\"fa fa-times fa-2x\"></i></a></div></form>";
+},"useData":true});
+
+this["JST"]["tag_selection"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "<div class=\"modal-layer\"></div><div class=\"modal-header\"><span class=\"action-title\">Labels</span><span class=\"close\"><i class=\"fa fa-times\"></i></span></div><form><ul><li><span class=\"card_label label_green\" data-color=\"#61BD4F\"><li><span class=\"card_label label_yellow\" data-color=\"#F2D600\"><li><span class=\"card_label label_orange\" data-color=\"#FFAB4A\"><li><span class=\"card_label label_red\" data-color=\"#EB5A46\"><li><span class=\"card_label label_purple\" data-color=\"#C377E0\"><li><span class=\"card_label label_blue\" data-color=\"#0079BF\"></ul></form>";
 },"useData":true});

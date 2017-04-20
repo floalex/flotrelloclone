@@ -1,3 +1,6 @@
+var top_offset = 40;
+var left_offset = 20;
+
 var CardView = Backbone.View.extend({
   attributes: function() {
     return {
@@ -8,8 +11,8 @@ var CardView = Backbone.View.extend({
   template: App.templates.card,
   events: {
     "blur .title": "updateCardTitle",
-    
-    "click .date": "renderDate",
+    "click .tag": "renderTagSelection",
+    "click .date": "renderDateForm",
     
     "click .window-overlay, .card-container .close-card": "closeCard",
     
@@ -24,14 +27,28 @@ var CardView = Backbone.View.extend({
      this.model.sync("update", this.model);
     } 
   },
-  renderDate: function(e) {
+  renderTagSelection: function(e) {
     e.preventDefault();
     e.stopImmediatePropagation();
     var button_position = $(e.target).offset();
-    var top = button_position.top + 40;
-    var left = button_position.left - 20;
-
-    // App.trigger('render_due_date_form');
+    var top = button_position.top + top_offset;
+    var left = button_position.left - left_offset;
+    
+    new tagSelection({ 
+      model: this.model,
+      attributes: {
+        class: "modal tags",
+        style: "top:" + top + "px;left:" + left + "px;",
+      }
+    });
+  },
+  renderDateForm: function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var button_position = $(e.target).offset();
+    var top = button_position.top + top_offset;
+    var left = button_position.left - left_offset;
+    
     new DueDateView({
       model: this.model,
       attributes: {
@@ -58,7 +75,7 @@ var CardView = Backbone.View.extend({
     this.render();
     this.delegateEvents();
     
-    this.listenTo(this.model, "change", this.render);
+    this.listenTo(this.model, "change request", this.render);
     this.listenTo(this.model, "remove", this.remove);
   }
 });

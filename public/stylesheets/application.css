@@ -379,11 +379,11 @@ textarea.formated {
 #card-detail .detail-main {
   display: inline-block;
   width: 510px;
-  margin: 0 0 8px 40px;
+  margin: 0 0 8px 48px;
   color: #8c8c8c;
 }
 #card-detail .detail-main .u-inline-block {
-  margin: 0 0 8px 8px;
+  margin: 0 0 8px 0px;
 }
 #card-detail .detail-main h3 {
   display: inline-block;
@@ -392,6 +392,9 @@ textarea.formated {
 }
 #card-detail .detail-main .labels h3 {
   margin: 0 0 5px 0;
+}
+#card-detail .detail-main .labels li {
+  margin: 0 4px 4px 0;
 }
 #card-detail .detail-main .label {
   display: inline-block;
@@ -415,7 +418,7 @@ textarea.formated {
   text-decoration: underline;
 }
 #card-detail .detail-main .description {
-  padding: 6px 8px;
+  padding: 6px 8px 6px 0;
   display: block;
   border-radius: 3px;
 }
@@ -567,7 +570,7 @@ textarea.formated {
 #card-detail aside {
   display: inline-block;
   width: 140px;
-  margin: -25px 0 0 20px;
+  margin: -90px 0 0 20px;
 }
 #card-detail aside section {
   margin: 0 0 20px 0;
@@ -705,6 +708,52 @@ textarea.formated {
 #card-detail .card-due-date form .form-controls input[type="submit"].remove:hover {
   color: #fff;
   background: linear-gradient(to bottom, #cf513d 0, #b04632 100%);
+}
+#card-detail .tags .card_label {
+  width: 240px;
+  height: 34px;
+  display: block;
+  cursor: pointer;
+  transition: padding 85ms, margin 85ms, box-shadow 85ms;
+  border-radius: 3px;
+  margin-left: 4px;
+  margin-top: 4px;
+}
+#card-detail .tags .label_green {
+  background: #61bd4f;
+}
+#card-detail .tags .label_green:hover {
+  box-shadow: -8px 0 #519839;
+}
+#card-detail .tags .label_yellow {
+  background: #f2d600;
+}
+#card-detail .tags .label_yellow:hover {
+  box-shadow: -8px 0 #d9b51c;
+}
+#card-detail .tags .label_orange {
+  background-color: #ffab4a;
+}
+#card-detail .tags .label_orange:hover {
+  box-shadow: -8px 0 #d29034;
+}
+#card-detail .tags .label_red {
+  background-color: #eb5a46;
+}
+#card-detail .tags .label_red:hover {
+  box-shadow: -8px 0 #b04632;
+}
+#card-detail .tags .label_purple {
+  background-color: #c377e0;
+}
+#card-detail .tags .label_purple:hover {
+  box-shadow: -8px 0 #89609e;
+}
+#card-detail .tags .label_blue {
+  background-color: #0079bf;
+}
+#card-detail .tags .label_blue:hover {
+  box-shadow: -8px 0 #055a8c;
 }
 body {
   font: 14px "Helvetica Neue", Arial, Helvetica, sans-serif;
