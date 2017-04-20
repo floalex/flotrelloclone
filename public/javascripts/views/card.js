@@ -44,7 +44,7 @@ var CardView = Backbone.View.extend({
     e.preventDefault();
     this.remove();
     this.undelegateEvents();
-    history.back();
+    router.navigate("/", { trigger: true });
   },
   deleteCard: function(e) {
     this.model.destroy();

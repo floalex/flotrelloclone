@@ -108,7 +108,6 @@ var ListView = Backbone.View.extend({
     });
   },
   bindSortingEvents: function() {
-    var self = this;
     $(".list-cards").sortable({
       connectWith: ".list-cards",
       placeholder: "ui-sortable-placeholder",

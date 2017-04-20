@@ -39,5 +39,3 @@
     3   4
     4   2
     5   5
-  - Orginally: Sync every model changed, found server will have "503" error as the PUT requests are not in queue in Backbone
-  - Solution: Sync the cards collection by adding "/cards" path in server, and only has one "PUT" request

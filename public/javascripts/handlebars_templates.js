@@ -11,10 +11,8 @@ this["JST"]["card"] = Handlebars.template({"1":function(container,depth0,helpers
     + container.escapeExpression(((helper = (helper = helpers.color || (depth0 != null ? depth0.color : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"color","hash":{},"data":data}) : helper)))
     + ";\"></li>";
 },"3":function(container,depth0,helpers,partials,data) {
-    var helper;
-
-  return "<div class=\"card-due-date\"><h3 class=\"card-detail-item-header\">Due Date</h3><span class=\"card-detail-badge\">"
-    + container.escapeExpression(((helper = (helper = helpers.due_date || (depth0 != null ? depth0.due_date : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"due_date","hash":{},"data":data}) : helper)))
+    return "<div class=\"card-due-date\"><h3 class=\"card-detail-item-header\">Due Date</h3><span class=\"card-detail-badge\">"
+    + container.escapeExpression((helpers.format_date || (depth0 && depth0.format_date) || helpers.helperMissing).call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.due_date : depth0),{"name":"format_date","hash":{},"data":data}))
     + "</span></div>";
 },"5":function(container,depth0,helpers,partials,data) {
     var helper;

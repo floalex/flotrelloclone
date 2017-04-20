@@ -21,4 +21,14 @@ var viewHelper = {
       }
     });
   },
+  formatDate: function(date) {
+    return moment(date).calendar(null, {
+      lastDay : "[Yesterday at] LT",
+      sameDay : "[Today at] LT",
+      nextDay : "[Tomorrow at] LT",
+      lastWeek : "MMM DD [at] LT",
+      nextWeek : "MMM DD [at] LT",
+      sameElse : "MMM DD [at] LT"
+    });
+  },
 };
