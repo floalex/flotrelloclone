@@ -82,6 +82,37 @@ header
     padding: 7.5px
     border-radius: 3px 
     cursor: pointer
+
+.search-results
+  position: absolute
+  display: block
+  top: 40px
+  left: 5px
+  min-width: 600px
+  padding: 8px 4px 8px 10px
+  z-index: 5
+  background-color: #EDEFF0;
+  min-height: 114px;
+  color: colors.darker-grey
+  border-radius: 3px
+  text-align: center
+  .modal-layer
+    z-index: -1
+  h1
+    color: colors.light-black
+    margin: 0 0 20px 0
+    font-size: 18px
+  li
+    margin: 10px 0 0 0
+  h2
+    margin: 0 0 3px 0
+    font-size: 16px
+    color: colors.light-black
+  a
+    color: colors.light-black
+    &:hover
+      color: black
+      text-decoration: underline
     
 #menu
   display: block
@@ -91,7 +122,7 @@ header
   bottom: 0
   right: -350px
   width: 350px
-  z-index: 1
+  z-index: 5
   border: none
   border-radius: 0
   background: #EDEFF0

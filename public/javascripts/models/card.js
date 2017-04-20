@@ -5,7 +5,7 @@ var Card = Backbone.Model.extend({
     subscribed: false,
     labels: [],
   },
-  toggleSubscribe: function() {
+  toggleCardSubscribe: function() {
     this.set("subscribed", !this.get("subscribed"));
 
     this.sync("update", this);
@@ -31,7 +31,7 @@ var Card = Backbone.Model.extend({
   },
   initialize: function() {
     this.on({
-      "subscribeToggle": this.toggleSubscribe, 
+      "subscribeToggle": this.toggleCardSubscribe, 
       "save_due_date": this.saveDueDate,
       "remove_due_date": this.removeDueDate,
     });

@@ -1,0 +1,14 @@
+<h1>Search Cards</h1>
+<ul class="results">
+  {{#if cards}}
+    {{#each cards}}
+    <li>
+      <h3><a href="/cards/{{id}}">{{title}}</a></h3>
+      <p>in <strong>{{list_title}}</strong></p>
+    </li>
+    {{/each}}
+  {{else}}
+    <p>We couldn't find any cards that matched your search</p>
+  {{/if}}
+</ul>
+<div class="modal-layer"></div>

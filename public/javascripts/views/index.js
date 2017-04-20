@@ -1,6 +1,17 @@
 var IndexView = Backbone.View.extend({
   template: App.templates.index,
   el: $("#content"),
+  events: {
+    // ----- Menu -----
+    "click .menu": "displayMenu",
+  },
+  displayMenu: function(e) {
+    e.preventDefault();
+    $("#menu").animate({
+      right: 0,
+    });
+    // new MenuView();
+  },
   render: function() {
     this.$el.html(this.template());
   },

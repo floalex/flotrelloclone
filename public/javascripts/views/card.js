@@ -10,13 +10,28 @@ var CardView = Backbone.View.extend({
   },
   template: App.templates.card,
   events: {
+    "click .window-overlay, .card-container .close-card": "closeCard",
     "blur .title": "updateCardTitle",
+    
+    // ----- Add actions -----
     "click .tag": "renderTagSelection",
     "click .date": "renderDateForm",
     
-    "click .window-overlay, .card-container .close-card": "closeCard",
-    
+    // ----- Other actions -----
+    "click .subs": "toggleSubscribeCard",
     "click .archive": "deleteCard",
+  },
+  closeCard: function(e) {
+    e.preventDefault();
+    this.remove();
+    this.undelegateEvents();
+    router.navigate("/", { trigger: true });
+  },
+  toggleSubscribeCard: function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    this.model.trigger("subscribeToggle");
+    console.log(this.model.toJSON());
   },
   updateCardTitle: function(e) {
     e.stopImmediatePropagation();
@@ -56,12 +71,6 @@ var CardView = Backbone.View.extend({
         style: "top:" + top + "px;left:" + left + "px;",
       }
     });
-  },
-  closeCard: function(e) {
-    e.preventDefault();
-    this.remove();
-    this.undelegateEvents();
-    router.navigate("/", { trigger: true });
   },
   deleteCard: function(e) {
     this.model.destroy();

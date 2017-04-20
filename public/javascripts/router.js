@@ -5,7 +5,7 @@ var router = new (Backbone.Router.extend({
   cardView: function(id) {
     // have a nice background first
     App.indexView(); 
-    // then append the card on top
+    // then put the card on top
     App.cardView(Number(id));
   },
   index: function() { 

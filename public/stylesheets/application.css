@@ -846,6 +846,43 @@ header .icon-notification {
   border-radius: 3px;
   cursor: pointer;
 }
+.search-results {
+  position: absolute;
+  display: block;
+  top: 40px;
+  left: 5px;
+  min-width: 600px;
+  padding: 8px 4px 8px 10px;
+  z-index: 5;
+  background-color: #edeff0;
+  min-height: 114px;
+  color: #a5acb0;
+  border-radius: 3px;
+  text-align: center;
+}
+.search-results .modal-layer {
+  z-index: -1;
+}
+.search-results h1 {
+  color: #4d4d4d;
+  margin: 0 0 20px 0;
+  font-size: 18px;
+}
+.search-results li {
+  margin: 10px 0 0 0;
+}
+.search-results h2 {
+  margin: 0 0 3px 0;
+  font-size: 16px;
+  color: #4d4d4d;
+}
+.search-results a {
+  color: #4d4d4d;
+}
+.search-results a:hover {
+  color: #000;
+  text-decoration: underline;
+}
 #menu {
   display: block;
   position: fixed;
@@ -854,7 +891,7 @@ header .icon-notification {
   bottom: 0;
   right: -350px;
   width: 350px;
-  z-index: 1;
+  z-index: 5;
   border: none;
   border-radius: 0;
   background: #edeff0;

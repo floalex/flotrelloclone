@@ -1,10 +1,16 @@
 var App = {
   templates: JST,
   indexView: function() {
+    this.renderHeaderView();
+    
     this.index = new IndexView();
     this.renderAllLists();
     this.renderNewListForm();
+    
     this.bindEvents();
+  },
+  renderHeaderView: function() {
+    new HeaderView();
   },
   renderAllLists: function() {
     $("#lists").empty(); 
@@ -20,6 +26,7 @@ var App = {
   },
   cardView: function(id) {
     new CardView({ model: this.cards.get(id) });
+    App.trigger("closeSearchForm");
   },
 
   bindEvents: function() {

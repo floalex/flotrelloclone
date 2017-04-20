@@ -7,12 +7,14 @@
     </div>
   <div class="detail-main">
     <p class="u-inline-block">in list {{list_title}}</p>
-    <h3>Labels</h3>
-    <ul class="labels">
-      {{#each labels}}
-      <li class="label" style="background: {{color}};"></li>
-      {{/each}}
-    </ul>
+    {{#if labels}}
+      <h3>Labels</h3>
+      <ul class="labels">
+        {{#each labels}}
+        <li class="label" style="background: {{color}};"></li>
+        {{/each}}
+      </ul>
+    {{/if}}
     {{#if due_date}}
     <div class="card-due-date">
       <h3 class="card-detail-item-header">Due Date</h3>
@@ -66,7 +68,12 @@
       <ul class="actions">
         <li class="action move"><span><i class="fa fa-arrows"></i></span>Move</li>
         <li class="action copy"><span><i class="fa fa-clone"></i></span>Copy</li>
-        <li class="action subs"><span><i class="fa fa-eye"></i></span>Subscribe</li>
+        <li class="action subs">
+          <span><i class="fa fa-eye"></i></span>Subscribe
+          {{#if subscribed}}
+          <span><i class="fa fa-check"></i></span>
+          {{/if}}
+        </li>
         <li class="action archive"><span><i class="fa fa-archive"></i></span>Archive</li>
       </ul>
     </section>

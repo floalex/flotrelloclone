@@ -7,17 +7,21 @@ var ListView = Backbone.View.extend({
   },
   template: App.templates.list_view,
   events: {
+    // ----- List view top section -----
     "click .header-wrapper": "openEditName",
     "blur .title": "updateListName",
     "click .icon-ellipsis": "popupListActionsView",
     
+    // ----- List view middle section -----
     "click .card-preview": "openCardView",
     "click .card-preview .edit": "quickEditCard",
     
+    // ----- List view bottom section -----
     "click .card-new a": "toggleCardForm",
     "click .modal-layer, .list-modal .pop-over-header-button-close": "closeListModal",
     "click .card-new input[type='submit']": "createCard",
     
+    // ----- List view other -----
     "drop": "dropList"
   },
   dropList: function(event, index) {
@@ -162,14 +166,9 @@ var ListView = Backbone.View.extend({
       return a.position - b.position;
     });
     
-    var cardsData = this.model.cards.map(function(card) {
-      card.labels = card.labels;
-      return card;
-    });
-    
     this.$el.html(this.template({
       list: this.model.toJSON(),
-      cards: cardsData 
+      cards: this.model.cards
     }));
   },
   initialize: function() {
