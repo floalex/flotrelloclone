@@ -5,6 +5,18 @@ var Card = Backbone.Model.extend({
     subscribed: false,
     labels: [],
   },
+  addComments: function() {
+    var current_count = this.get("comments_count") || 0;
+    current_count++;
+    this.set("comments_count", current_count);
+    this.sync("update", this);
+  },
+  reduceComments: function() {
+    var current_count = this.get("comments_count");
+    if (current_count > 0) { current_count--; }
+    this.set("comments_count", current_count);
+    this.sync("update", this);
+  },
   toggleCardSubscribe: function() {
     this.set("subscribed", !this.get("subscribed"));
 
@@ -34,6 +46,8 @@ var Card = Backbone.Model.extend({
       "subscribeToggle": this.toggleCardSubscribe, 
       "save_due_date": this.saveDueDate,
       "remove_due_date": this.removeDueDate,
+      "addCommentsCount": this.addComments,
+      "reduceCommentsCount": this.reduceComments,
     });
   }
 });

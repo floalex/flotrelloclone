@@ -2,6 +2,7 @@ var _ = require('underscore');
 var path = require('path');
 var Card = require(path.resolve(path.dirname(__dirname), "routes/cards_node"));
 var List = require(path.resolve(path.dirname(__dirname), "routes/lists_node"));
+var Comment = require(path.resolve(path.dirname(__dirname), "routes/comments_node"));
 
 module.exports = function(router) {
   router.route("/cards").get(function(req, res) {
@@ -16,15 +17,19 @@ module.exports = function(router) {
   router.route('/cards/:id').get(function(req, res) {
     res.render("index", {
       lists: List.get(),
-      cards: Card.get()
+      cards: Card.get(),
+      comments: Comment.get()
     });
-    console.log(Boolean(req.body.list_id)); 
-    console.log(Boolean(req.body.position));
   }).delete(function(req, res) {
     var cards = _(Card.get()).reject(function(item) {
       return item.id === Number(req.params.id);
     });
     
+    var comments = _(Comment.get()).reject(function(item) {
+      return item.card_id === Number(req.params.id);
+    });
+    
+    Comment.set({ last_id: Comment.getLastID(), data: comments });
     Card.set({ last_id: Card.getLastID(), data: cards });
     
     res.status(200).end();

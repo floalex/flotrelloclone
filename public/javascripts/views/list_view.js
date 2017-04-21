@@ -178,6 +178,7 @@ var ListView = Backbone.View.extend({
     this.delegateEvents();
     this.bindSortingEvents();
     
+    this.listenTo(App, "card_change", this.renderTemplate);
     this.listenTo(this.model, "change", this.renderTemplate);
     this.listenTo(this.model, "remove", this.remove);
   }

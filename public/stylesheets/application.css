@@ -40,6 +40,12 @@ textarea.formated {
 .tilted {
   transform: rotate(5deg);
 }
+footer {
+  display: block;
+  margin: 0 0;
+  color: #8c8c8c;
+  font-size: 12px;
+}
 #lists {
   display: inline-block;
   vertical-align: top;
@@ -379,7 +385,7 @@ textarea.formated {
 #card-detail .detail-main {
   display: inline-block;
   width: 510px;
-  margin: 0 0 8px 48px;
+  margin: 5px 0 8px 48px;
   color: #8c8c8c;
 }
 #card-detail .detail-main .u-inline-block {
@@ -486,6 +492,7 @@ textarea.formated {
   vertical-align: top;
 }
 #card-detail .details section {
+  padding: 8px;
   margin: 0 0 0 15px;
 }
 #card-detail .details section .title {
@@ -503,7 +510,7 @@ textarea.formated {
 #card-detail .window-module-title {
   padding: 8px 0;
   position: relative;
-  margin: 0 0 4px 0px;
+  margin: 0;
 }
 #card-detail .add-comment {
   margin-bottom: 20px;
@@ -531,8 +538,11 @@ textarea.formated {
   color: #4d4d4d;
   font-size: 14px;
 }
+#card-detail .activity section {
+  border-bottom: 1px solid #e2e4e6;
+}
 #card-detail .activity .window-module-title {
-  margin: 15px 0 4px 0px;
+  margin: 15px 0 0 0;
 }
 #card-detail .activity li {
   padding: 10px 0;
@@ -570,7 +580,7 @@ textarea.formated {
 #card-detail aside {
   display: inline-block;
   width: 140px;
-  margin: -90px 0 0 20px;
+  margin: -60px 0 0 20px;
 }
 #card-detail aside section {
   margin: 0 0 20px 0;
@@ -755,6 +765,25 @@ textarea.formated {
 #card-detail .tags .label_blue:hover {
   box-shadow: -8px 0 #055a8c;
 }
+.comment {
+  display: block;
+}
+.comment h3 {
+  display: block;
+  text-align: left;
+}
+.comment p {
+  display: inline-block;
+  padding: 10px;
+  margin: 5px 0 5px 0;
+  background: #fff;
+  border-radius: 3px;
+}
+.comment footer a {
+  color: #8c8c8c;
+  text-decoration: underline;
+  cursor: pointer;
+}
 body {
   font: 14px "Helvetica Neue", Arial, Helvetica, sans-serif;
   background: #0079bf;
@@ -856,7 +885,7 @@ header .icon-notification {
   z-index: 5;
   background-color: #edeff0;
   min-height: 114px;
-  color: #a5acb0;
+  color: #8c8c8c;
   border-radius: 3px;
   text-align: center;
 }
@@ -911,7 +940,7 @@ header .icon-notification {
 }
 #menu header i {
   vertical-align: middle;
-  color: #a5acb0;
+  color: #8c8c8c;
 }
 #menu header:hover {
   background: #d6dadc;

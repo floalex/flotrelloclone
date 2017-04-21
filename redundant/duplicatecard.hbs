@@ -58,15 +58,16 @@
             <section class="comment" data-id="{{id}}">
               <h3>Member Name</h3>
               <p>{{text}}</p>
-              <footer>{{date}} - <a class="edit" href="#">Edit</a> - <a class="delete" href="#">Delete</a></footer>
             </section>
+            <footer>{{date}} - <a class="edit" href="#">Edit</a> - <a class="delete" href="#">Delete</a></footer>
           {{/each}}
           {{#with card}}
             {{#if due_date}}
-              <section class="change-duedate">
+              <section>
                 <h3>Member Name</h3>
-                <p>changed the due date of this card to {{format_date due_date}}</p>
+                <p>changed the due date of this card to {{due_date}}</p>
               </section>
+              <footer>{{date}}</footer>
             {{/if}}
           {{/with}}
         </li>

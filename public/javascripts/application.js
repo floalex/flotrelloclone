@@ -28,7 +28,6 @@ var App = {
     new CardView({ model: this.cards.get(id) });
     App.trigger("closeSearchForm");
   },
-
   bindEvents: function() {
     this.listenTo(this.lists, "add", this.addOneList);
     this.listenTo(this.lists, "update", this.renderAllLists);
@@ -44,7 +43,7 @@ Handlebars.registerHelper("format_date_preview", function(date) {
   return moment(date).format("MMM DD");
 });
 
-Handlebars.registerHelper("format_date", function (date) {
+Handlebars.registerHelper("format_date", function(date) {
   return viewHelper.formatDate(date);
 });
 
