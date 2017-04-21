@@ -32,10 +32,12 @@ var ListActionsView = Backbone.View.extend({
   archiveCards: function(e) {
     e.preventDefault();
     App.cards.trigger("delete_all_cards", this.model);
+    App.cards.sync("update", App.cards);
     App.trigger("card_change");
   },
   archiveList: function(e) {
     e.preventDefault();
+    if (this.model.cards.length > 0) { App.cards.trigger("delete_all_cards", this.model); }
     this.model.destroy();
   },
   render: function() {
