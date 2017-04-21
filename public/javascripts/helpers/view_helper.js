@@ -1,4 +1,7 @@
 var viewHelper = {
+  updateListSort: function([model, lists_position]){
+    App.lists.updateListSort([model, lists_position]);
+  },
   removeCardsPositions: function(old_list, model) {
     var target = model.get("position");
     old_list.forEach(function(item) {

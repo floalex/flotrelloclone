@@ -3,7 +3,6 @@ var Cards = Backbone.Collection.extend({
   url: "/cards",
   comparator: "position",
   destroyAllCards: function(list) {
-    // _.invoke(this.where({ list_id: list.id }), "destroy");
     var new_collection = App.cards.filter(function(card) {
       return card.get("list_id") !== list.id;
     });

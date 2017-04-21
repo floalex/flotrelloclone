@@ -69,7 +69,7 @@ var CardView = Backbone.View.extend({
         self.stopListening();
         setTimeout(function() { 
           self.model.trigger("addCommentsCount"); 
-        }, 600);
+        }, 800);
       }
     });
   },
@@ -133,6 +133,9 @@ var CardView = Backbone.View.extend({
   deleteCard: function(e) {
     var result = confirm("Are you sure you want to delete this card?");
     if (result) {
+      if (this.model.comments.length > 0) { 
+        App.comments.trigger("delete_all_comments", this.model); 
+      }
       this.model.destroy();
       this.closeCard(e);
     }

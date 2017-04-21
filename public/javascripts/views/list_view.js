@@ -25,7 +25,8 @@ var ListView = Backbone.View.extend({
     "drop": "dropList"
   },
   dropList: function(event, index) {
-    App.trigger("updateListSort", [this.model, index]);
+    // App.trigger("updateListSort", [this.model, index]);
+    viewHelper.updateListSort([this.model, index]);
   },
   getCardId: function(e) {
     return Number($(e.currentTarget).closest("li").attr("data-id"));
