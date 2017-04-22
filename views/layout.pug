@@ -32,10 +32,10 @@ html
     +javascript_include_tag('collections/lists', 'collections/cards', 'collections/comments')
     +javascript_include_tag('views/header_view','views/header_search')
     +javascript_include_tag('views/index','views/new_list', 'views/list_view', 'views/list_actions')
-    +javascript_include_tag('views/card', 'views/card_duedate', 'views/tag_selection')
+    +javascript_include_tag('views/card', 'views/card_duedate', 'views/tag_selection', 'views/card_editcomment')
     script(type="text/javascript").
       App.lists = new Lists(!{JSON.stringify(lists)});
-      App.cards = new Cards(!{JSON.stringify(cards)});
       App.comments = new Comments(!{JSON.stringify(comments)});
+      App.cards = new Cards(!{JSON.stringify(cards)});
     +javascript_include_tag('router')
     block scripts

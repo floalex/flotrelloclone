@@ -27,7 +27,7 @@ var CardView = Backbone.View.extend({
     "click .archive": "deleteCard",
   },
   getCommentID: function(e) {
-    return $(e.target).closest("li").find(".comment").attr("data-id");
+    return $(e.target).closest(".comment").attr("data-id");
   },
   closeCard: function(e) {
     e.preventDefault();
@@ -65,33 +65,33 @@ var CardView = Backbone.View.extend({
       success: function(json) {
         App.comments.add(json);
         $input.val("");
-        self.renderCommentsAndTemplate();
-        self.stopListening();
-        setTimeout(function() { 
-          self.model.trigger("addCommentsCount"); 
-        }, 800);
+        self.model.trigger("setCommentsCount"); 
       }
     });
   },
   editComment: function(e) {
     e.preventDefault();
     e.stopImmediatePropagation();
-    console.log($(e.target));
+    var comment_id = this.getCommentID(e);
+  
+    var comment_element = $(e.target).closest(".comment");
+    comment_element.find("p").remove();
+    $(e.target).closest("footer").remove();
+    new EditCommentView({
+      el: comment_element,
+      model: App.comments.get(comment_id),
+    });
   },
   deleteComment: function(e) {
     e.preventDefault();
     e.stopImmediatePropagation();
+ 
     var result = confirm("Are you sure you want to delete this comment?");
     if (result) {
       var comment_id = this.getCommentID(e);
   
       App.comments.get(comment_id).trigger("delete_comment");
-      this.renderCommentsAndTemplate();
-      this.stopListening();
-      var self = this;
-      setTimeout(function() { 
-        self.model.trigger("reduceCommentsCount"); 
-      }, 900);
+      this.model.trigger("setCommentsCount"); 
     }
   },
   renderTagSelection: function(e) {
@@ -159,6 +159,7 @@ var CardView = Backbone.View.extend({
     this.render();
     this.delegateEvents();
     
+    this.listenTo(App, "comment_change", this.renderCommentsAndTemplate);
     this.listenTo(this.model, "change request", this.renderCommentsAndTemplate);
     this.listenTo(this.model, "remove", this.remove);
   }

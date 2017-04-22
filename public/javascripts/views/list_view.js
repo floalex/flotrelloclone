@@ -21,11 +21,10 @@ var ListView = Backbone.View.extend({
     "click .modal-layer, .list-modal .pop-over-header-button-close": "closeListModal",
     "click .card-new input[type='submit']": "createCard",
     
-    // ----- List view other -----
+    // ----- List view drag&drop -----
     "drop": "dropList"
   },
   dropList: function(event, index) {
-    // App.trigger("updateListSort", [this.model, index]);
     viewHelper.updateListSort([this.model, index]);
   },
   getCardId: function(e) {

@@ -32,7 +32,6 @@ var App = {
     this.listenTo(this.lists, "add", this.addOneList);
     this.listenTo(this.lists, "update", this.renderAllLists);
     
-    // this.on("updateListSort", this.lists.updateListSort.bind(this.lists));
     this.on("updateCardSort", this.renderAllLists);
   }
 };

@@ -38,7 +38,7 @@ module.exports = function(router) {
     if (req.body.card_id) { 
       comment.card_id = Number(req.body.card_id);
     }
-    Comment.set({ last_id: comment.getLastID(), data: comments });
+    Comment.set({ last_id: Comment.getLastID(), data: comments });
     res.json(comment);
   });
 

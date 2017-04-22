@@ -4,6 +4,14 @@ this["JST"]["card_due_date"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"m
     return "<div class=\"modal-layer\"></div><div class=\"modal-header\"><span class=\"action-title\">Change Due Date</span><span class=\"close\"><i class=\"fa fa-times\"></i></span></div><form><fieldset><label><h2>Date</h2><input type=\"text\" name=\"date\"></label><!----><label><h2>Time</h2><input type=\"time\" name=\"time\" value=\"12:00\"></label></fieldset><div class=\"datepicker\"></div><div class=\"form-controls\"><input type=\"submit\" value=\"Save\"><input class=\"remove\" type=\"submit\" value=\"Remove\"></div></form>";
 },"useData":true});
 
+this["JST"]["card_editcomment"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var helper;
+
+  return "<form><textarea class=\"comment-input\">"
+    + container.escapeExpression(((helper = (helper = helpers.text || (depth0 != null ? depth0.text : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"text","hash":{},"data":data}) : helper)))
+    + "</textarea><div class=\"form-controls\"><input type=\"submit\" value=\"Save\"><a class=\"close\" href=\"#\"><i class=\"fa fa-times fa-2x\"></i></a></div></form>";
+},"useData":true});
+
 this["JST"]["card"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
