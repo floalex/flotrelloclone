@@ -1,0 +1,15 @@
+<div class="modal-layer"></div>
+<div class="modal-header">
+  <span class="action-title">Notifications</span>
+  <span class="close"><i class="fa fa-times"></i></span>
+</div>
+<section class="activity">
+  <ul class="activities">
+    {{#each due_date_changes}}
+      <li>
+        <a class="card-name" href="/cards/{{id}}"><strong>{{title}}</strong></a>
+        <p>on <strong>{{list_title}}</strong> due {{format_date due_date}}</p>
+      </li>
+    {{/each}}
+  </ul>
+</section>

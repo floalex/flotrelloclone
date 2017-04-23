@@ -431,6 +431,7 @@ footer {
 #card-detail .detail-main .description:hover {
   background: #d6dadc;
   color: #4d4d4d;
+  cursor: pointer;
 }
 #card-detail .detail-main .description span {
   margin: 0 7px 0 0;
@@ -443,26 +444,35 @@ footer {
   color: #8c8c8c;
   text-decoration: underline;
 }
-#card-detail .detail-main .description form {
+#card-detail .detail-main .description-form {
   display: none;
 }
-#card-detail .detail-main .description form textarea {
+#card-detail .detail-main .description-form span {
+  margin: 0 7px 0 0;
+}
+#card-detail .detail-main .description-form textarea {
+  background: rgba(0,0,0,0.03);
+  border: 1px solid rgba(0,0,0,0.15);
+  box-shadow: inset 0 1px 6px rgba(0,0,0,0.1);
+  margin-bottom: 4px;
   box-sizing: border-box;
   width: 100%;
-  min-height: 110px;
+  height: 108px;
   padding: 5px;
-  border: 1px solid;
 }
-#card-detail .detail-main .description form textarea:focus {
+#card-detail .detail-main .description-form textarea:focus {
   outline: none;
 }
-#card-detail .detail-main .description form .form-controls {
+#card-detail .detail-main .description-form a {
+  color: #8c8c8c;
+}
+#card-detail .detail-main .description-form .form-controls {
   display: block;
   height: 35px;
   overflow: hidden;
   transition: height 0.25s;
 }
-#card-detail .detail-main .description form .form-controls input[type="submit"] {
+#card-detail .detail-main .description-form .form-controls input[type="submit"] {
   padding: 0 20px;
   min-height: 30px;
   box-shadow: 0 1px 0 #3f6f21;
@@ -472,18 +482,18 @@ footer {
   font-weight: bold;
   cursor: pointer;
 }
-#card-detail .detail-main .description form .form-controls input[type="submit"]:hover {
+#card-detail .detail-main .description-form .form-controls input[type="submit"]:hover {
   background: linear-gradient(to top, #61bd4f 0, #5aac44 100%);
 }
-#card-detail .detail-main .description form .form-controls .close {
+#card-detail .detail-main .description-form .form-controls .close {
   display: inline-block;
   float: none;
   margin: 0 0 0 5px;
 }
-#card-detail .detail-main .description form .form-controls .close:hover {
+#card-detail .detail-main .description-form .form-controls .close:hover {
   background: inherit;
 }
-#card-detail .detail-main .description form .form-controls .close i {
+#card-detail .detail-main .description-form .form-controls .close i {
   vertical-align: middle;
 }
 #card-detail .details {
@@ -615,6 +625,13 @@ footer {
   border: 1px solid #00f;
   border-bottom: 1px solid;
   color: #fff;
+}
+#card-detail aside section .actions .action .fa-check {
+  margin-left: 15px;
+  padding: 3px 5px;
+  background: #61bd4f;
+  color: #fff;
+  border-radius: 3px;
 }
 .ui-sortable-placeholder {
   padding: 4px 7px;
@@ -931,31 +948,38 @@ header .icon-notification {
   font-weight: bold;
   font-size: 16px;
 }
-#menu header {
+#menu .activity-header {
   border-radius: 3px;
   padding: 5px;
+  margin: 0 0 5px 0;
 }
-#menu header h2 {
+#menu .activity-header h2 {
   display: inline-block;
 }
-#menu header i {
+#menu .activity-header span {
+  margin-right: 5px;
   vertical-align: middle;
   color: #8c8c8c;
 }
-#menu header:hover {
+#menu .activity-header:hover {
   background: #d6dadc;
 }
-#menu header:hover h2 {
+#menu .activity-header:hover h2 {
   color: #000;
 }
-#menu header:hover i {
+#menu .activity-header:hover span {
   color: #4d4d4d;
 }
-#menu .activities {
+#menu .menu-activities {
+  margin: 0 0 0 5px;
   color: #4d4d4d;
   font-size: 14px;
 }
-#menu .activities li {
+#menu .menu-activities section {
+  padding: 5px 0;
+  border-bottom: 1px solid #e2e4e6;
+}
+#menu .menu-activities li {
   padding: 10px 0;
 }
 .modal-layer,
@@ -1004,6 +1028,25 @@ header .icon-notification {
 }
 .modal .modal-header .close:hover {
   cursor: pointer;
+}
+#notifications {
+  display: block;
+  position: absolute;
+  width: 400px;
+  z-index: 8;
+  background: #edeff0;
+  color: #4d4d4d;
+}
+#notifications .activity {
+  margin-left: 5px;
+  color: #4d4d4d;
+  font-size: 14px;
+}
+#notifications .activity section {
+  border-bottom: 1px solid #e2e4e6;
+}
+#notifications .activity li {
+  padding: 10px 0;
 }
 #content {
   box-sizing: border-box;

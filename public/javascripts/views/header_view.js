@@ -35,8 +35,10 @@ var HeaderView = Backbone.View.extend({
     } 
   },
   renderNotifications: function(e) {
-    console.log("buidling");
-    // new NotificationsView({ collection: App.notifications });
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    // console.log("buidling");
+    new NotificationsView({ collection: App.cards });
   },
   initialize: function() {
     this.listenTo(App, "closeSearchForm", this.closeSearchForm);

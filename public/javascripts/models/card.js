@@ -1,9 +1,9 @@
 var Card = Backbone.Model.extend({
   defaults: {
     title: "",
-    // comments_count: 0,
     subscribed: false,
     labels: [],
+    description: ""
   },
   setCommentsCount: function() {
     var self = this;

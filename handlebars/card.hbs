@@ -24,12 +24,23 @@
     {{/if}}
     <div class="description">
       {{#if description}}
-      <h3>Description <a href="#">Edit</a></h3>
-      <p>{{description}}<p>
+        <h3>Description <a href="#">Edit</a></h3>
+        <p>{{description}}<p>
       {{else}}
-      <span><i class="fa fa-align-left"></i></span>
-      <a href="#">Edit the description...</a>
+        <div class="quiet-button">
+          <span><i class="fa fa-align-left"></i></span>
+          <a href="#">Edit the description...</a>
+        </div>
       {{/if}}
+    </div>
+    <div class="description-form">
+      <form>
+        <textarea>{{description}}</textarea>
+        <div class="form-controls">
+          <input type="submit" value="Save">
+          <a class="close" href="#"><i class="fa fa-times fa-2x"></i></a>
+        </div>
+      </form>
     </div>
   </div>
   {{/with}}

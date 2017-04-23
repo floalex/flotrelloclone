@@ -14,6 +14,9 @@ var CardView = Backbone.View.extend({
     "blur .title": "updateCardTitle",
     
     // ----- Card activities -----
+    "click .description .quiet-button, .description-form .close": "toggleDescription",
+    "click .description-form input[type='submit']": "submitDescription",
+    
     "click .add-comment input[type='submit']": "createComment",
     "click .activity .edit": "editComment",
     "click .activity .delete": "deleteComment",
@@ -43,6 +46,23 @@ var CardView = Backbone.View.extend({
      this.model.set({ title: value });
      this.model.sync("update", this.model);
     } 
+  },
+  toggleDescription: function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    this.$el.find(".description, .description-form").toggle();
+  },
+  submitDescription: function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var desc_body = $(".description-form").find("textarea").val().trim();
+ 
+    if (desc_body === this.model.get("description")) {
+      this.toggleDescription();
+    } else {
+      this.model.set({ description: desc_body });
+      this.model.sync("update", this.model);
+    }
   },
   createComment: function(e) {
     e.preventDefault();

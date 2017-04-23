@@ -1,0 +1,19 @@
+<div class="modal-header">
+  <span class="action-title">Menu</span>
+  <span class="close"><i class="fa fa-times fa-2x"></i></span>
+</div>
+<section class="activity">
+  <div class="activity-header">
+    <span><i class="fa fa-list fa-lg"></i></span>
+    <h2>Activity</h2>
+  </div>
+  <ul class="menu-activities">
+    {{#each comments}}
+      <section class="comment" data-id="{{id}}">
+        <h3>Member Name on <a class="card-name" href="/cards/{{card_id}}">{{card_title}}</a></h3>
+        <p>{{text}}</p>
+        <footer>{{date}}</footer>
+      </section>
+    {{/each}}
+  </ul>
+</section>

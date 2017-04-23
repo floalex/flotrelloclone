@@ -10,7 +10,7 @@ var IndexView = Backbone.View.extend({
     $("#menu").animate({
       right: 0,
     });
-    // new MenuView();
+    new MenuView();
   },
   render: function() {
     this.$el.html(this.template());
