@@ -2,67 +2,121 @@ var MoveCardView = Backbone.View.extend({
   template: App.templates.card_move,
   events: {
     "click .modal-layer, .close": "removeForm",
-    // 'change .list-name select': view_helpers.updateListNameAndPositions,
-    'change .card-position select': 'updatePosition',
-    'submit form': 'updateCardListAndPosition',
+    "change .list-name": "updateList",
+    "change .card-position select": "updateCard",
+    "submit form": "moveCard",
   },
   removeForm: function(e) {
     e.preventDefault();
     this.$el.find(".modal-layer").toggle();
     this.remove();
   },
-  updatePosition: function (e) {
-    var position = $(e.target).find('option:selected').val();
+  updateList: function(e) {
+    var new_list =$(e.target).find("option:selected").val();
 
-    this.$el.find('.card-position p').text(position);
+   this.$el.find(".list-name p").text(new_list);
+    var list_id = App.lists.toJSON().find(function(list) {
+      return list.name === new_list;
+    }).id;
+    this.rerenderData(list_id);
   },
-  updateCardListAndPosition: function (e) {
+  updateCard: function(e) {
+    var position = $(e.target).find("option:selected").val();
+
+    this.$el.find(".card-position p").text(position);
+  },
+  moveCard: function(e) {
     e.preventDefault();
-    var cardsSource = App.lists.get(this.model.get('list_id')).get('cards');
-    var listId = Number($(e.target).find('.list-name select option:selected').attr('data-id'));
-    var cardsDest = App.lists.get(listId).get('cards');
-    var position = $(e.target).find('.card-position select option:selected').val() - 1;
+    e.stopImmediatePropagation();
+    
+    var from_list = App.lists.get(this.model.get("list_id")).cards;
+    var list_name = $(e.target).find(".list-name p").text();
+    var new_list_id = App.lists.toJSON().find(function(list) {
+      return list.name === list_name;
+    }).id;
+ 
+    var to_list = App.lists.get(new_list_id).cards;
+    var new_position = Number($(e.target).find(".card-position select option:selected").val()) - 1;
 
-    cardsSource.remove(this.model);
-    cardsSource.trigger('move_card_remove', this.model);
+    viewHelper.removeCardsPositions(from_list, this.model);
+    
+    this.model.set({
+      list_id: new_list_id,
+      list_title: list_name,
+      position: new_position,
+    }); 
 
-    this.model.set({ position: position, list_id: listId });
+    viewHelper.insertCardsPositions(to_list, this.model); 
 
-    cardsDest.add(this.model);
-    cardsDest.trigger('move_card_add', this.model);
-
-    cardsSource.trigger('move_card');
-    cardsDest.trigger('move_card');
+    App.cards.sync("update", App.cards);
+    App.trigger("updateCardSort");
   },
   render: function() {
+    this.renderInitialData();
+    this.$el.appendTo($("#card-detail"));
+    this.$el.find(".modal-layer").toggle();
+  },
+  renderInitialData: function() {
     var current_position = this.model.get("position") + 1;
     var current_list_id = this.model.get("list_id");
     var current_list_name = App.lists.get(current_list_id).get("name");
-    var cards = App.cards.where({ list_id: this.model.get("list_id") });
+    var cards = App.lists.get(current_list_id).cards;
     
-    console.log(cards);
     var lists_data = App.lists.toJSON().map(function(list) {
       var list_name = App.lists.get(list.id).get("name");
       var lists = { name: list_name };
       if (list.id === current_list_id) { 
-        lists.current = current_list_name; 
+        lists.current_list = current_list_name; 
       }
       return lists;
     }); 
-   
-    var cards_positions = 
+    
+    var cards_positions = _.pluck(cards, "position").map(function(place) {
+      var position = { position: place + 1 };
+      if (place + 1 ===  current_position) { 
+        position.current =  current_position; 
+      }
+      return position;
+    });
 
     this.$el.html(this.template({
       current_list: current_list_name,
       current_position: current_position,
       lists: lists_data,
-      // positions: 
+      positions: cards_positions
     }));
-    this.$el.appendTo($("#card-detail"));
-    this.$el.find(".modal-layer").toggle();
   },
-  initialize: function () {
+  rerenderData: function(new_list_id) {
+    var current_position = this.model.get("position") + 1;
+    var current_list_name = App.lists.get(new_list_id).get("name");
+    
+    var lists_data = App.lists.toJSON().map(function(list) {
+      var list_name = App.lists.get(list.id).get("name");
+      var lists = { name: list_name };
+      if (list.id === new_list_id) { 
+        lists.current_list = current_list_name; 
+      }
+      return lists;
+    }); 
+    
+    var cards = App.lists.get(new_list_id).cards;
+    var cards_positions = _.pluck(cards, "position").map(function(place) {
+      var position = { position: place + 1 };
+      return position;
+    });
+    
+    if (new_list_id !== this.model.list_id) {
+      cards_positions.push({ position: cards_positions.length + 1 });
+    }
+    
+    this.$el.html(this.template({
+      current_list: current_list_name,
+      current_position: current_position,
+      lists: lists_data,
+      positions: cards_positions
+    }));
+  },
+  initialize: function() {
     this.render();
-    this.listenTo(App, 'render_move_card_form', this.remove);
   },
 });

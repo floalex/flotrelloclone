@@ -14,10 +14,10 @@
     <dd>
       <select>
         {{#each lists}}
-          {{#if current}}
-            <option data-id="{{id}}" value="{{current}}" selected>{{current}} (current)</option>
+          {{#if current_list}}
+            <option value="{{current_list}}" selected>{{current_list}} (current)</option>
           {{else}}
-            <option data-id="{{id}}" value="{{name}}">{{name}}</option>
+            <option value="{{name}}">{{name}}</option>
           {{/if}}
         {{/each}}
       </select>
