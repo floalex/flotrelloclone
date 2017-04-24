@@ -6,7 +6,9 @@
       <span><i class="fa fa-list-alt fa-lg"></i></span>
       <textarea class="title formated" rows="1">{{title}}</textarea>
     </div>
-    <div class="detail-main">
+    
+    <div class="cardview-main">
+      <div class="detail-main">
     <p class="u-inline-block">in list {{list_title}}</p>
     {{#if labels}}
       <h3>Labels</h3>
@@ -24,7 +26,7 @@
     {{/if}}
     <div class="description">
       {{#if description}}
-        <h3>Description <a href="#">Edit</a></h3>
+        <h3>Description <a class="quiet-button" href="#">Edit</a></h3>
         <p>{{description}}<p>
       {{else}}
         <div class="quiet-button">
@@ -45,7 +47,7 @@
   </div>
   {{/with}}
   
-  <div class="details">
+      <div class="details">
     <section class="add-comment">
       <div class="window-module-title">
         <span><i class="fa fa-comment-o fa-lg"></i></span>
@@ -84,7 +86,8 @@
       </ul>
     </section>
   </div>
-  <aside>
+    </div>
+  <div class="card-sidebar">
     <section class="add">
       <h1>Add</h1>
       <ul>
@@ -109,5 +112,5 @@
         <li class="action archive"><span><i class="fa fa-archive"></i></span>Archive</li>
       </ul>
     </section>
-  </aside>
+  </div>
 </div>

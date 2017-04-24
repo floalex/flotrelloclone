@@ -6,7 +6,7 @@ var MenuView = Backbone.View.extend({
     "click .card-name": "showCard",
   },
   closeView: function () {
-    this.$el.animate({ right: -350 });
+    this.$el.animate({ right: -350 }, 200);
   },
   showCard: function(e) {
     e.preventDefault();

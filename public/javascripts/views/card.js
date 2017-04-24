@@ -162,13 +162,14 @@ var CardView = Backbone.View.extend({
   },
   renderCommentsAndTemplate: function() {
     var self = this;
-    this.model.comments = App.comments.toJSON().filter(function(comment) {
+    var card_comments = App.comments.toJSON().filter(function(comment) {
       return comment.card_id === self.model.id;
     });
     
+    this.model.set("comments", card_comments);
     this.$el.html(this.template({
       card: this.model.toJSON(),
-      comments: this.model.comments
+      comments: card_comments
     }));
   },
   render: function() {

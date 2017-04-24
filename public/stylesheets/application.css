@@ -325,6 +325,121 @@ footer {
   background: #f00;
   color: #fff;
 }
+.move {
+  padding: 12px;
+}
+.move dl {
+  position: relative;
+  margin: 0 0 15px 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 5px;
+  border: 1px solid #d6dadc;
+  border-bottom: 1px solid #d6dadc;
+  border-radius: 3px;
+  background: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+.move dl h5 {
+  margin: 0 0 7px 0;
+  color: #8c8c8c;
+  font-size: 12px;
+}
+.move dl p {
+  color: #4d4d4d;
+  font-size: 18px;
+}
+.move dl:hover {
+  border: 1px solid #00f;
+  background: #00f;
+}
+.move dl:hover h5 {
+  color: #d6dadc;
+}
+.move dl:hover p {
+  color: #fff;
+}
+.move select {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+}
+.move input[type="submit"] {
+  padding: 0 20px;
+  min-height: 30px;
+  box-shadow: 0 1px 0 #3f6f21;
+  background: linear-gradient(to bottom, #61bd4f 0, #5aac44 100%);
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.move input[type="submit"]:hover {
+  background: linear-gradient(to top, #61bd4f 0, #5aac44 100%);
+}
+.copylist {
+  padding: 12px;
+}
+.copylist dl {
+  margin: 0 0 15px 0;
+}
+.copylist dl dt {
+  margin: 0 0 15px 0;
+  color: #4d4d4d;
+}
+.copylist dl textarea {
+  color: #4d4d4d;
+  width: 95%;
+  height: 72px;
+  padding: 5px;
+  background: #e2e4e6;
+  border: 1px solid #d6dadc;
+}
+.copylist dl textarea:focus {
+  background: #fff;
+  border-color: #298fca;
+  box-shadow: 0 0 2px #298fca;
+}
+.copylist input[type="submit"] {
+  padding: 0 20px;
+  min-height: 30px;
+  box-shadow: 0 1px 0 #3f6f21;
+  background: linear-gradient(to bottom, #61bd4f 0, #5aac44 100%);
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.copylist input[type="submit"]:hover {
+  background: linear-gradient(to top, #61bd4f 0, #5aac44 100%);
+}
+.move-all-cards {
+  padding: 12px;
+}
+.move-all-cards .actions {
+  cursor: pointer;
+}
+.move-all-cards .actions .action {
+  padding: 6px 10px;
+  color: #000;
+}
+.move-all-cards .actions .action:hover {
+  background: #298fca;
+  color: #fff;
+}
+.move-all-cards .actions .action:first-child {
+  color: #8c8c8c;
+}
+.move-all-cards .actions .action:first-child:hover {
+  background: #fff;
+  cursor: none;
+}
 #card-detail .card-container {
   position: absolute;
   top: 30px;
@@ -382,6 +497,10 @@ footer {
   resize: none;
   width: 95%;
 }
+#card-detail .cardview-main {
+  display: inline-block;
+  width: 560px;
+}
 #card-detail .detail-main {
   display: inline-block;
   width: 510px;
@@ -438,7 +557,6 @@ footer {
 }
 #card-detail .detail-main .description p {
   color: #8c8c8c;
-  text-decoration: underline;
 }
 #card-detail .detail-main .description a {
   color: #8c8c8c;
@@ -587,18 +705,19 @@ footer {
 #card-detail .activity .comment .form-controls .close i {
   vertical-align: middle;
 }
-#card-detail aside {
-  display: inline-block;
+#card-detail .card-sidebar {
+  float: right;
+  padding: 8px 9pt 9pt 0;
   width: 140px;
-  margin: -60px 0 0 20px;
+  overflow: hidden;
 }
-#card-detail aside section {
+#card-detail .card-sidebar section {
   margin: 0 0 20px 0;
 }
-#card-detail aside section .actions {
+#card-detail .card-sidebar section .actions {
   position: relative;
 }
-#card-detail aside section .actions .action {
+#card-detail .card-sidebar section .actions .action {
   background: linear-gradient(to bottom, #fff 0, #f8f9f9 100%);
   box-sizing: border-box;
   border: 1px solid #e2e4e6;
@@ -617,16 +736,16 @@ footer {
   white-space: nowrap;
   cursor: pointer;
 }
-#card-detail aside section .actions .action span {
+#card-detail .card-sidebar section .actions .action span {
   margin: 0 7px 0 0;
 }
-#card-detail aside section .actions .action:hover {
+#card-detail .card-sidebar section .actions .action:hover {
   background: #00f;
   border: 1px solid #00f;
   border-bottom: 1px solid;
   color: #fff;
 }
-#card-detail aside section .actions .action .fa-check {
+#card-detail .card-sidebar section .actions .action .fa-check {
   margin-left: 15px;
   padding: 3px 5px;
   background: #61bd4f;

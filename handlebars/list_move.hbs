@@ -1,0 +1,26 @@
+<div class="pop-over-header">
+  <span class="pop-over-header-title">Move List</span>
+  <a href="#" class="pop-over-header-button-close"><i class="fa fa-times"></i></a>
+</div>
+<form>
+  <dl>
+    <dt>
+      <label>
+        <h5>Position</h5>
+        <p>{{current_position}}</p>
+      </label>
+    </dt>
+    <dd>
+      <select>
+        {{#each positions}}
+          {{#if current}}
+            <option value="{{position}}" selected>{{position}} (current)</option>
+          {{else}}
+          <option value="{{position}}">{{position}}</option>
+          {{/if}}
+        {{/each}}
+      </select>
+    </dd>
+  </dl>
+  <input type="submit" value="Move">
+</form>

@@ -7,6 +7,7 @@ colors = {
   light-black: #4D4D4D,
   light-grey: #D6DADC,
   darker-grey: #8c8c8c,
+  background-blue: #298FCA
 }
 
 input
@@ -98,3 +99,40 @@ activity-list()
   font-size: 14px
   li
     padding: 10px 0
+
+label-select()
+  dl
+    position: relative
+    margin: 0 0 15px 0
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+    padding: 5px
+    border: 1px solid colors.light-grey
+    border-bottom: 1px solid colors.light-grey
+    border-radius: 3px
+    background: white
+    font-weight: bold
+    cursor: pointer
+    h5
+      margin: 0 0 7px 0
+      color: colors.darker-grey
+      font-size: 12px
+    p
+      color: colors.light-black
+      font-size: 18px
+    &:hover
+      border: 1px solid blue
+      background: blue
+      h5
+        color: colors.light-grey
+      p
+        color: white
+  select
+    position: absolute
+    height: 100%
+    top: 0
+    left: 0
+    width: 100%
+    opacity: 0

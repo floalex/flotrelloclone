@@ -1,0 +1,12 @@
+<div class="pop-over-header">
+  <span class="pop-over-header-title">Move All Cards in List</span>
+  <a href="#" class="pop-over-header-button-close"><i class="fa fa-times"></i></a>
+</div>
+<form>
+  <ul class="actions">
+    <li class="action">{{current}} (current)</li>
+    {{#each lists}}
+      <li class="action" data-id="{{id}}">{{name}}</li>
+    {{/each}}
+  </ul>
+</form>

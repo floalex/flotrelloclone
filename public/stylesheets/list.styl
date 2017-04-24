@@ -217,3 +217,46 @@
       border-radius: 3px
       background: red
       color: white
+
+.move
+  padding: 12px
+  label-select()
+  input[type="submit"]
+    submit-btn()
+
+.copylist
+  padding: 12px
+  dl
+    margin: 0 0 15px 0
+    dt
+      margin: 0 0 15px 0
+      color: #4d4d4d
+    textarea
+      color: #4d4d4d
+      width: 95%
+      height: 72px
+      padding: 5px
+      background: #E2E4E6;
+      border: 1px solid colors.light-grey
+      &:focus
+        background: #fff;
+        border-color: #298FCA;
+        box-shadow: 0 0 2px #298FCA
+  input[type="submit"]
+    submit-btn()
+
+.move-all-cards
+  padding: 12px
+  .actions
+    cursor: pointer
+    .action
+      padding: 6px 10px
+      color: black
+      &:hover
+        background: colors.background-blue
+        color: #fff
+      &:first-child
+        color: colors.darker-grey
+        &:hover
+          background: #fff
+          cursor: none

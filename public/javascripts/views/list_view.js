@@ -25,7 +25,7 @@ var ListView = Backbone.View.extend({
     "drop": "dropList"
   },
   dropList: function(event, index) {
-    viewHelper.updateListSort([this.model, index]);
+    App.lists.updateListSort([this.model, index]);
   },
   getCardId: function(e) {
     return Number($(e.currentTarget).closest("li").attr("data-id"));
@@ -112,6 +112,7 @@ var ListView = Backbone.View.extend({
     });
   },
   bindSortingEvents: function() {
+    var self = this;
     $(".list-cards").sortable({
       connectWith: ".list-cards",
       placeholder: "ui-sortable-placeholder",
@@ -129,29 +130,32 @@ var ListView = Backbone.View.extend({
           var new_position = ui.item.index();
           var new_list_id = Number($(event.target).parents().attr("data-id"));
           
-          var old_list = App.lists.get(old_list_id).cards;
-          var new_list = App.lists.get(new_list_id).cards;
-          var new_list_name = App.lists.get(new_list_id).get("name");
-          var card = App.cards.get(card_id);
-          
-          viewHelper.removeCardsPositions(old_list, card);
-          
-          card.set({
-            list_id: new_list_id,
-            list_title: new_list_name,
-            position: new_position,
-          });   
-      
-          viewHelper.insertCardsPositions(new_list, card); 
-
-          App.cards.sync("update", App.cards);
-          App.trigger("updateCardSort");
+          self.updateCardPosition(card_id, old_list_id, new_position, new_list_id);
         }
       },
       stop: function(event, ui) {
         ui.item.toggleClass("tilted", false);
       },
     });
+  },
+  updateCardPosition: function(card_id, old_list_id, new_position, new_list_id) {
+    var old_list = App.lists.get(old_list_id).cards;
+    var new_list = App.lists.get(new_list_id).cards;
+    var new_list_name = App.lists.get(new_list_id).get("name");
+    var card = App.cards.get(card_id);
+    
+    viewHelper.removeCardsPositions(old_list, card);
+    
+    card.set({
+      list_id: new_list_id,
+      list_title: new_list_name,
+      position: new_position,
+    });   
+
+    viewHelper.insertCardsPositions(new_list, card); 
+
+    App.cards.sync("update", App.cards);
+    App.trigger("updateCardSort");
   },
   render: function() {
     this.renderTemplate();
@@ -178,6 +182,7 @@ var ListView = Backbone.View.extend({
     this.delegateEvents();
     this.bindSortingEvents();
     
+    this.listenTo(App, "list_actions_remove", this.closeListModal);
     this.listenTo(App, "card_change", this.renderTemplate);
     this.listenTo(this.model, "change", this.renderTemplate);
     this.listenTo(this.model, "remove", this.remove);

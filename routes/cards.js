@@ -9,9 +9,17 @@ module.exports = function(router) {
     res.json(Card.get());
   }).put(function(req, res) {  
     var new_cards = req.body;
-
+    
     Card.set({ last_id: Card.getLastID(), data: new_cards });
     res.json(new_cards);
+  }).post(function(req, res) {
+    var cards = Card.get();
+    var card = req.body;
+
+    card.id = Card.nextID();
+    cards.push(card);
+    Card.set({ last_id: card.id, data: cards });
+    res.json(card);
   });
   
   router.route('/cards/:id').get(function(req, res) {

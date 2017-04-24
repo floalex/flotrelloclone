@@ -1,33 +1,41 @@
 var ListActionsView = Backbone.View.extend({
   template: App.templates.list_actions,
   events: {
-    // "click .copy-list": "renderCopyListView",
-    // "click .move-list": "renderMoveListView",
+    "click .copy-list": "renderCopyListView",
+    "click .move-list": "renderMoveListView",
     "click .list-subscribe": "toggleSubscribeList",
     
-    // "click .move-cards': 'renderMoveCardsView",
+    "click .move-cards": "renderMoveCardsView",
     "click .archive-cards": "archiveCards",
     
     "click .delete-list": "archiveList",
   },
   renderCopyListView: function(e) {
     e.preventDefault();  
-    // new CopyListView({ model: this.model });
+    e.stopImmediatePropagation();
+    
+    App.trigger("copy_list_view");
+    new CopyList({ model: this.model });
   },
   renderMoveListView: function(e) {
     e.preventDefault(); 
-    // new MoveListView({ model: this.model });
+    e.stopImmediatePropagation();
+    
+    App.trigger("move_list_view");
+    new MoveList({ model: this.model });
   },
   toggleSubscribeList: function(e) {
     e.preventDefault();
     e.stopImmediatePropagation();
     this.model.trigger("subscribeToggle");
     console.log(this.model.toJSON());
-    // $(e.delegateTarget).prev().find(".subscribed").toggle();
   },
   renderMoveCardsView: function(e) {
     e.preventDefault();
-    // new MoveCardsView({ model: this.model });
+    e.stopImmediatePropagation();
+    
+    App.trigger("move_listcards_view");
+    new MoveCardsView({ model: this.model });
   },
   archiveCards: function(e) {
     e.preventDefault();

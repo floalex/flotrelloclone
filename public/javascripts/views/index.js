@@ -7,9 +7,10 @@ var IndexView = Backbone.View.extend({
   },
   displayMenu: function(e) {
     e.preventDefault();
+    e.stopImmediatePropagation();
     $("#menu").animate({
       right: 0,
-    });
+    }, 200);
     new MenuView();
   },
   render: function() {

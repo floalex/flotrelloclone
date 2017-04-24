@@ -48,6 +48,9 @@
       padding: 4px 6px
       resize: none;
       width: 95%;
+  .cardview-main
+    display: inline-block
+    width: 560px
   .detail-main
     display: inline-block
     width: 510px
@@ -97,7 +100,6 @@
         margin: 0 7px 0 0
       p
         color: #8c8c8c
-        text-decoration: underline
       a
         color: #8c8c8c
         text-decoration: underline
@@ -160,10 +162,11 @@
     .comment
       form-controls()
       
-  aside
-    display: inline-block
+  .card-sidebar
+    float: right
+    padding: 8px 9pt 9pt 0
     width: 140px
-    margin: -60px 0 0 20px
+    overflow: hidden
     section
       margin: 0 0 20px 0
       .actions

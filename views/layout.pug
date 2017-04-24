@@ -32,6 +32,7 @@ html
     +javascript_include_tag('collections/lists', 'collections/cards', 'collections/comments')
     +javascript_include_tag('views/header_view','views/header_search', 'views/menu', 'views/notification')
     +javascript_include_tag('views/index','views/new_list', 'views/list_view', 'views/list_actions')
+    +javascript_include_tag('views/list_move', 'views/list_copy', 'views/list_movecards')
     +javascript_include_tag('views/card', 'views/card_duedate', 'views/tag_selection', 'views/card_editcomment')
     script(type="text/javascript").
       App.lists = new Lists(!{JSON.stringify(lists)});

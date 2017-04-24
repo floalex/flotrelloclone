@@ -22,7 +22,7 @@ var Cards = {
     return JSON.parse(fs.readFileSync(file_path, "utf8")).last_id;
   },
   nextID: function() {
-    return this.getLastID()+ 1;
+    return this.getLastID() + 1;
   },
 };
 
