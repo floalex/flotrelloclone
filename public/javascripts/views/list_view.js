@@ -184,6 +184,7 @@ var ListView = Backbone.View.extend({
     
     this.listenTo(App, "list_actions_remove", this.closeListModal);
     this.listenTo(App, "card_change", this.renderTemplate);
+    
     this.listenTo(this.model, "change", this.renderTemplate);
     this.listenTo(this.model, "remove", this.remove);
   }

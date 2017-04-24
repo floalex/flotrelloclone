@@ -920,6 +920,64 @@ footer {
   text-decoration: underline;
   cursor: pointer;
 }
+.move-card {
+  padding: 12px;
+}
+.move-card dl {
+  position: relative;
+  margin: 0 0 15px 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 5px;
+  border: 1px solid #d6dadc;
+  border-bottom: 1px solid #d6dadc;
+  border-radius: 3px;
+  background: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+.move-card dl h5 {
+  margin: 0 0 7px 0;
+  color: #8c8c8c;
+  font-size: 12px;
+}
+.move-card dl p {
+  color: #4d4d4d;
+  font-size: 18px;
+}
+.move-card dl:hover {
+  border: 1px solid #00f;
+  background: #00f;
+}
+.move-card dl:hover h5 {
+  color: #d6dadc;
+}
+.move-card dl:hover p {
+  color: #fff;
+}
+.move-card select {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+}
+.move-card input[type="submit"] {
+  padding: 0 20px;
+  min-height: 30px;
+  box-shadow: 0 1px 0 #3f6f21;
+  background: linear-gradient(to bottom, #61bd4f 0, #5aac44 100%);
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.move-card input[type="submit"]:hover {
+  background: linear-gradient(to top, #61bd4f 0, #5aac44 100%);
+}
 body {
   font: 14px "Helvetica Neue", Arial, Helvetica, sans-serif;
   background: #0079bf;

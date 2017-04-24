@@ -23,27 +23,35 @@ var CopyList = Backbone.View.extend({
         success: function(json) {
           App.lists.add(json);
           var cards = self.model.cards;
-          var copy_cards = cards.map(function(card) {
+          var copy_cards = [];
+          cards.forEach(function(card, index) {
             var copy = { 
+              "id": App.cards.length + index + 1,
               "list_id": Number(json.id),
               "list_title": new_name,
               "title": card.title,
               "labels": card.labels,
               "position": card.position,
               "due_date": card.due_date,
-              "description": card.description
+              "description": card.description,
               };
-            return copy;
-          });
+            copy_cards.push(copy);
+          });  
           
-          for (var i = 1; i <= copy_cards.length; i++) {
-            (function(index) {
-              setTimeout(function() { 
-                App.cards.create(copy_cards[index-1]);
-                App.trigger("card_change");
-              }, i * 700);
-            })(i);
-          }
+          setTimeout(function() { 
+            App.cards.add(copy_cards);
+            App.trigger("card_change");
+            App.cards.sync("create", App.cards);
+          }, 900);
+          
+          // for (var i = 1; i <= copy_cards.length; i++) {
+          //   (function(index) {
+          //     setTimeout(function() { 
+          //       App.cards.create(copy_cards[index-1]);
+          //       App.trigger("card_change");
+          //     }, i * 700);
+          //   })(i);
+          // }
         }
       });
     }

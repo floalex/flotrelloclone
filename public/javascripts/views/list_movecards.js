@@ -27,9 +27,10 @@ var MoveCardsView = Backbone.View.extend({
     App.trigger("updateCardSort");
   },
   render: function () {
+    var self = this;
     var lists = App.lists.toJSON().filter(function(list) {
-      return list.id !== this.model.id;
-    }.bind(this));
+      return list.id !== self.model.id;
+    });
 
     this.$el.html(this.template({ 
       current: this.model.get("name"), 

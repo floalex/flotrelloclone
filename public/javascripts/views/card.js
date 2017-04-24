@@ -26,6 +26,8 @@ var CardView = Backbone.View.extend({
     "click .date": "renderDateForm",
     
     // ----- Other actions -----
+    "click .move": "openMoveCard",
+    "click .copy": "openCopyCard",
     "click .subs": "toggleSubscribeCard",
     "click .archive": "deleteCard",
   },
@@ -144,6 +146,21 @@ var CardView = Backbone.View.extend({
       }
     });
   },
+  openMoveCard: function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var button_position = $(e.target).offset();
+    var top = button_position.top + top_offset;
+    var left = button_position.left - left_offset;
+    
+    new MoveCardView({
+      model: this.model,
+      attributes: {
+        class: "modal move-card",
+        style: "top:" + top + "px;left:" + left + "px;",
+      }
+    });
+  },
   toggleSubscribeCard: function(e) {
     e.preventDefault();
     e.stopImmediatePropagation();
@@ -166,7 +183,6 @@ var CardView = Backbone.View.extend({
       return comment.card_id === self.model.id;
     });
     
-    this.model.set("comments", card_comments);
     this.$el.html(this.template({
       card: this.model.toJSON(),
       comments: card_comments

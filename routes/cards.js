@@ -13,13 +13,21 @@ module.exports = function(router) {
     Card.set({ last_id: Card.getLastID(), data: new_cards });
     res.json(new_cards);
   }).post(function(req, res) {
+    // for bulk create
     var cards = Card.get();
-    var card = req.body;
+    var new_card = req.body;
+    for (var key in new_card) {
+      if ( req.body[key] && !(req.body[key] instanceof Array)) {
+        cards.push(req.body[key]);
+      }
+    }
+    
+    // card.id = Card.nextID();
+    // cards.push(card);
+    var cards_last_id = Card.getLastID() + Object.keys(req.body).length - 5;
 
-    card.id = Card.nextID();
-    cards.push(card);
-    Card.set({ last_id: card.id, data: cards });
-    res.json(card);
+    Card.set({ last_id: cards_last_id, data: cards });
+    res.json(new_card);
   });
   
   router.route('/cards/:id').get(function(req, res) {

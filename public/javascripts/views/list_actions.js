@@ -14,14 +14,12 @@ var ListActionsView = Backbone.View.extend({
     e.preventDefault();  
     e.stopImmediatePropagation();
     
-    App.trigger("copy_list_view");
     new CopyList({ model: this.model });
   },
   renderMoveListView: function(e) {
     e.preventDefault(); 
     e.stopImmediatePropagation();
     
-    App.trigger("move_list_view");
     new MoveList({ model: this.model });
   },
   toggleSubscribeList: function(e) {
@@ -34,7 +32,6 @@ var ListActionsView = Backbone.View.extend({
     e.preventDefault();
     e.stopImmediatePropagation();
     
-    App.trigger("move_listcards_view");
     new MoveCardsView({ model: this.model });
   },
   archiveCards: function(e) {

@@ -1,0 +1,46 @@
+<div class="modal-layer"></div>
+<div class="modal-header">
+  <span class="action-title">Move Card</span>
+  <span class="close"><i class="fa fa-times"></i></span>
+</div>
+<form>
+  <dl class="list-name">
+    <dt>
+      <label>
+        <h5>List</h5>
+        <p>{{current_list}}</p>
+      </label>
+    </dt>
+    <dd>
+      <select>
+        {{#each lists}}
+          {{#if current}}
+            <option data-id="{{id}}" value="{{current}}" selected>{{current}} (current)</option>
+          {{else}}
+            <option data-id="{{id}}" value="{{name}}">{{name}}</option>
+          {{/if}}
+        {{/each}}
+      </select>
+    </dd>
+  </dl>
+  <dl class="card-position">
+    <dt>
+      <label>
+        <h5>Position</h5>
+        <p>{{current_position}}</p>
+      </label>
+    </dt>
+    <dd>
+      <select>
+        {{#each positions}}
+          {{#if current}}
+            <option value="{{current}}" selected>{{current}} (current)</option>
+          {{else}}
+            <option value="{{position}}">{{position}}</option>
+          {{/if}}
+        {{/each}}
+      </select>
+    </dd>
+  </dl>
+  <input type="submit" value="Move">
+</form>
