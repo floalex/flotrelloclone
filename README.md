@@ -1,7 +1,7 @@
-#Trello Clone web app coded with Backbone.js & Express.js
+# Trello Clone web app coded with Backbone.js & Express.js
 
-###Backend: Express.js with RESTful API
-###Frontend: Backbone.js, jQuery, jQuery-UI & Handlebars
+### Backend: Express.js with RESTful API
+### Frontend: Backbone.js, jQuery, jQuery-UI & Handlebars
 
 ### In Board View
 * Able to create lists, via a new list view
