@@ -102,7 +102,6 @@ var CopyCardView = Backbone.View.extend({
   },
 
   rerenderData: function(new_list_id) {
-    var current_position = this.model.get("position") + 1;
     var current_list_name = App.lists.get(new_list_id).get("name");
     
     var lists_data = App.lists.toJSON().map(function(list) {
@@ -121,6 +120,7 @@ var CopyCardView = Backbone.View.extend({
     });
     
     cards_positions.push({ position: cards_positions.length + 1 });
+    var current_position = cards_positions.length;
     
     this.$el.html(this.template({
       card: this.model.toJSON(),
