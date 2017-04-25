@@ -44,6 +44,7 @@ var CopyList = Backbone.View.extend({
             App.cards.add(copy_cards);
             App.trigger("card_change");
             App.cards.sync("create", App.cards);
+            App.trigger("updateCardSort");
           }, 900);
           
           // for (var i = 1; i <= copy_cards.length; i++) {

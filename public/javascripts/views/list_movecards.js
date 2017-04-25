@@ -19,7 +19,7 @@ var MoveCardsView = Backbone.View.extend({
 
     move_cards.forEach(function(card, index) {
       var original_card = App.cards.get(card.id);
-      card.position = new_positions_last ? Number(new_positions_last) + index : new_positions_last;
+      card.position = new_positions_last ? Number(new_positions_last) + index : index;
       card.list_id = to_list_id;
       original_card.set({"position": card.position, "list_id": to_list_id});
     });

@@ -129,6 +129,7 @@ var CopyCardView = Backbone.View.extend({
       lists: lists_data,
       positions: cards_positions
     }));
+    this.$el.find(".modal-layer").toggle();
   },
   renderInitialData: function() {
     var current_position = this.model.get("position") + 1;
@@ -162,6 +163,7 @@ var CopyCardView = Backbone.View.extend({
       lists: lists_data,
       positions: cards_positions
     }));
+    this.$el.find(".modal-layer").toggle();
   },
   render: function() {
     this.renderInitialData();

@@ -91,6 +91,8 @@ var MoveCardView = Backbone.View.extend({
       lists: lists_data,
       positions: cards_positions
     }));
+    
+    this.$el.find(".modal-layer").toggle();
   },
   rerenderData: function(new_list_id) {
     var current_list_name = App.lists.get(new_list_id).get("name");
@@ -121,6 +123,8 @@ var MoveCardView = Backbone.View.extend({
       lists: lists_data,
       positions: cards_positions
     }));
+    
+    this.$el.find(".modal-layer").toggle();
   },
   initialize: function() {
     this.render();
