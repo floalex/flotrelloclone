@@ -77,7 +77,8 @@ var CopyCardView = Backbone.View.extend({
       new_card_info.comments = copy_comments;
     }
   
-    var self = this;
+    this.model.unset("comments", {silent: true});
+ 
     $.ajax({
       url: "/lists/" + new_list_id + "/cards",
       type: "POST",

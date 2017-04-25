@@ -185,7 +185,7 @@ var CardView = Backbone.View.extend({
     if (result) {
       var last_pos = _.max(App.lists.get(this.model.get("list_id")).cards, function(card) {return card.position;}).position;
       var this_position = this.model.get("position");
-      if (this.model.get("comments").length > 0) { 
+      if (this.model.comments.length > 0) { 
         App.comments.trigger("delete_all_comments", this.model); 
       }
 
@@ -201,7 +201,7 @@ var CardView = Backbone.View.extend({
   },
   renderCommentsAndTemplate: function() {
     var self = this;
-    var card_comments = App.comments.toJSON().filter(function(comment) {
+    var card_comments = this.model.comments = App.comments.toJSON().filter(function(comment) {
       return comment.card_id === self.model.id;
     });
     
