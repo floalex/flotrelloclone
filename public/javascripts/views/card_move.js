@@ -55,10 +55,11 @@ var MoveCardView = Backbone.View.extend({
 
     App.cards.sync("update", App.cards);
     App.trigger("updateCardSort");
+    this.remove();
   },
   render: function() {
     this.renderInitialData();
-    this.$el.appendTo($("#card-detail"));
+    this.$el.appendTo($("#content"));
     this.$el.find(".modal-layer").toggle();
   },
   renderInitialData: function() {

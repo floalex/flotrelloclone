@@ -165,7 +165,7 @@ var CopyCardView = Backbone.View.extend({
   },
   render: function() {
     this.renderInitialData();
-    this.$el.appendTo($("#card-detail"));
+    this.$el.appendTo($("#content"));
     this.$el.find(".modal-layer").toggle();
   },
   initialize: function () {

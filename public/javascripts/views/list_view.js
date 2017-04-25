@@ -68,8 +68,19 @@ var ListView = Backbone.View.extend({
     e.preventDefault();
     e.stopImmediatePropagation();
     var id = this.getCardId(e);
-    
-    // new quickCardView({ model: App.cards.get(id) });
+    var preview_position = $(e.target).closest("li").offset();
+    var top = preview_position.top;
+    var left = preview_position.left;
+
+    new quickCardView({
+      model: App.cards.get(id),
+      attributes: {
+        "data-id": id,
+        "id": "quick-card-edit",
+        "class": "card-edit modal",
+        "style": 'top:' + top + 'px;left:' + left + 'px;',
+      }
+    });
   },
   toggleCardForm: function(e) { 
     e.preventDefault(); 

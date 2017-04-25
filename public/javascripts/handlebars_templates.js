@@ -443,6 +443,22 @@ this["JST"]["notifications"] = Handlebars.template({"1":function(container,depth
     + "</ul></section>";
 },"useData":true});
 
+this["JST"]["quickedit_card"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+    var helper;
+
+  return "<li class=\"label\" style=\"background:"
+    + container.escapeExpression(((helper = (helper = helpers.color || (depth0 != null ? depth0.color : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"color","hash":{},"data":data}) : helper)))
+    + ";\"></li>";
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, helper, alias1=depth0 != null ? depth0 : {};
+
+  return "<div class=\"window-overlay\"></div><div class=\"card-container\"><section class=\"card-quickview\"><ul class=\"labels\">"
+    + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.labels : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "</ul><form id=\"card-name-quick-edit\"><textarea autofocus>"
+    + container.escapeExpression(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
+    + "</textarea></form></section><div class=\"form-controls\"><input type=\"submit\" form=\"card-name-quick-edit\" value=\"Save\"></div></div><div class=\"cardquick-side\"><section class=\"card-quick-edit-actions\"><ul class=\"actions\"><li class=\"action tag\"><span><i class=\"fa fa-tag\"></i></span>Edit Labels</li><br><li class=\"action move\"><span><i class=\"fa fa-arrows\"></i></span>Move</li><br><li class=\"action copy\"><span><i class=\"fa fa-clone\"></i></span>Copy</li><br><li class=\"action date\"><span><i class=\"fa fa-calendar\"></i></span>Change Due Date</li><br><li class=\"action archive\"><span><i class=\"fa fa-archive\"></i></span>Archive</li></ul></section></div>";
+},"useData":true});
+
 this["JST"]["search"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
     var stack1;
 

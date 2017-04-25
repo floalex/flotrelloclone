@@ -12,7 +12,7 @@ var tagSelection = Backbone.View.extend({
   },
   render: function() {
     this.$el.html(this.template());
-    this.$el.appendTo($("#card-detail"));
+    this.$el.appendTo($("#content"));
     this.$el.find(".modal-layer").toggle();
   },
   toggleLabel: function(e) {
@@ -20,6 +20,7 @@ var tagSelection = Backbone.View.extend({
     e.stopImmediatePropagation();
     var tag = $(e.target).attr("data-color");
     this.model.toggleLabel(tag);
+    App.trigger("comment_change");
   },
   initialize: function() {
     this.render();

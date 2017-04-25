@@ -18,10 +18,12 @@ var DueDateView = Backbone.View.extend({
     var due_date = moment(date + " " + time).format();
     
     this.model.trigger("save_due_date", due_date);
+    this.remove();
   },
   removeDueDate: function(e) {
     e.preventDefault();
     this.model.trigger("remove_due_date");
+    this.remove();
   },
   renderDateTime: function() {
     this.$el.find(".datepicker").datepicker({
@@ -39,7 +41,7 @@ var DueDateView = Backbone.View.extend({
   },
   render: function() {
     this.$el.html(this.template());
-    this.$el.appendTo($("#card-detail"));
+    this.$el.appendTo($("#content"));
     this.$el.find(".modal-layer").toggle();
   },
   initialize: function() {

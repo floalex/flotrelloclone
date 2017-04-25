@@ -101,3 +101,18 @@
     </section>
   </aside>
 </div>
+
+ <ul class="icons">
+  {{#if subscribed}}
+  <li><span><i class="fa fa-check"></i></span></li>
+  {{/if}}
+  {{#if due_date}}
+  <li class="due-date"><i class="fa fa-calendar"></i>{{format_date_preview due_date}}</li>
+  {{/if}}
+  {{#if description}}
+  <li><i class="fa fa-eye"></i></li>
+  {{/if}}
+  {{#if comments_count}}
+  <li><i class="material-icons md-14">comment</i>{{comments_count}}</li>
+  {{/if}}
+</ul>

@@ -69,11 +69,11 @@ var CardView = Backbone.View.extend({
   createComment: function(e) {
     e.preventDefault();
     e.stopImmediatePropagation();
-    var $f = this.$("form");
+    var $f = $(".add-comment").find("form");
     var $input = $f.find("textarea[name=comment]");
     var comment = $input.val().trim();
     if (comment === "") { return; }
-    
+    console.log($f);
     var comment_data = {
       "text": comment,
       "date": moment().format("MMM Do, h:mm")
@@ -81,8 +81,8 @@ var CardView = Backbone.View.extend({
     
     var self = this;
     $.ajax({
-      url: "/cards/" + self.model.id + "/comments",
-      type: "POST",
+      url: $f.attr("action"),    // url: "/cards/" + self.model.id + "/comments",
+      type: $f.attr("method"),    // type: "POST",
       data: comment_data,      
       success: function(comment_data) {
         App.comments.add(comment_data);
@@ -117,8 +117,6 @@ var CardView = Backbone.View.extend({
     }
   },
   renderTagSelection: function(e) {
-    e.preventDefault();
-    e.stopImmediatePropagation();
     var button_position = $(e.target).offset();
     var top = button_position.top + top_offset;
     var left = button_position.left - left_offset;
@@ -185,15 +183,20 @@ var CardView = Backbone.View.extend({
   deleteCard: function(e) {
     var result = confirm("Are you sure you want to delete this card?");
     if (result) {
+      var last_pos = _.max(App.lists.get(this.model.get("list_id")).cards, function(card) {return card.position;}).position;
+      var this_position = this.model.get("position");
       if (this.model.get("comments").length > 0) { 
         App.comments.trigger("delete_all_comments", this.model); 
       }
+
       this.model.destroy();
       this.closeCard(e);
-      
-      // update position
-      viewHelper.removeCardsPositions(App.lists.get(this.model.get("list_id")).cards, this.model);
-      setTimeout(function() { App.cards.sync("update", App.cards) }, 900);
+
+      // update position if card is not the last in the list
+      if (this_position !== last_pos) {
+        viewHelper.removeCardsPositions(App.lists.get(this.model.get("list_id")).cards, this.model);
+        setTimeout(function() { App.cards.sync("update", App.cards) }, 900);
+      }
     }
   },
   renderCommentsAndTemplate: function() {
@@ -215,6 +218,7 @@ var CardView = Backbone.View.extend({
   initialize: function() {
     this.render();
     this.delegateEvents();
+    this.model.view = this;
     
     this.listenTo(App, "comment_change", this.renderCommentsAndTemplate);
     this.listenTo(this.model, "change request", this.renderCommentsAndTemplate);

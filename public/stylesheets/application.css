@@ -757,21 +757,20 @@ footer {
   border-radius: 3px;
   background: rgba(0,0,0,0.2);
 }
-#card-detail .modal {
+#content .modal {
   position: absolute;
   display: inline-block;
   width: 280px;
   z-index: 8;
-  background: #fff;
   color: #4d4d4d;
 }
-#card-detail .modal .form-controls {
+#content .modal .form-controls {
   display: block;
   height: 35px;
   overflow: hidden;
   transition: height 0.25s;
 }
-#card-detail .modal .form-controls input[type="submit"] {
+#content .modal .form-controls input[type="submit"] {
   padding: 0 20px;
   min-height: 30px;
   box-shadow: 0 1px 0 #3f6f21;
@@ -781,36 +780,36 @@ footer {
   font-weight: bold;
   cursor: pointer;
 }
-#card-detail .modal .form-controls input[type="submit"]:hover {
+#content .modal .form-controls input[type="submit"]:hover {
   background: linear-gradient(to top, #61bd4f 0, #5aac44 100%);
 }
-#card-detail .modal .form-controls .close {
+#content .modal .form-controls .close {
   display: inline-block;
   float: none;
   margin: 0 0 0 5px;
 }
-#card-detail .modal .form-controls .close:hover {
+#content .modal .form-controls .close:hover {
   background: inherit;
 }
-#card-detail .modal .form-controls .close i {
+#content .modal .form-controls .close i {
   vertical-align: middle;
 }
-#card-detail .modal .modal-layer {
+#content .modal .modal-layer {
   z-index: -1;
 }
-#card-detail .card-due-date form fieldset {
+#content .card-due-date form fieldset {
   margin: 0 0 10px 0;
 }
-#card-detail .card-due-date form fieldset label {
+#content .card-due-date form fieldset label {
   box-sizing: border-box;
   display: inline-block;
   padding: 0 0 0 5px;
   width: 50%;
 }
-#card-detail .card-due-date form fieldset label:last-child input {
+#content .card-due-date form fieldset label:last-child input {
   width: 85%;
 }
-#card-detail .card-due-date form fieldset label input {
+#content .card-due-date form fieldset label input {
   width: 80%;
   padding: 5px;
   margin: 5px 0 0 0;
@@ -818,44 +817,44 @@ footer {
   background: #e2e4e6;
   font-size: 12px;
 }
-#card-detail .card-due-date form fieldset label input:focus {
+#content .card-due-date form fieldset label input:focus {
   border-color: #298fca;
   box-shadow: 0 0 2px #298fca;
   background: #fff;
 }
-#card-detail .card-due-date form fieldset label input[type="time"] {
+#content .card-due-date form fieldset label input[type="time"] {
   font-family: Helvetica;
 }
-#card-detail .card-due-date form .datepicker {
+#content .card-due-date form .datepicker {
   margin: 0 0 15px 0;
 }
-#card-detail .card-due-date form .datepicker .ui-datepicker-inline {
+#content .card-due-date form .datepicker .ui-datepicker-inline {
   margin: 0 auto;
 }
-#card-detail .card-due-date form .datepicker .ui-corner-all {
+#content .card-due-date form .datepicker .ui-corner-all {
   color: inherit;
 }
-#card-detail .card-due-date form .datepicker .ui-state-active {
+#content .card-due-date form .datepicker .ui-state-active {
   background: #0079bf;
   border: 1px #0079bf;
 }
-#card-detail .card-due-date form .datepicker .ui-state-highlight {
+#content .card-due-date form .datepicker .ui-state-highlight {
   border: 1px solid #d6dadc;
   background: #d6dadc;
   color: inherit;
   font-weight: bold;
 }
-#card-detail .card-due-date form .form-controls input[type="submit"].remove {
+#content .card-due-date form .form-controls input[type="submit"].remove {
   float: right;
   box-shadow: 0 1px 0 #4d4d4d;
   background: linear-gradient(to bottom, #d6dadc 0, #cdd2d4 100%);
   color: #fff;
 }
-#card-detail .card-due-date form .form-controls input[type="submit"].remove:hover {
+#content .card-due-date form .form-controls input[type="submit"].remove:hover {
   color: #fff;
   background: linear-gradient(to bottom, #cf513d 0, #b04632 100%);
 }
-#card-detail .tags .card_label {
+.tags .card_label {
   width: 240px;
   height: 34px;
   display: block;
@@ -865,40 +864,40 @@ footer {
   margin-left: 4px;
   margin-top: 4px;
 }
-#card-detail .tags .label_green {
+.tags .label_green {
   background: #61bd4f;
 }
-#card-detail .tags .label_green:hover {
+.tags .label_green:hover {
   box-shadow: -8px 0 #519839;
 }
-#card-detail .tags .label_yellow {
+.tags .label_yellow {
   background: #f2d600;
 }
-#card-detail .tags .label_yellow:hover {
+.tags .label_yellow:hover {
   box-shadow: -8px 0 #d9b51c;
 }
-#card-detail .tags .label_orange {
+.tags .label_orange {
   background-color: #ffab4a;
 }
-#card-detail .tags .label_orange:hover {
+.tags .label_orange:hover {
   box-shadow: -8px 0 #d29034;
 }
-#card-detail .tags .label_red {
+.tags .label_red {
   background-color: #eb5a46;
 }
-#card-detail .tags .label_red:hover {
+.tags .label_red:hover {
   box-shadow: -8px 0 #b04632;
 }
-#card-detail .tags .label_purple {
+.tags .label_purple {
   background-color: #c377e0;
 }
-#card-detail .tags .label_purple:hover {
+.tags .label_purple:hover {
   box-shadow: -8px 0 #89609e;
 }
-#card-detail .tags .label_blue {
+.tags .label_blue {
   background-color: #0079bf;
 }
-#card-detail .tags .label_blue:hover {
+.tags .label_blue:hover {
   box-shadow: -8px 0 #055a8c;
 }
 .comment {
@@ -1070,6 +1069,122 @@ footer {
 }
 .copy-card input[type="submit"]:hover {
   background: linear-gradient(to top, #61bd4f 0, #5aac44 100%);
+}
+.card-edit .modal {
+  position: fixed;
+  display: inline-block;
+  width: 560px;
+  z-index: 8;
+  background: #fff;
+  color: #4d4d4d;
+}
+.card-edit .modal .form-controls {
+  display: block;
+  height: 35px;
+  overflow: hidden;
+  transition: height 0.25s;
+}
+.card-edit .modal .form-controls input[type="submit"] {
+  padding: 0 20px;
+  min-height: 30px;
+  box-shadow: 0 1px 0 #3f6f21;
+  background: linear-gradient(to bottom, #61bd4f 0, #5aac44 100%);
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.card-edit .modal .form-controls input[type="submit"]:hover {
+  background: linear-gradient(to top, #61bd4f 0, #5aac44 100%);
+}
+.card-edit .modal .form-controls .close {
+  display: inline-block;
+  float: none;
+  margin: 0 0 0 5px;
+}
+.card-edit .modal .form-controls .close:hover {
+  background: inherit;
+}
+.card-edit .modal .form-controls .close i {
+  vertical-align: middle;
+}
+#content #quick-card-edit {
+  width: 560px;
+  position: fixed;
+  display: block;
+  padding: 0;
+  background: none;
+  border: none;
+}
+#content #quick-card-edit .window-overlay {
+  z-index: -1;
+}
+#content #quick-card-edit .card-container {
+  display: inline-block;
+  vertical-align: top;
+}
+#content #quick-card-edit .card-container .card-quickview {
+  border-radius: 3px;
+  background: #fff;
+  width: 220px;
+  z-index: 3;
+  margin: 0 10px 10px 0;
+}
+#content #quick-card-edit .card-container .card-quickview labels {
+  overflow: hidden;
+  margin: 0 0 5px 0;
+  font-size: 10px;
+}
+#content #quick-card-edit .card-container .card-quickview .label {
+  float: left;
+  height: 8px;
+  width: 35px;
+  margin: 2px;
+  border-radius: 3px;
+}
+#content #quick-card-edit .card-container textarea {
+  color: #4d4d4d;
+  width: 92%;
+  padding: 6px 6px 2px 8px;
+  min-height: 90px;
+}
+#content #quick-card-edit .card-container textarea:focus {
+  outline: none;
+}
+#content #quick-card-edit .card-container input[type="submit"] {
+  padding: 0 20px;
+  min-height: 30px;
+  box-shadow: 0 1px 0 #3f6f21;
+  background: linear-gradient(to bottom, #61bd4f 0, #5aac44 100%);
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+#content #quick-card-edit .card-container input[type="submit"]:hover {
+  background: linear-gradient(to top, #61bd4f 0, #5aac44 100%);
+}
+#content #quick-card-edit .cardquick-side {
+  display: inline-block;
+  z-index: 3;
+}
+#content #quick-card-edit .cardquick-side .action {
+  display: inline-block;
+  color: #fff;
+  margin: 0 0 4px 8px;
+  padding: 6px 9pt 6px 8px;
+  border-radius: 3px;
+  background: rgba(0,0,0,0.6);
+  transition: margin-left 0.1s;
+}
+#content #quick-card-edit .cardquick-side .action:hover {
+  margin-left: 10px;
+  background: rgba(0,0,0,0.85);
+  cursor: pointer;
+}
+#content #quick-card-edit .cardquick-side .action span {
+  vertical-align: middle;
+  margin: 0 5px 0 0;
 }
 body {
   font: 14px "Helvetica Neue", Arial, Helvetica, sans-serif;

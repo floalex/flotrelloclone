@@ -1,0 +1,27 @@
+<div class="window-overlay"></div>
+<div class="card-container">
+  <section class="card-quickview">
+    <ul class="labels">
+      {{#each labels}}
+      <li class="label" style="background:{{color}};"></li>
+      {{/each}}
+    </ul>
+    <form id="card-name-quick-edit">
+      <textarea autofocus>{{title}}</textarea>
+    </form>
+  </section>
+  <div class="form-controls">
+    <input type="submit" form="card-name-quick-edit" value="Save">
+  </div>
+</div>
+<div class="cardquick-side">
+  <section class="card-quick-edit-actions">
+    <ul class="actions">
+      <li class="action tag"><span><i class="fa fa-tag"></i></span>Edit Labels</li><br>
+      <li class="action move"><span><i class="fa fa-arrows"></i></span>Move</li><br>
+      <li class="action copy"><span><i class="fa fa-clone"></i></span>Copy</li><br>
+      <li class="action date"><span><i class="fa fa-calendar"></i></span>Change Due Date</li><br>
+      <li class="action archive"><span><i class="fa fa-archive"></i></span>Archive</li>
+    </ul>
+  </section>
+</div>
