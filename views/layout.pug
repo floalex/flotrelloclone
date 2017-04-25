@@ -34,7 +34,7 @@ html
     +javascript_include_tag('views/index','views/new_list', 'views/list_view', 'views/list_actions')
     +javascript_include_tag('views/list_move', 'views/list_copy', 'views/list_movecards')
     +javascript_include_tag('views/card', 'views/card_duedate', 'views/tag_selection', 'views/card_editcomment')
-    +javascript_include_tag('views/card_move')
+    +javascript_include_tag('views/card_move', 'views/card_copy')
     script(type="text/javascript").
       App.lists = new Lists(!{JSON.stringify(lists)});
       App.comments = new Comments(!{JSON.stringify(comments)});

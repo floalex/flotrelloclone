@@ -14,11 +14,16 @@ var MoveCardView = Backbone.View.extend({
   updateList: function(e) {
     var new_list =$(e.target).find("option:selected").val();
 
-   this.$el.find(".list-name p").text(new_list);
+    this.$el.find(".list-name p").text(new_list);
     var list_id = App.lists.toJSON().find(function(list) {
       return list.name === new_list;
     }).id;
-    this.rerenderData(list_id);
+    
+    if (list_id !== this.model.get("list_id")) {
+      this.rerenderData(list_id);
+    } else {
+      this.renderInitialData();
+    }
   },
   updateCard: function(e) {
     var position = $(e.target).find("option:selected").val();
@@ -36,7 +41,7 @@ var MoveCardView = Backbone.View.extend({
     }).id;
  
     var to_list = App.lists.get(new_list_id).cards;
-    var new_position = Number($(e.target).find(".card-position select option:selected").val()) - 1;
+    var new_position = Number(this.$el.find(".card-position p").text()) - 1;
 
     viewHelper.removeCardsPositions(from_list, this.model);
     

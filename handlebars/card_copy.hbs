@@ -1,5 +1,77 @@
 <div class="modal-layer"></div>
 <div class="modal-header">
-  <span class="action-title">Move Card</span>
+  <span class="action-title">Copy Card</span>
   <span class="close"><i class="fa fa-times"></i></span>
 </div>
+<form>
+  {{#with card}}
+  <dl class="card-name">
+    <dt>
+      <label>Title</label>
+    </dt>
+    <dd>
+      <textarea>{{title}}</textarea>
+    </dd>
+  </dl>
+  <dl class="keep-section">
+    <dt>Keep...</dt>
+    {{#if labels}}
+    <dd>
+      <label>
+        <input type="checkbox" name="labels" checked="checked" />
+        Labels ({{labels.length}})
+      </label>
+    </dd>
+    {{/if}}
+    {{#if comments}}
+    <dd>
+      <label>
+        <input type="checkbox" name="comments" checked="checked" />
+        Comments ({{comments_count}})
+      </label>
+    </dd>
+    {{/if}}
+    </dd>
+  </dl>
+  {{/with}}
+  
+  <dl class="list-name">
+    <dt>
+      <label>
+        <h5>List</h5>
+        <p>{{current_list}}</p>
+      </label>
+    </dt>
+    <dd>
+      <select>
+        {{#each lists}}
+          {{#if current_list}}
+            <option value="{{current_list}}" selected>{{current_list}} (current)</option>
+          {{else}}
+            <option value="{{name}}">{{name}}</option>
+          {{/if}}
+        {{/each}}
+      </select>
+    </dd>
+  </dl>
+  <dl class="card-position">
+    <dt>
+      <label>
+        <h5>Position</h5>
+        <p>{{current_position}}</p>
+      </label>
+    </dt>
+    <dd>
+      <select>
+        {{#each positions}}
+          {{#if current}}
+            <option value="{{current}}" selected>{{current}} (current)</option>
+          {{else}}
+            <option value="{{position}}">{{position}}</option>
+          {{/if}}
+        {{/each}}
+      </select>
+    </dd>
+  </dl>
+  <input type="submit" value="Create Card">
+</form>

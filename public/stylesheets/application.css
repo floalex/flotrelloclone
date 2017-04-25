@@ -978,6 +978,99 @@ footer {
 .move-card input[type="submit"]:hover {
   background: linear-gradient(to top, #61bd4f 0, #5aac44 100%);
 }
+.copy-card {
+  padding: 12px;
+}
+.copy-card dl {
+  margin: 0 0 15px 0;
+}
+.copy-card dl dt {
+  margin: 0 0 5px 0;
+}
+.copy-card dl textarea {
+  width: 95%;
+  min-height: 60px;
+  padding: 5px;
+  border: 1px solid #d6dadc;
+}
+.copy-card dl textarea:focus {
+  border: 1px solid #00f;
+}
+.copy-card dl {
+  position: relative;
+  margin: 0 0 15px 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 5px;
+  border: 1px solid #d6dadc;
+  border-bottom: 1px solid #d6dadc;
+  border-radius: 3px;
+  background: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+.copy-card dl h5 {
+  margin: 0 0 7px 0;
+  color: #8c8c8c;
+  font-size: 12px;
+}
+.copy-card dl p {
+  color: #4d4d4d;
+  font-size: 18px;
+}
+.copy-card dl:hover {
+  border: 1px solid #00f;
+  background: #00f;
+}
+.copy-card dl:hover h5 {
+  color: #d6dadc;
+}
+.copy-card dl:hover p {
+  color: #fff;
+}
+.copy-card select {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+}
+.copy-card .card-name,
+.copy-card .keep-section {
+  margin-bottom: 5px;
+  background: none;
+  border: none;
+  cursor: auto;
+}
+.copy-card .card-name:hover,
+.copy-card .keep-section:hover {
+  background: none;
+  border: none;
+}
+.copy-card .keep-section label {
+  font-weight: normal;
+}
+.copy-card .keep-section [type="checkbox"] {
+  -webkit-appearance: checkbox;
+  margin: 0 5px 0 0;
+  vertical-align: middle;
+}
+.copy-card input[type="submit"] {
+  padding: 0 20px;
+  min-height: 30px;
+  box-shadow: 0 1px 0 #3f6f21;
+  background: linear-gradient(to bottom, #61bd4f 0, #5aac44 100%);
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.copy-card input[type="submit"]:hover {
+  background: linear-gradient(to top, #61bd4f 0, #5aac44 100%);
+}
 body {
   font: 14px "Helvetica Neue", Arial, Helvetica, sans-serif;
   background: #0079bf;

@@ -11,6 +11,20 @@ module.exports = function(router) {
 
     Comment.set({ last_id: Comment.getLastID(), data: new_comments });
     res.json(new_comments);
+  }).post(function(req, res) {
+    // for bulk create
+    var comments = Comment.get();
+    var new_comment = req.body;
+    for (var key in new_comment) {
+      if ( req.body[key] && !(req.body[key] instanceof Array)) {
+        comments.push(req.body[key]);
+      }
+    }
+ 
+    var comments_last_id = Comment.getLastID() + Object.keys(req.body).length;
+
+    Comment.set({ last_id: comments_last_id, data: comments });
+    res.json(new_comment);
   });
   
   router.route('/comments/:id').get(function(req, res) {

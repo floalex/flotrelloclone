@@ -39,3 +39,5 @@
     3   4
     4   2
     5   5
+
+5. Working with ajax - parse JSON string to get original data to get the correct format

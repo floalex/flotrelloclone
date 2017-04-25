@@ -109,3 +109,35 @@
   label-select()
   input[type="submit"]
     submit-btn()
+
+.copy-card
+  padding: 12px
+  dl
+    margin: 0 0 15px 0
+    dt
+      margin: 0 0 5px 0
+    textarea
+      width: 95%
+      min-height: 60px
+      padding: 5px
+      border: 1px solid colors.light-grey
+      &:focus
+        border: 1px solid blue
+  label-select()
+  .card-name, .keep-section
+    margin-bottom: 5px
+    background: none
+    border: none
+    cursor: auto
+    &:hover
+      background: none
+      border: none
+  .keep-section
+    label
+      font-weight: normal
+    [type="checkbox"]
+      -webkit-appearance: checkbox
+      margin: 0 5px 0 0
+      vertical-align: middle
+  input[type="submit"]
+    submit-btn()

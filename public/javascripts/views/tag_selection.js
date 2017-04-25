@@ -4,15 +4,11 @@ var tagSelection = Backbone.View.extend({
     "click .modal-layer, .close": "removeModal",    
     
     "click span.card_label": "toggleLabel",
-    "click .card_labels_popup": "preventClose"
   },
   removeModal: function() {
     this.undelegateEvents();  
     this.$el.find(".modal-layer").toggle();
     this.remove();
-  },
-  preventClose: function() {
-    return false;
   },
   render: function() {
     this.$el.html(this.template());

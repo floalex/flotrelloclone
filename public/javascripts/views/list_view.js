@@ -90,8 +90,10 @@ var ListView = Backbone.View.extend({
     var $input = $f.find("textarea[name=card_title]");
     var title = $input.val().trim();
     if (title === "") { return; }
+    var last_card_id = App.cards.max(function(card) { return card.id; }).toJSON().id;
     
     var card_data = {
+      "id": last_card_id + 1,
       "title": title,
       "list_title": this.model.toJSON().name,
       "position": this.model.cards.length,
@@ -107,7 +109,7 @@ var ListView = Backbone.View.extend({
         App.cards.add(json);
         $f.find(".close").trigger("click");
         $input.val("");
-        self.renderTemplate();
+        App.trigger("card_change");
       }
     });
   },

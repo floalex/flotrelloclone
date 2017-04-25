@@ -14,20 +14,19 @@ module.exports = function(router) {
     res.json(new_cards);
   }).post(function(req, res) {
     // for bulk create
-    var cards = Card.get();
+    var cards = [];
     var new_card = req.body;
+
     for (var key in new_card) {
-      if ( req.body[key] && !(req.body[key] instanceof Array)) {
-        cards.push(req.body[key]);
+      if (new_card[key] && !(new_card[key] instanceof Array)) {
+        cards.push(new_card[key]);
       }
     }
-    
-    // card.id = Card.nextID();
-    // cards.push(card);
+
     var cards_last_id = Card.getLastID() + Object.keys(req.body).length - 5;
 
     Card.set({ last_id: cards_last_id, data: cards });
-    res.json(new_card);
+    res.json(cards);    
   });
   
   router.route('/cards/:id').get(function(req, res) {
@@ -89,15 +88,48 @@ module.exports = function(router) {
 
      res.json(cards);
   }).post(function(req, res) {
+    // var cards = Card.get();
+    // var card = req.body;
+
+    // card.id = Card.nextID();
+    // card.list_id = Number(req.params.id);
+    // card.position = Number(req.body.position);
+    // cards.push(card);
+    // Card.set({ last_id: card.id, data: cards });
+    // res.json(card);
+    
     var cards = Card.get();
     var card = req.body;
+    var only_card = {};
+    
+    for (var key in card) {
+      if (key !== "comments") {
+        only_card[key] = card[key];
+      }
+    }
+    
+    card.id = only_card.id = Number(req.body.id);
+    only_card.list_id = Number(req.params.id);
+    only_card.position = Number(req.body.position);
+        
+    if (req.body.comments) {
+      var comments = Comment.get();
+      var count = 0;
+      
+      for (var i = 0; i < req.body.comments.length; i++) {
+        var comment = req.body.comments[i];
+        count += 1;
+        // comment.card_id = only_card.id;
+        // comment.id = Comment.getLastID() + count;
+        comments.push(comment);
+      }
+      Comment.set({ last_id: Comment.getLastID() + count, data: comments });
+    }
+    
+    cards.push(only_card);
 
-    card.id = Card.nextID();
-    card.list_id = Number(req.params.id);
-    card.position = Number(req.body.position);
-    cards.push(card);
-    Card.set({ last_id: card.id, data: cards });
-    res.json(card);
+    Card.set({ last_id: only_card.id, data: cards });
+    res.json(only_card);
   });
 
 };

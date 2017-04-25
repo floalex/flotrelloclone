@@ -9,6 +9,7 @@ var CopyList = Backbone.View.extend({
   copyList: function(e) {
     e.preventDefault();
     var new_name = this.$el.find("textarea").val().trim();
+    var last_id = App.cards.max(function(card) { return card.id; }).toJSON().id;
     
     if (new_name) { 
       var new_list = {
@@ -26,13 +27,14 @@ var CopyList = Backbone.View.extend({
           var copy_cards = [];
           cards.forEach(function(card, index) {
             var copy = { 
-              "id": App.cards.length + index + 1,
+              "id": last_id + index + 1,
               "list_id": Number(json.id),
               "list_title": new_name,
               "title": card.title,
               "labels": card.labels,
               "position": card.position,
               "due_date": card.due_date,
+              "subscribed": false,
               "description": card.description,
               };
             copy_cards.push(copy);

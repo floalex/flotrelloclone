@@ -81,11 +81,11 @@ var CardView = Backbone.View.extend({
     
     var self = this;
     $.ajax({
-      url: $f.attr("action"),
-      type: $f.attr("method"),
+      url: "/cards/" + self.model.id + "/comments",
+      type: "POST",
       data: comment_data,      
-      success: function(json) {
-        App.comments.add(json);
+      success: function(comment_data) {
+        App.comments.add(comment_data);
         $input.val("");
         self.model.trigger("setCommentsCount"); 
       }
@@ -161,6 +161,21 @@ var CardView = Backbone.View.extend({
       }
     });
   },
+  openCopyCard: function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var button_position = $(e.target).offset();
+    var top = button_position.top + top_offset;
+    var left = button_position.left - left_offset;
+    
+    new CopyCardView({
+      model: this.model,
+      attributes: {
+        class: "modal copy-card",
+        style: "top:" + top + "px;left:" + left + "px;",
+      }
+    });
+  },
   toggleSubscribeCard: function(e) {
     e.preventDefault();
     e.stopImmediatePropagation();
@@ -170,11 +185,15 @@ var CardView = Backbone.View.extend({
   deleteCard: function(e) {
     var result = confirm("Are you sure you want to delete this card?");
     if (result) {
-      if (this.model.comments.length > 0) { 
+      if (this.model.get("comments").length > 0) { 
         App.comments.trigger("delete_all_comments", this.model); 
       }
       this.model.destroy();
       this.closeCard(e);
+      
+      // update position
+      viewHelper.removeCardsPositions(App.lists.get(this.model.get("list_id")).cards, this.model);
+      setTimeout(function() { App.cards.sync("update", App.cards) }, 900);
     }
   },
   renderCommentsAndTemplate: function() {
@@ -183,6 +202,7 @@ var CardView = Backbone.View.extend({
       return comment.card_id === self.model.id;
     });
     
+    this.model.set("comments", card_comments);
     this.$el.html(this.template({
       card: this.model.toJSON(),
       comments: card_comments
