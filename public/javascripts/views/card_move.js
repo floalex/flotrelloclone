@@ -12,12 +12,9 @@ var MoveCardView = Backbone.View.extend({
     this.remove();
   },
   updateList: function(e) {
-    var new_list =$(e.target).find("option:selected").val();
-
+    var list_id = Number($(e.target).find("option:selected").val());
+    var new_list = App.lists.get(list_id).get("name");
     this.$el.find(".list-name p").text(new_list);
-    var list_id = App.lists.toJSON().find(function(list) {
-      return list.name === new_list;
-    }).id;
     
     if (list_id !== this.model.get("list_id")) {
       this.rerenderData(list_id);
@@ -36,9 +33,7 @@ var MoveCardView = Backbone.View.extend({
     
     var from_list = App.lists.get(this.model.get("list_id")).cards;
     var list_name = $(e.target).find(".list-name p").text();
-    var new_list_id = App.lists.toJSON().find(function(list) {
-      return list.name === list_name;
-    }).id;
+    var new_list_id = Number($(e.target).find("option:selected").val());
  
     var to_list = App.lists.get(new_list_id).cards;
     var new_position = Number(this.$el.find(".card-position p").text()) - 1;
@@ -57,11 +52,6 @@ var MoveCardView = Backbone.View.extend({
     App.trigger("updateCardSort");
     this.remove();
   },
-  render: function() {
-    this.renderInitialData();
-    this.$el.appendTo($("#content"));
-    this.$el.find(".modal-layer").toggle();
-  },
   renderInitialData: function() {
     var current_position = this.model.get("position") + 1;
     var current_list_id = this.model.get("list_id");
@@ -69,10 +59,12 @@ var MoveCardView = Backbone.View.extend({
     var cards = App.lists.get(current_list_id).cards;
     
     var lists_data = App.lists.toJSON().map(function(list) {
-      var list_name = App.lists.get(list.id).get("name");
-      var lists = { name: list_name };
+      var list_name = list.name;
+      var list_id = list.id;
+      var lists = { name: list_name, id: list_id };
       if (list.id === current_list_id) { 
         lists.current_list = current_list_name; 
+        lists.current_id = current_list_id;
       }
       return lists;
     }); 
@@ -98,10 +90,12 @@ var MoveCardView = Backbone.View.extend({
     var current_list_name = App.lists.get(new_list_id).get("name");
     
     var lists_data = App.lists.toJSON().map(function(list) {
-      var list_name = App.lists.get(list.id).get("name");
-      var lists = { name: list_name };
+      var list_name = list.name;
+      var list_id = list.id;
+      var lists = { name: list_name, id: list_id };
       if (list.id === new_list_id) { 
         lists.current_list = current_list_name; 
+        lists.current_id = new_list_id;
       }
       return lists;
     }); 
@@ -124,6 +118,11 @@ var MoveCardView = Backbone.View.extend({
       positions: cards_positions
     }));
     
+    this.$el.find(".modal-layer").toggle();
+  },
+  render: function() {
+    this.renderInitialData();
+    this.$el.appendTo($("#content"));
     this.$el.find(".modal-layer").toggle();
   },
   initialize: function() {

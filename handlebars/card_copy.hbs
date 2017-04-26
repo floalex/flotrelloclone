@@ -23,7 +23,7 @@
       </label>
     </dd>
     {{/if}}
-    {{#if comments}}
+    {{#if comments_count}}
     <dd>
       <label>
         <input type="checkbox" name="comments" checked="checked" />
@@ -46,9 +46,9 @@
       <select>
         {{#each lists}}
           {{#if current_list}}
-            <option value="{{current_list}}" selected>{{current_list}} (current)</option>
+            <option value="{{current_id}}" selected>{{current_list}} (current)</option>
           {{else}}
-            <option value="{{name}}">{{name}}</option>
+            <option value="{{id}}">{{name}}</option>
           {{/if}}
         {{/each}}
       </select>

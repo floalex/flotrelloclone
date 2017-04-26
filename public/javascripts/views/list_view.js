@@ -166,7 +166,7 @@ var ListView = Backbone.View.extend({
     });   
 
     viewHelper.insertCardsPositions(new_list, card); 
-
+    
     App.cards.sync("update", App.cards);
     App.trigger("updateCardSort");
   },

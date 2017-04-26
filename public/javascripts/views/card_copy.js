@@ -12,12 +12,9 @@ var CopyCardView = Backbone.View.extend({
     this.remove();
   },
   updateList: function(e) {
-    var new_list =$(e.target).find("option:selected").val();
-
+    var list_id = Number($(e.target).find("option:selected").val());
+    var new_list = App.lists.get(list_id).get("name");
     this.$el.find(".list-name p").text(new_list);
-    var list_id = App.lists.toJSON().find(function(list) {
-      return list.name === new_list;
-    }).id;
     
     if (list_id !== this.model.get("list_id")) {
       this.rerenderData(list_id);
@@ -37,20 +34,20 @@ var CopyCardView = Backbone.View.extend({
     var copy_comments;
     
     var new_title = $form.find(".card-name textarea").val();
-    var list_name = $form.find(".list-name p").text();
-    var new_list_id = App.lists.toJSON().find(function(list) {
-      return list.name === list_name;
-    }).id;
+    console.log($form);
+    var list_name = $(e.target).find(".list-name p").text();
+    var new_list_id = Number($(e.target).find("option:selected").val());
     
     var to_list = App.lists.get(new_list_id).cards;
     var new_position = Number(this.$el.find(".card-position p").text()) - 1;
     
-    var last_card_id = App.cards.max(function(card) { return card.id; }).toJSON().id;
-    var last_comment_id = App.comments.max(function(comment) { return comment.id; }).toJSON().id;
+    var last_card_id = App.cards.max(function(card) { return card.id; }).id;
+    var last_comment_id = App.comments.max(function(comment) { return comment.id; }).id;
 
     var new_card_info = {
       "id": last_card_id + 1,
       "position": new_position,
+      "list_title": list_name,
       "title": new_title,
       "list_id": new_list_id,
       "description": this.model.get("description"),
@@ -68,17 +65,16 @@ var CopyCardView = Backbone.View.extend({
   
     if (checks.comments) {
       copy_comments = [];
-      this.model.toJSON().comments.forEach(function(comment, index) {
+      this.model.comments.forEach(function(comment, index) {
         var new_comment = _.omit(comment, "id", "card_id");
         new_comment.id = last_comment_id + index + 1;
-        new_comment.card_id = last_card_id + index + 1;
+        new_comment.card_id = last_card_id + 1;
         copy_comments.push(new_comment);
       });
+
       new_card_info.comments = copy_comments;
     }
-  
-    this.model.unset("comments", {silent: true});
- 
+    
     $.ajax({
       url: "/lists/" + new_list_id + "/cards",
       type: "POST",
@@ -101,15 +97,16 @@ var CopyCardView = Backbone.View.extend({
     });
     this.remove();
   },
-
   rerenderData: function(new_list_id) {
     var current_list_name = App.lists.get(new_list_id).get("name");
     
     var lists_data = App.lists.toJSON().map(function(list) {
-      var list_name = App.lists.get(list.id).get("name");
-      var lists = { name: list_name };
+      var list_name = list.name;
+      var list_id = list.id;
+      var lists = { name: list_name, id: list_id };
       if (list.id === new_list_id) { 
         lists.current_list = current_list_name; 
+        lists.current_id = new_list_id;
       }
       return lists;
     }); 
@@ -139,10 +136,12 @@ var CopyCardView = Backbone.View.extend({
     var cards = App.lists.get(current_list_id).cards;
     
     var lists_data = App.lists.toJSON().map(function(list) {
-      var list_name = App.lists.get(list.id).get("name");
-      var lists = { name: list_name };
+      var list_name = list.name;
+      var list_id = list.id;
+      var lists = { name: list_name, id: list_id };
       if (list.id === current_list_id) { 
         lists.current_list = current_list_name; 
+        lists.current_id = current_list_id;
       }
       return lists;
     }); 
@@ -155,6 +154,7 @@ var CopyCardView = Backbone.View.extend({
       return position;
     });
     
+    // can move at the end of the list
     cards_positions.push({ position: cards_positions.length + 1 });
     
     this.$el.html(this.template({
@@ -166,6 +166,7 @@ var CopyCardView = Backbone.View.extend({
     }));
     this.$el.find(".modal-layer").toggle();
   },
+
   render: function() {
     this.renderInitialData();
     this.$el.appendTo($("#content"));

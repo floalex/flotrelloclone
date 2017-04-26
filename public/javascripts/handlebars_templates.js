@@ -29,7 +29,7 @@ this["JST"]["card_copy"] = Handlebars.template({"1":function(container,depth0,he
     + container.escapeExpression(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
     + "</textarea></dd></dl><dl class=\"keep-section\"><dt>Keep...</dt>"
     + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.labels : depth0),{"name":"if","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.comments : depth0),{"name":"if","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.comments_count : depth0),{"name":"if","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "</dd></dl>";
 },"2":function(container,depth0,helpers,partials,data) {
     var stack1;
@@ -51,7 +51,7 @@ this["JST"]["card_copy"] = Handlebars.template({"1":function(container,depth0,he
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
   return "<option value=\""
-    + alias4(((helper = (helper = helpers.current_list || (depth0 != null ? depth0.current_list : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"current_list","hash":{},"data":data}) : helper)))
+    + alias4(((helper = (helper = helpers.current_id || (depth0 != null ? depth0.current_id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"current_id","hash":{},"data":data}) : helper)))
     + "\" selected>"
     + alias4(((helper = (helper = helpers.current_list || (depth0 != null ? depth0.current_list : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"current_list","hash":{},"data":data}) : helper)))
     + " (current)</option>";
@@ -59,7 +59,7 @@ this["JST"]["card_copy"] = Handlebars.template({"1":function(container,depth0,he
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
   return "<option value=\""
-    + alias4(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"name","hash":{},"data":data}) : helper)))
+    + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
     + "\">"
     + alias4(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"name","hash":{},"data":data}) : helper)))
     + "</option>";
@@ -119,7 +119,7 @@ this["JST"]["card_move"] = Handlebars.template({"1":function(container,depth0,he
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
   return "<option value=\""
-    + alias4(((helper = (helper = helpers.current_list || (depth0 != null ? depth0.current_list : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"current_list","hash":{},"data":data}) : helper)))
+    + alias4(((helper = (helper = helpers.current_id || (depth0 != null ? depth0.current_id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"current_id","hash":{},"data":data}) : helper)))
     + "\" selected>"
     + alias4(((helper = (helper = helpers.current_list || (depth0 != null ? depth0.current_list : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"current_list","hash":{},"data":data}) : helper)))
     + " (current)</option>";
@@ -127,7 +127,7 @@ this["JST"]["card_move"] = Handlebars.template({"1":function(container,depth0,he
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
   return "<option value=\""
-    + alias4(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"name","hash":{},"data":data}) : helper)))
+    + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
     + "\">"
     + alias4(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"name","hash":{},"data":data}) : helper)))
     + "</option>";

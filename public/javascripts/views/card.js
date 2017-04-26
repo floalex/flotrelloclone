@@ -73,7 +73,7 @@ var CardView = Backbone.View.extend({
     var $input = $f.find("textarea[name=comment]");
     var comment = $input.val().trim();
     if (comment === "") { return; }
-    console.log($f);
+
     var comment_data = {
       "text": comment,
       "date": moment().format("MMM Do, h:mm")
@@ -205,7 +205,6 @@ var CardView = Backbone.View.extend({
       return comment.card_id === self.model.id;
     });
     
-    this.model.set("comments", card_comments);
     this.$el.html(this.template({
       card: this.model.toJSON(),
       comments: card_comments

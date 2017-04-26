@@ -28,27 +28,13 @@ var quickCardView = Backbone.View.extend({
 
     this.closeView();
   },
-  // renderTagSelection: function(e) {
-  //   console.log(e);
-  //   var button_position = $(e.target).offset();
-  //   var top = button_position.top + top_offset;
-  //   var left = button_position.left;
-    
-  //   new tagSelection({ 
-  //     model: this.model,
-  //     attributes: {
-  //       class: "modal tags",
-  //       style: "top:" + top + "px;left:" + left + "px;",
-  //     }
-  //   });
-  // },
   deleteCard: function(e) {
     var result = confirm("Are you sure you want to delete this card?");
     if (result) {
       var last_pos = _.max(App.lists.get(this.model.get("list_id")).cards, function(card) {
                            return card.position;}).position;
       var this_position =  this.model.get("position");
-      if (this.model.get("comments").length > 0) { 
+      if (this.model.comments.length > 0) { 
         App.comments.trigger("delete_all_comments", this.model); 
       }
    
@@ -64,11 +50,10 @@ var quickCardView = Backbone.View.extend({
   },
   renderQuickTemplate: function() {
     var self = this;
-    var card_comments = App.comments.toJSON().filter(function(comment) {
+    this.model.comments = App.comments.toJSON().filter(function(comment) {
       return comment.card_id === self.model.id;
     });
     
-    this.model.set("comments", card_comments);
     this.$el.html(this.template(this.model.toJSON()));
   },
   render: function() {
