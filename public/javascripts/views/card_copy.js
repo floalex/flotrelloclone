@@ -34,7 +34,7 @@ var CopyCardView = Backbone.View.extend({
     var copy_comments;
     
     var new_title = $form.find(".card-name textarea").val();
-    console.log($form);
+
     var list_name = $(e.target).find(".list-name p").text();
     var new_list_id = Number($(e.target).find("option:selected").val());
     

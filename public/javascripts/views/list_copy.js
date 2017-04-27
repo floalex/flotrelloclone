@@ -24,28 +24,30 @@ var CopyList = Backbone.View.extend({
         success: function(json) {
           App.lists.add(json);
           var cards = self.model.cards;
-          var copy_cards = [];
-          cards.forEach(function(card, index) {
-            var copy = { 
-              "id": last_id + index + 1,
-              "list_id": Number(json.id),
-              "list_title": new_name,
-              "title": card.title,
-              "labels": card.labels,
-              "position": card.position,
-              "due_date": card.due_date,
-              "subscribed": false,
-              "description": card.description,
-              };
-            copy_cards.push(copy);
-          });  
-          
-          setTimeout(function() { 
-            App.cards.add(copy_cards);
-            App.trigger("card_change");
-            App.cards.sync("create", App.cards);
-            App.trigger("updateCardSort");
-          }, 900);
+          if (cards.length > 0) {
+            var copy_cards = [];
+            cards.forEach(function(card, index) {
+              var copy = { 
+                "id": last_id + index + 1,
+                "list_id": Number(json.id),
+                "list_title": new_name,
+                "title": card.title,
+                "labels": card.labels,
+                "position": card.position,
+                "due_date": card.due_date,
+                "subscribed": false,
+                "description": card.description,
+                };
+              copy_cards.push(copy);
+            });  
+            
+            setTimeout(function() { 
+              App.cards.add(copy_cards);
+              App.trigger("card_change");
+              App.cards.sync("create", App.cards);
+              App.trigger("updateCardSort");
+            }, 900);
+          }
           
           // for (var i = 1; i <= copy_cards.length; i++) {
           //   (function(index) {
