@@ -11,10 +11,11 @@ var NewListView = Backbone.View.extend({
     e.stopImmediatePropagation();
     var $f = this.$("form");
     var $input = $("form input[name=list_name]");
+    var last_list_id = App.lists.max(function(list) { return list.id; }).id;
     var name = $input.val().trim();
     if (name === "") { return; }
     
-    var name_data = {"name": name};
+    var name_data = {"name": name, "id": last_list_id + 1};
   
     $.ajax({
       url: $f.attr("action"),

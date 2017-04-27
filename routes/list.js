@@ -7,13 +7,44 @@ module.exports = function(router) {
   router.route("/lists").get(function(req, res) {
     res.json(List.get());
   }).post(function(req, res) {
+    // var list = req.body;
+    // var lists = List.get();
+    
+    // list.id = List.nextID();
+    // lists.push(list);
+    // List.set({ last_id: list.id, data: lists });
+    // res.json(list);
+    
     var list = req.body;
     var lists = List.get();
     
-    list.id = List.nextID();
-    lists.push(list);
+    var only_list = {};
+    
+    for (var key in list) {
+      if (key !== "cards") {
+        only_list[key] = list[key];
+      }
+    }
+    
+    list.id = only_list.id = Number(req.body.id);
+ 
+    if (req.body.cards) {
+      var cards = Card.get();
+      var count = 0;
+      
+      for (var i = 0; i < req.body.cards.length; i++) {
+        var card = req.body.cards[i];
+        count += 1;
+
+        cards.push(card);
+      }
+      Card.set({ last_id: Card.getLastID() + count, data: cards });
+    }
+
+    lists.push(only_list);
+    
     List.set({ last_id: list.id, data: lists });
-    res.json(list);
+    res.json(only_list);
   }).put(function(req, res) {  
     var new_lists = req.body;
 
