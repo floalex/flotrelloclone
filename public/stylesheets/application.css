@@ -65,7 +65,7 @@ footer {
   flex-direction: column;
   max-height: 100%;
   position: relative;
-  white-space: normal;
+  white-space: nowrap;
 }
 .list-content .list-header {
   cursor: pointer;
@@ -110,6 +110,7 @@ footer {
   padding: 0 4px;
   z-index: 1;
   min-height: 10px;
+  max-height: calc(100vh - 200px);
 }
 .list-modal {
   display: none;
@@ -440,13 +441,15 @@ footer {
   background: #fff;
   cursor: none;
 }
+#card-detail {
+  overflow-y: scroll;
+}
 #card-detail .card-container {
   position: absolute;
   top: 30px;
   left: 20%;
   width: 730px;
-  min-height: 600px;
-  margin: 2pc 0 5pc 0;
+  margin: 2pc auto 5pc auto;
   border-radius: 3px;
   background: #edeff0;
   color: #4d4d4d;
@@ -757,20 +760,20 @@ footer {
   border-radius: 3px;
   background: rgba(0,0,0,0.2);
 }
-#content .modal {
+.modal {
   position: absolute;
   display: inline-block;
   width: 280px;
   z-index: 8;
   color: #4d4d4d;
 }
-#content .modal .form-controls {
+.modal .form-controls {
   display: block;
   height: 35px;
   overflow: hidden;
   transition: height 0.25s;
 }
-#content .modal .form-controls input[type="submit"] {
+.modal .form-controls input[type="submit"] {
   padding: 0 20px;
   min-height: 30px;
   box-shadow: 0 1px 0 #3f6f21;
@@ -780,36 +783,36 @@ footer {
   font-weight: bold;
   cursor: pointer;
 }
-#content .modal .form-controls input[type="submit"]:hover {
+.modal .form-controls input[type="submit"]:hover {
   background: linear-gradient(to top, #61bd4f 0, #5aac44 100%);
 }
-#content .modal .form-controls .close {
+.modal .form-controls .close {
   display: inline-block;
   float: none;
   margin: 0 0 0 5px;
 }
-#content .modal .form-controls .close:hover {
+.modal .form-controls .close:hover {
   background: inherit;
 }
-#content .modal .form-controls .close i {
+.modal .form-controls .close i {
   vertical-align: middle;
 }
-#content .modal .modal-layer {
+.modal .modal-layer {
   z-index: -1;
 }
-#content .card-due-date form fieldset {
+.card-due-date form fieldset {
   margin: 0 0 10px 0;
 }
-#content .card-due-date form fieldset label {
+.card-due-date form fieldset label {
   box-sizing: border-box;
   display: inline-block;
   padding: 0 0 0 5px;
   width: 50%;
 }
-#content .card-due-date form fieldset label:last-child input {
+.card-due-date form fieldset label:last-child input {
   width: 85%;
 }
-#content .card-due-date form fieldset label input {
+.card-due-date form fieldset label input {
   width: 80%;
   padding: 5px;
   margin: 5px 0 0 0;
@@ -817,40 +820,40 @@ footer {
   background: #e2e4e6;
   font-size: 12px;
 }
-#content .card-due-date form fieldset label input:focus {
+.card-due-date form fieldset label input:focus {
   border-color: #298fca;
   box-shadow: 0 0 2px #298fca;
   background: #fff;
 }
-#content .card-due-date form fieldset label input[type="time"] {
+.card-due-date form fieldset label input[type="time"] {
   font-family: Helvetica;
 }
-#content .card-due-date form .datepicker {
+.card-due-date form .datepicker {
   margin: 0 0 15px 0;
 }
-#content .card-due-date form .datepicker .ui-datepicker-inline {
+.card-due-date form .datepicker .ui-datepicker-inline {
   margin: 0 auto;
 }
-#content .card-due-date form .datepicker .ui-corner-all {
+.card-due-date form .datepicker .ui-corner-all {
   color: inherit;
 }
-#content .card-due-date form .datepicker .ui-state-active {
+.card-due-date form .datepicker .ui-state-active {
   background: #0079bf;
   border: 1px #0079bf;
 }
-#content .card-due-date form .datepicker .ui-state-highlight {
+.card-due-date form .datepicker .ui-state-highlight {
   border: 1px solid #d6dadc;
   background: #d6dadc;
   color: inherit;
   font-weight: bold;
 }
-#content .card-due-date form .form-controls input[type="submit"].remove {
+.card-due-date form .form-controls input[type="submit"].remove {
   float: right;
   box-shadow: 0 1px 0 #4d4d4d;
   background: linear-gradient(to bottom, #d6dadc 0, #cdd2d4 100%);
   color: #fff;
 }
-#content .card-due-date form .form-controls input[type="submit"].remove:hover {
+.card-due-date form .form-controls input[type="submit"].remove:hover {
   color: #fff;
   background: linear-gradient(to bottom, #cf513d 0, #b04632 100%);
 }
@@ -1108,7 +1111,7 @@ footer {
 .card-edit .modal .form-controls .close i {
   vertical-align: middle;
 }
-#content #quick-card-edit {
+#quick-card-edit {
   width: 560px;
   position: fixed;
   display: block;
@@ -1116,42 +1119,42 @@ footer {
   background: none;
   border: none;
 }
-#content #quick-card-edit .window-overlay {
+#quick-card-edit .window-overlay {
   z-index: -1;
 }
-#content #quick-card-edit .card-container {
+#quick-card-edit .card-container {
   display: inline-block;
   vertical-align: top;
 }
-#content #quick-card-edit .card-container .card-quickview {
+#quick-card-edit .card-container .card-quickview {
   border-radius: 3px;
   background: #fff;
   width: 220px;
   z-index: 3;
   margin: 0 10px 10px 0;
 }
-#content #quick-card-edit .card-container .card-quickview labels {
+#quick-card-edit .card-container .card-quickview labels {
   overflow: hidden;
   margin: 0 0 5px 0;
   font-size: 10px;
 }
-#content #quick-card-edit .card-container .card-quickview .label {
+#quick-card-edit .card-container .card-quickview .label {
   float: left;
   height: 8px;
   width: 35px;
   margin: 2px;
   border-radius: 3px;
 }
-#content #quick-card-edit .card-container textarea {
+#quick-card-edit .card-container textarea {
   color: #4d4d4d;
   width: 92%;
   padding: 6px 6px 2px 8px;
   min-height: 90px;
 }
-#content #quick-card-edit .card-container textarea:focus {
+#quick-card-edit .card-container textarea:focus {
   outline: none;
 }
-#content #quick-card-edit .card-container input[type="submit"] {
+#quick-card-edit .card-container input[type="submit"] {
   padding: 0 20px;
   min-height: 30px;
   box-shadow: 0 1px 0 #3f6f21;
@@ -1161,14 +1164,14 @@ footer {
   font-weight: bold;
   cursor: pointer;
 }
-#content #quick-card-edit .card-container input[type="submit"]:hover {
+#quick-card-edit .card-container input[type="submit"]:hover {
   background: linear-gradient(to top, #61bd4f 0, #5aac44 100%);
 }
-#content #quick-card-edit .cardquick-side {
+#quick-card-edit .cardquick-side {
   display: inline-block;
   z-index: 3;
 }
-#content #quick-card-edit .cardquick-side .action {
+#quick-card-edit .cardquick-side .action {
   display: inline-block;
   color: #fff;
   margin: 0 0 4px 8px;
@@ -1177,12 +1180,12 @@ footer {
   background: rgba(0,0,0,0.6);
   transition: margin-left 0.1s;
 }
-#content #quick-card-edit .cardquick-side .action:hover {
+#quick-card-edit .cardquick-side .action:hover {
   margin-left: 10px;
   background: rgba(0,0,0,0.85);
   cursor: pointer;
 }
-#content #quick-card-edit .cardquick-side .action span {
+#quick-card-edit .cardquick-side .action span {
   vertical-align: middle;
   margin: 0 5px 0 0;
 }
@@ -1381,9 +1384,9 @@ header .icon-notification {
 .window-overlay {
   display: block;
   background-color: rgba(0,0,0,0.5);
+  height: 100%;
 }
 .modal {
-  display: none;
   position: absolute;
   border-radius: 3px;
   box-sizing: border-box;
@@ -1438,8 +1441,6 @@ header .icon-notification {
   margin: 40px 0 0 0;
   padding: 10px;
   overflow: hidden;
-  height: 96vh;
-  overflow-x: scroll;
 }
 #content #board-top {
   color: #fff;
@@ -1469,6 +1470,9 @@ header .icon-notification {
 #content .container {
   margin-top: 10px;
   white-space: nowrap;
+  height: calc(100vh - 100px);
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 #content .container .list-add {
   background: #026aa7;
@@ -1553,4 +1557,7 @@ header .icon-notification {
 #content .container .list-add.show label + div {
   height: 35px;
   margin: 5px 0 0 0;
+}
+.noscroll {
+  position: fixed;
 }

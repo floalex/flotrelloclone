@@ -167,9 +167,9 @@ header
 .window-overlay
   display: block
   background-color: rgba(0,0,0,.5)
-  
+  height: 100%
+    
 .modal
-  display: none
   position: absolute
   border-radius: 3px
   box-sizing: border-box
@@ -214,8 +214,6 @@ header
   margin: 40px 0 0 0
   padding: 10px
   overflow: hidden 
-  height: 96vh
-  overflow-x: scroll
 
   #board-top
     color: white
@@ -240,6 +238,14 @@ header
   .container
     margin-top: 10px
     white-space: nowrap;
+    height: calc(100vh - 100px)
+    overflow-x: auto
+    overflow-y: hidden
+    // position: absolute
+    // top: 80px
+    // right: 10px
+    // bottom: 0
+    // left: 10px
     .list-add
       background: #026AA7
       vertical-align: top
@@ -287,3 +293,6 @@ header
           + div
             height: 35px
             margin: 5px 0 0 0
+
+.noscroll
+  position: fixed

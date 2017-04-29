@@ -1,54 +1,53 @@
-#content
-  .modal
-    position: absolute
-    display: inline-block
-    width: 280px
-    z-index: 8
-    color: #4d4d4d
-    form-controls()
-    // have to set the z-index lower than the jquery ui date form
-    .modal-layer
-      z-index: -1
-  .card-due-date
-    form
-      fieldset
-        margin: 0 0 10px 0
-        label
-          box-sizing: border-box
-          display: inline-block
-          padding: 0 0 0 5px
-          width: 50%
-          &:last-child
-            input
-              width: 85%
+.modal
+  position: absolute
+  display: inline-block
+  width: 280px
+  z-index: 8
+  color: #4d4d4d
+  form-controls()
+  // have to set the z-index lower than the jquery ui date form
+  .modal-layer
+    z-index: -1
+.card-due-date
+  form
+    fieldset
+      margin: 0 0 10px 0
+      label
+        box-sizing: border-box
+        display: inline-block
+        padding: 0 0 0 5px
+        width: 50%
+        &:last-child
           input
-            width: 80%
-            modal-input()
-            &[type="time"]
-              font-family: Helvetica
-      .datepicker
-        margin: 0 0 15px 0
-        .ui-datepicker-inline
-          margin: 0 auto
-        .ui-corner-all
-          color: inherit
-        .ui-state-active
-          background: #0079BF
-          border: 1px #0079BF
-        .ui-state-highlight
-          border: 1px solid #D6DADC
-          background: #D6DADC
-          color: inherit
-          font-weight: bold
-      .form-controls
-        input[type="submit"].remove
-          float: right
-          box-shadow: 0 1px 0 #4d4d4d
-          background: linear-gradient(to bottom,#D6DADC 0,#CDD2D4 100%) 
-          color: #fff
-          &:hover
-            color: white
-            background: linear-gradient(to bottom,#CF513D 0,#B04632 100%)
+            width: 85%
+        input
+          width: 80%
+          modal-input()
+          &[type="time"]
+            font-family: Helvetica
+    .datepicker
+      margin: 0 0 15px 0
+      .ui-datepicker-inline
+        margin: 0 auto
+      .ui-corner-all
+        color: inherit
+      .ui-state-active
+        background: #0079BF
+        border: 1px #0079BF
+      .ui-state-highlight
+        border: 1px solid #D6DADC
+        background: #D6DADC
+        color: inherit
+        font-weight: bold
+    .form-controls
+      input[type="submit"].remove
+        float: right
+        box-shadow: 0 1px 0 #4d4d4d
+        background: linear-gradient(to bottom,#D6DADC 0,#CDD2D4 100%) 
+        color: #fff
+        &:hover
+          color: white
+          background: linear-gradient(to bottom,#CF513D 0,#B04632 100%)
   
 .tags
   .card_label
@@ -150,59 +149,58 @@
     color: #4d4d4d
     form-controls()    
 
-#content
-  #quick-card-edit
-    width: 560px
-    position: fixed
-    display: block
-    padding: 0
-    background: none
-    border none
-    .window-overlay
-      z-index: -1
-    .card-container
-      display: inline-block
-      vertical-align: top
-      .card-quickview
-        border-radius: 3px
-        background: white
-        width: 220px
-        z-index: 3
-        margin: 0 10px 10px 0
-        labels
-          overflow: hidden
-          margin: 0 0 5px 0
-          font-size: 10px
-        .label
-          float: left
-          height: 8px
-          width: 35px
-          margin: 2px
-          border-radius: 3px
-      textarea
-        color: #4d4d4d
-        width: 92%
-        padding: 6px 6px 2px 8px
-        min-height: 90px
-        &:focus
-          outline: none
-      input[type="submit"]
-        submit-btn()
-    .cardquick-side
-      display: inline-block
+#quick-card-edit
+  width: 560px
+  position: fixed
+  display: block
+  padding: 0
+  background: none
+  border none
+  .window-overlay
+    z-index: -1
+  .card-container
+    display: inline-block
+    vertical-align: top
+    .card-quickview
+      border-radius: 3px
+      background: white
+      width: 220px
       z-index: 3
-      .action
-        display: inline-block
-        color: white
-        margin: 0 0 4px 8px
-        padding: 6px 9pt 6px 8px
+      margin: 0 10px 10px 0
+      labels
+        overflow: hidden
+        margin: 0 0 5px 0
+        font-size: 10px
+      .label
+        float: left
+        height: 8px
+        width: 35px
+        margin: 2px
         border-radius: 3px
-        background: rgba(0, 0, 0, .6)
-        transition: margin-left 0.1s
-        &:hover
-          margin-left: 10px
-          background: rgba(0, 0, 0, .85)
-          cursor: pointer
-        span
-          vertical-align: middle
-          margin: 0 5px 0 0
+    textarea
+      color: #4d4d4d
+      width: 92%
+      padding: 6px 6px 2px 8px
+      min-height: 90px
+      &:focus
+        outline: none
+    input[type="submit"]
+      submit-btn()
+  .cardquick-side
+    display: inline-block
+    z-index: 3
+    .action
+      display: inline-block
+      color: white
+      margin: 0 0 4px 8px
+      padding: 6px 9pt 6px 8px
+      border-radius: 3px
+      background: rgba(0, 0, 0, .6)
+      transition: margin-left 0.1s
+      &:hover
+        margin-left: 10px
+        background: rgba(0, 0, 0, .85)
+        cursor: pointer
+      span
+        vertical-align: middle
+        margin: 0 5px 0 0

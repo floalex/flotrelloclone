@@ -12,7 +12,7 @@ var tagSelection = Backbone.View.extend({
   },
   render: function() {
     this.$el.html(this.template());
-    this.$el.appendTo($("#content"));
+    this.$el.appendTo($(document.body));
     this.$el.find(".modal-layer").toggle();
   },
   toggleLabel: function(e) {

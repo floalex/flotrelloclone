@@ -182,6 +182,7 @@ var CardView = Backbone.View.extend({
   },
   deleteCard: function(e) {
     var result = confirm("Are you sure you want to delete this card?");
+ 
     if (result) {
       var last_pos = _.max(App.lists.get(this.model.get("list_id")).cards, function(card) {return card.position;}).position;
       var this_position = this.model.get("position");
@@ -212,7 +213,7 @@ var CardView = Backbone.View.extend({
   },
   render: function() {
     this.renderCommentsAndTemplate();
-    this.$el.appendTo($("#content"));
+    this.$el.appendTo($(document.body));
   },
   initialize: function() {
     this.render();

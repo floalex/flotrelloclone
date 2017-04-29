@@ -58,7 +58,7 @@ var quickCardView = Backbone.View.extend({
   },
   render: function() {
     this.renderQuickTemplate();
-    this.$el.appendTo($("#content"));
+    this.$el.appendTo($(document.body));
   },
   initialize: function () {
     this.render();
