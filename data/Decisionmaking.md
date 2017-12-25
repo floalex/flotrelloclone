@@ -41,3 +41,7 @@
     5   5
 
 5. Working with ajax - parse JSON string to get original data to get the correct format
+
+6. Prevent the background from scrolling?
+  - http://stackoverflow.com/questions/16085852/rendering-bootstrap-modal-using-backbone
+  - http://www.garethelms.org/2011/12/backbone-js-modal-dialog/

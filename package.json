@@ -26,6 +26,6 @@
     "grunt-contrib-handlebars": "^1.0.0",
     "grunt-contrib-uglify": "^2.3.0",
     "grunt-contrib-watch": "^1.0.0",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.12.7"
   }
 }

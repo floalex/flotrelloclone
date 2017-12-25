@@ -44,6 +44,7 @@ var quickCardView = Backbone.View.extend({
       // update position if card is not the last in the list
       if (this_position !== last_pos) {
         viewHelper.removeCardsPositions(App.lists.get(this.model.get("list_id")).cards, this.model);
+        console.log(this.model);
         setTimeout(function() { App.cards.sync("update", App.cards) }, 900);
       }
     }
